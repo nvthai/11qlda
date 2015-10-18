@@ -1,0 +1,767 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"man",
+				"manga"
+			],
+			[
+				"m",
+				"manga"
+			],
+			[
+				"use",
+				"user_id"
+			],
+			[
+				"va",
+				"var"
+			],
+			[
+				"Au",
+				"Auth-id	Auth-id"
+			],
+			[
+				"Auth",
+				"Auth-user	Auth-user"
+			],
+			[
+				"que",
+				"queryString"
+			],
+			[
+				"team",
+				"team_id"
+			],
+			[
+				"findBy",
+				"findById"
+			],
+			[
+				"crea",
+				"created_by"
+			],
+			[
+				"is",
+				"isset"
+			],
+			[
+				"is_e",
+				"is_editor"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"order",
+				"orderBy"
+			],
+			[
+				"chap",
+				"chapterRepository"
+			],
+			[
+				"Cha",
+				"ChapterRepository"
+			],
+			[
+				"manga",
+				"manga_id"
+			],
+			[
+				"Manga",
+				"MangaRepository"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"pre",
+				"present"
+			],
+			[
+				"cha",
+				"chapterRepository"
+			],
+			[
+				"ma",
+				"max-width"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"M",
+				"Microsoft"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"str",
+				"_strIDDevice"
+			],
+			[
+				"get",
+				"getDecimal"
+			],
+			[
+				"u",
+				"uAccu"
+			],
+			[
+				"pa",
+				"pageBuf"
+			],
+			[
+				"de",
+				"deviation"
+			],
+			[
+				"TIME",
+				"TIMER_AWAKE"
+			],
+			[
+				"ena",
+				"enableWDT4s"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"cout",
+				"countOnByMainCard"
+			],
+			[
+				"star",
+				"start1Day"
+			],
+			[
+				"ke",
+				"keyFlag"
+			],
+			[
+				"sta",
+				"start1Day"
+			],
+			[
+				"start",
+				"start1Day"
+			],
+			[
+				"a",
+				"after"
+			],
+			[
+				"sle",
+				"sleepCondition"
+			],
+			[
+				"po",
+				"powerOn"
+			],
+			[
+				"FLA",
+				"FLAG_SUB"
+			],
+			[
+				"slee",
+				"sleepEvent"
+			],
+			[
+				"sleep",
+				"sleepCondition"
+			],
+			[
+				"key",
+				"keyFlag"
+			],
+			[
+				"sub",
+				"subFlag"
+			],
+			[
+				"mai",
+				"mainFlag"
+			],
+			[
+				"defe",
+				"define"
+			],
+			[
+				"pri",
+				"println"
+			],
+			[
+				"pow",
+				"powerFlag"
+			],
+			[
+				"rc",
+				"rc522Off"
+			],
+			[
+				"_l",
+				"_listNFCAmount"
+			],
+			[
+				"su",
+				"superStr"
+			],
+			[
+				"_",
+				"_iType"
+			],
+			[
+				"_li",
+				"_listNFC"
+			],
+			[
+				"tStr",
+				"tStrID"
+			],
+			[
+				"_lis",
+				"_listNFC"
+			],
+			[
+				"prin",
+				"println"
+			],
+			[
+				"save",
+				"saveNFC"
+			],
+			[
+				"W",
+				"write"
+			],
+			[
+				"las",
+				"lastDeleteByte"
+			],
+			[
+				"K",
+				"K"
+			],
+			[
+				"print",
+				"println"
+			],
+			[
+				"to",
+				"toInt"
+			],
+			[
+				"timer",
+				"timer2"
+			],
+			[
+				"TImer2",
+				"TIMER2_DEFAULT"
+			],
+			[
+				"time",
+				"timer1"
+			],
+			[
+				"TI",
+				"TIMER_15S"
+			],
+			[
+				"data",
+				"dataCommand"
+			],
+			[
+				"mfrc522",
+				"MFRC522"
+			],
+			[
+				"w",
+				"write"
+			],
+			[
+				"Save",
+				"saveNFC"
+			],
+			[
+				"card",
+				"cardAddress"
+			],
+			[
+				"nfcC",
+				"_nfcCard"
+			],
+			[
+				"p",
+				"println"
+			],
+			[
+				"F",
+				"F"
+			],
+			[
+				"Se",
+				"Serial"
+			],
+			[
+				"diga",
+				"digitalWrite	Arduino digitalWrite"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 219.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 222.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/vRemind"
+	],
+	"file_history":
+	[
+		"/C/Users/nvthai/AppData/Local/Temp/3-nginx.conf",
+		"/C/Users/nvthai/AppData/Local/Temp/1-php.ini",
+		"/C/Users/nvthai/AppData/Local/Temp/2-server.cnf",
+		"/C/Users/nvthai/AppData/Local/Temp/1-20-mysqlnd.ini",
+		"/C/Users/nvthai/AppData/Local/Temp/2-mysql-clients.cnf",
+		"/C/Users/nvthai/AppData/Local/Temp/1-database.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-server.cnf",
+		"/C/Users/nvthai/AppData/Local/Temp/1-mysql-clients.cnf",
+		"/C/Users/nvthai/AppData/Local/Temp/3-my.cnf",
+		"/C/Users/nvthai/AppData/Local/Temp/3-truyen.academyvn.com.conf",
+		"/C/Users/nvthai/AppData/Local/Temp/2-nginx.conf",
+		"/C/Users/nvthai/AppData/Local/Temp/1-academyvn.com.conf",
+		"/C/Users/nvthai/AppData/Local/Temp/2-truyen.academyvn.com.conf",
+		"/C/Users/nvthai/AppData/Local/Temp/1-scripts.conf",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/home/partials/statistics.blade.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-statistics.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Teams/EditTeamCommandHandler.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/mangas/partials/footer-scripts.blade.php",
+		"/C/Users/nvthai/AppData/Local/Temp/2-footer-scripts.blade.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-edit.blade.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-footer-scripts.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/teams/edit.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/authors/add.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/authors/edit.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/mangas/edit.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/teams/edit.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/mangas/edit.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/mangas/add.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/EditMangaCommandHandler.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/AddMangaCommandHandler.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/Forms/EditMangaForm.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/Forms/AddMangaForm.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Team/MangasController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/mangas/partials/footer-scripts.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/admin/js/fileinput/fileinput.min.css",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/mangas/partials/cover.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/teams/partials/footer-scripts.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/MangaPresenter.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/EditMangaCommand.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Frontend/ChaptersController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Chapters/ChapterRepository.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/chapters/single.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Images/ImagePresenter.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/frontend_routes.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-header.php",
+		"/C/xampp/htdocs/wp_themes/wp-content/themes/buildpress/functions.php",
+		"/C/xampp/htdocs/wp_themes/wp-config.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/teams/index.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/mangas/index.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/users/index.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/mangas/index.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/layouts/partials/header.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Frontend/SearchsController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Team/SearchsController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/team_routes.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/MangaRepository.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/layouts/default.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/layouts/partials/sidebar.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Admin/SearchsController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/layouts/default.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/admin/css/styles.css",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Users/UserRepository.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/admin_routes.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/frontend/css/style.css",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/layouts/default.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Admin/MangasController.php",
+		"/D/Freelance/truyen.academyvn.com/MangaPresenter.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/chapters/index.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/mangas/partials/manga.blade.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-sidebar.blade.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-MangasController.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-team_routes.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/AddMangaCommand.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/Manga.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Teams/TeamRepository.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Users/User.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/breadcrumbs.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/filters.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Team/BaseController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/team/mangas/uploaderlist.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/team_breadcrumbs.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/users/edit.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Frontend/TeamsController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Teams/Team.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Admin/UsersController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Users/EditUserCommand.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/users/partials/user.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/users/uploader.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/layouts/partials/sidebar.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Users/EditUserCommandHandler.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/users/partials/users.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/users/partials/follow.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Frontend/FollowsController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/users/follows.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/frontend/js/sorttable.js",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab05/TMDT-Lab05-1152003/WebAPI1152003/WebAPI1152003.csproj",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/home/index.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/frontend/js/scripts.js",
+		"/C/xampp/htdocs/truyen.academyvn.com/frontend/js/jquery-1.11.1.min.js",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Settings/Settings.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/admin/settings/general-settings.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Settings/Setting.php",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-Resource-GardenWalkThrough/about.html",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-Resource-GardenWalkThrough/plants.html",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-Resource-GardenWalkThrough/article.html",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-Resource-GardenWalkThrough/news.html",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-Resource-GardenWalkThrough/gardens.html",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-Resource-GardenWalkThrough/contact.html",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-Resource-GardenWalkThrough/index.html",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-1152003-MvcLayoutRazor/Lab03-1152003-MvcLayoutRazor/Lab03-1152003-MvcLayoutRazor.csproj",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Projects/Lab02-1152003-MvcHelloWorld/Lab02-1152003-MvcHelloWorld/Lab02-1152003-MvcHelloWorld.csproj",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Lab03/Lab03-1152003-MvcLayoutRazor/Lab03-1152003-MvcLayoutRazor.sln",
+		"/D/DATA/CTVP/2015-2016/ThuongMaiDienTu/Projects/Lab02-1152003-MvcHelloWorld/Lab02-1152003-MvcHelloWorld.sln",
+		"/C/Users/nvthai/AppData/Local/Temp/3-FollowsController.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-follow.blade.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-ChapterRepository.php",
+		"/C/Users/nvthai/AppData/Local/Temp/2-FollowsController.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/users/partials/follows-list.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/mangas/single.blade.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Chapters/Chapter.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Views/Events/ViewChapterHandler.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Chapters/BookmarkChapterCommandHandler.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Chapters/BookmarkChapterCommand.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Mangas/FollowMangaCommand.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/DevArt/Controllers/Frontend/HomeController.php",
+		"/C/Users/nvthai/AppData/Local/Temp/2-HomeController.php",
+		"/C/Users/nvthai/AppData/Local/Temp/1-MangaRepository.php",
+		"/C/xampp/htdocs/truyen.academyvn.com/academy/app/views/frontend/home/partials/new-chapters.blade.php"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\xampp\\htdocs\\truyen.academyvn.com\\academy\\app",
+			"C:\\xampp\\htdocs\\wp_themes\\",
+			"C:\\xampp\\htdocs\\wp_themes\\wp-content\\themes\\buildpress",
+			"D:\\SetechViet\\Arduino\\STag",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"academyvn.com",
+			"fileinput",
+			"manga-cover",
+			"thumbnail",
+			"team",
+			"queryString",
+			"team",
+			"id",
+			"user",
+			"form-control",
+			"Team",
+			"ajax",
+			"checkbox",
+			"team",
+			"hover",
+			"table",
+			"withPivot",
+			"chapter",
+			"Chapter",
+			"manga",
+			"latestChapters",
+			"manga_id",
+			"manga",
+			"chapter",
+			"manga",
+			"Manga",
+			"manga",
+			"Manga",
+			"manga",
+			"manga-container",
+			"__image",
+			"background-ima",
+			"background",
+			"mod_rewrite",
+			"footer-bottom",
+			"\"so-panel\"",
+			"'so-panel'",
+			"so-panel",
+			"\"so-panel\"",
+			"so-panel",
+			"panel-grid-cell",
+			"page-box__content",
+			".header",
+			"footer-bottom__left",
+			"sleepFlag",
+			"sleepCondition",
+			"start1Day",
+			"doSleepMode",
+			"key_active_check",
+			"nfcCurrent",
+			"NFC_Function",
+			"startSaveMode",
+			"addFlag",
+			"rc522On",
+			"sleepcondition",
+			"EEPROM.write",
+			"ACTIVATION_BYTES4",
+			"MAX_BYTE",
+			"MF_KEY_SIZE",
+			"nfcCurrent._data",
+			"readIDDevice",
+			"decryption",
+			"_strIDDevice",
+			"readIDDevice",
+			"checkSleepCondition",
+			"sleepCondition",
+			"start1Day",
+			"powerOn",
+			"doSleepMode",
+			" flag",
+			"flag",
+			"FLAG",
+			"flag",
+			"",
+			"0004783A52BC2B80",
+			"000000009B66114F",
+			"i",
+			"0004DA3A52BC2B80",
+			"0004F13952BC2B80",
+			"0000000025A32965",
+			"0000000025A32965",
+			"CSVN",
+			"dap an dung",
+			"noi dung cau hoi 10",
+			"noi dung cau hoi 10:: dap an dung",
+			"00000000E4AE35DD",
+			"000",
+			"00000000",
+			"0000000",
+			"000000",
+			"00000",
+			"0000",
+			"000",
+			"0004573D52BC2B80",
+			"0004573D52BC2B80",
+			"MAX_BYTE",
+			"00047E3B52BC2B80",
+			"0004BE7E72CF2080",
+			"0004573D52BC2B80",
+			"0004573D52BC2B80",
+			"0004BE7E72CF2080",
+			"Serial",
+			"NFC_checkID",
+			"1",
+			"UltralightCRead",
+			"strSub",
+			"-1",
+			"int ",
+			"int"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.STag":
+	{
+		"height": 141.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"output.stino_log":
+	{
+		"height": 100.0
+	},
+	"output.test":
+	{
+		"height": 158.0
+	},
+	"pinned_build_system": "",
+	"project": "vRemind.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 264.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
