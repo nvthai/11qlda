@@ -1,0 +1,5 @@
+﻿Xử lý PHP, không dùng thư viện Laravel vì không đủ thời gian để tìm hiểu và không có nền PHP vững chắc.
+- Bước 1: chỉnh sửa lại tên database, import database vào phpmyadmin 
+- Bước 2: chạy file index.php
+
+
