@@ -6,6 +6,7 @@
 <body>
 	<h3>Add a class</h3>
 	<form action="addClass.php" method="POST">
+		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		<div>Class name</div>
 		<input name="ClassName" value=""/>
 		<div>Class code</div>
@@ -55,39 +56,39 @@
 <?php 
 if ($_SERVER['REQUEST_METHOD'] == "POST")
 	{
-		session_start();
-
-		$_ClassName = mysql_real_escape_string($_POST['ClassName']);
-		$_ClassGrade = mysql_real_escape_string($_POST['ClassGrade']);
-		$_ClassCode = mysql_real_escape_string($_POST['ClassCode']);
+		$con = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
+		mysqli_select_db($con, "reminddb") or die("Cannot connect to database");
+		$_ClassName = mysqli_real_escape_string($con, $_POST['ClassName']);
+		$_ClassGrade = mysqli_real_escape_string($con, $_POST['ClassGrade']);
+		$_ClassCode = mysqli_real_escape_string($con, $_POST['ClassCode']);
 		$_AllowChat = 1;
-		$_AllowChat = mysql_real_escape_string($_POST['AllowChat']);
+		$_AllowChat = mysqli_real_escape_string($con, $_POST['AllowChat']);
 		$_ClassMessage = 1;
-		$_ClassMessage = mysql_real_escape_string($_POST['ClassMessage']);
+		$_ClassMessage = mysqli_real_escape_string($con, $_POST['ClassMessage']);
 		$_ClassImage = "classes/images/default.png";
 
 		$_SESSION['S_Message'] = $_ClassCode;
 		// connect to database
-		mysql_connect("localhost", "root", "") or die(mysql_error());
-		mysql_select_db("reminddb") or die("Cannot connect to database");
 
 
-		$query = mysql_query("SELECT Code FROM class WHERE Code = '$_ClassCode'");
-		$count = mysql_num_rows($query);
+		$query = mysqli_query($con, "SELECT Code FROM class WHERE Code = '$_ClassCode'");
+		$count = mysqli_num_rows($query);
 		if ($count > 0)
 		{
-			session_start();
 			$_SESSION['S_Message'] = '_exist_';
 			header("location: addClass.php");
+			exit();
 		}
 		else
 		{
 			$_SESSION['S_Message'] = 'done';	
 			// classId Increment
-			mysql_query("INSERT INTO class(TeacherId, Code, ClassName, allowChat, messageChildren, GradeLevel, ClassImage, Code) 
-								VALUES ('aab','$_ClassCode', '$_ClassName', '1', '$_ClassMessage', '$_ClassGrade', '$_ClassImage', '$_ClassCode')");
+			mysqli_query($con, "INSERT INTO class(TeacherId, Code, ClassName, allowChat, messageChildren, GradeLevel, ClassImage) 
+								VALUES ('aab','$_ClassCode', '$_ClassName', '1', '$_ClassMessage', '$_ClassGrade', '$_ClassImage')");
+			mysqli_close($con);
 			// redirect teacher
 		header("location: index.php");		
+		exit();
 		}
 		
 	}

@@ -16,15 +16,19 @@
 		<tr>
 			<th>Class Name</th>
 		</tr>
+		<form action="changeClass.php" method="POST">
+			<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		<?php
 			$_SESSION['S_Message'] = '';
-			mysql_connect("localhost", "root", "") or die(mysql_error());
-			mysql_select_db("reminddb") or die("Cannot connect to database");
-			$query = mysql_query("SELECT * FROM class WHERE TeacherId = 'aab'");
+			$con = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
+			mysqli_select_db($con, "reminddb") or die("Cannot connect to database");
+			$query = mysqli_query($con, "SELECT * FROM class WHERE TeacherId = 'aab'");
 			$Name = $_SESSION['S_ClassName'];
-			Print '<form action="changeClass.php" method="POST">';
-			while ($row = mysql_fetch_array($query))
+			//Print '<form action="index.php" method="POST">';
+			//Print '<input type="hidden" name="_token" value="<?php echo csrf_token();
+			while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
 			{
+
 				if ($row['Code'] == $Name)
 				{
 					Print '<tr>';
@@ -39,9 +43,11 @@
 				}
 				
 			}
-			Print '</form>';
-			
 		?>
+		</form>
 	</table>	
 </body>
 </html>
+
+
+
