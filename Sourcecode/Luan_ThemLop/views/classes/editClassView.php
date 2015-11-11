@@ -4,10 +4,10 @@
 	{
 		$_ClassName = $_GET['id'];
 		$_id = $_GET['id'];
-		mysql_connect("localhost", "root", "") or die(mysql_error());
-		mysql_select_db("reminddb") or die("Cannot connect to database");
-		$query = mysql_query("SELECT * FROM class WHERE TeacherId = 'aab' and Code = '$_ClassName'");
-		$row = mysql_fetch_assoc($query);
+		$con = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
+		mysqli_select_db($con, "reminddb") or die("Cannot connect to database");
+		$query = mysqli_query($con, "SELECT * FROM class WHERE TeacherId = 'aab' and Code = '$_ClassName'");
+		$row = mysqli_fetch_assoc($query);
 
 		$_Code = $row['Code'];
 		$_Grade = $row['GradeLevel'];
@@ -20,6 +20,7 @@
 </head>
 <body>
 <form action="editClassController.php" method="POST">
+		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		<h2>Class settings</h2>
 		<h3>Information</h3>
 		<div>Class name</div>

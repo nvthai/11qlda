@@ -10,6 +10,7 @@
 	send announcements, and start chats.
 	</p>
 	<form action="class.php" method="POST">
+	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		<div>Class name</div>
 		<input name="ClassName" value=""/>
 		<?php 
@@ -53,34 +54,36 @@ It's okay if students are under 13. We'll ask for a parent's email address to ke
 <?php 
 if ($_SERVER['REQUEST_METHOD'] == "POST")
 	{
-		session_start();
-		$_ClassName = mysql_real_escape_string($_POST['ClassName']);
-		$_ClassGrade = mysql_real_escape_string($_POST['ClassGrade']);
+		//session_start();
+		$con = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
+		$_ClassName = mysqli_real_escape_string($con, $_POST['ClassName']);
+		$_ClassGrade = mysqli_real_escape_string($con, $_POST['ClassGrade']);
 		$_ClassMessage = 0;
-		$_ClassMessage = mysql_real_escape_string($_POST['ClassMessage']);
+		$_ClassMessage = mysqli_real_escape_string($con, $_POST['ClassMessage']);
 		$_ClassImage = "classes/images/default.png";
 
 		// connect to database
-		mysql_connect("localhost", "root", "") or die(mysql_error());
-		mysql_select_db("reminddb") or die("Cannot connect to database");
+		mysqli_select_db($con, "reminddb") or die("Cannot connect to database");
 		
 		//$_SESSION['S_TeacherId'] = 'adb';
 		// classId Increment
 
-		$query = mysql_query("SELECT ClassName FROM class WHERE ClassName = '$_ClassName'");	
-		$count = mysql_num_rows($query);
+		$query = mysqli_query($con, "SELECT ClassName FROM class WHERE ClassName = '$_ClassName'");	
+		$count = mysqli_num_rows($query);
 		if ($count > 0)
 		{
 			$_SESSION['S_ClassName'] = '_exist_';
 			header("location: class.php");
+			exit();
 		}
 		else
 		{
 			$_ClassCode = $_ClassName;
 			$_SESSION['S_ClassName'] = $_ClassName;
-			mysql_query("INSERT INTO class(TeacherId, ClassName, allowChat, messageChildren, GradeLevel, ClassImage, Code) VALUES ('aab', '$_ClassName', '1', '$_ClassMessage', '$_ClassGrade', '$_ClassImage', '$_ClassCode')");
+			mysqli_query($con, "INSERT INTO class(TeacherId, ClassName, allowChat, messageChildren, GradeLevel, ClassImage, Code) VALUES ('aab', '$_ClassName', '1', '$_ClassMessage', '$_ClassGrade', '$_ClassImage', '$_ClassCode')");
 			// redirect teacher
-			header("location: ../classes/index.php");		
+			header("location: ../classes/index.php");
+			exit();		
 		}
 		
 	}

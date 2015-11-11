@@ -1,6 +1,0 @@
-﻿- Bước 1: chỉnh sửa lại tên database, import database vào phpmyadmin 
-- Bước 2: chạy file Classes.php
-
-p/s: sử dụng 2 thư mục classes và setup
-
-

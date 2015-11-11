@@ -7,16 +7,17 @@
 <div>What do students and parents call you?</div>
 <div>Your signature appears on chats </div>
 <form action="teacherClass.php" method="POST">
+	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <table>
 	<tr>
 		<td>
 		<select name="title">
 			<option value="">[No Title]</option>
 			<?php 
-			mysql_connect("localhost", "root", "") or die(mysql_error());
-			mysql_select_db("reminddb") or die("Cannot connect to database");
-			$query = mysql_query("SELECT TitleName FROM title");
-			while ($row = mysql_fetch_array($query))
+			$con = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
+			mysqli_select_db($con, "reminddb") or die("Cannot connect to database");
+			$query = mysqli_query($con, "SELECT TitleName FROM title");
+			while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
 					{
 						Print '<option value="'.$row['TitleName'].'">' .$row['TitleName']. "</option>";
 					}
@@ -38,7 +39,10 @@
 
 if ($_SERVER['REQUEST_METHOD'] == "POST")
 	{
+		session_start();
+		$_SESSION['S_ClassName'] = 'init';
 		header("location: class.php");
+		exit();
 	}
 
 ?>
