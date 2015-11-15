@@ -1,0 +1,15 @@
+-Edit file .env
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=contactvremind@gmail.com
+MAIL_PASSWORD=Vremind123
+MAIL_ENCRYPTION=tls
+
+-Add controller: ContactController.php
+
+-Add route trong routes.php
+
+-Add contact.blade.php trong views
+
+-Add blanks.blade.php trong views/emails

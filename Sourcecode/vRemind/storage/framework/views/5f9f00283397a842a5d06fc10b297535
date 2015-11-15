@@ -1,0 +1,60 @@
+<?php $__env->startSection('left-sidebar'); ?>
+    <?php echo $__env->make('classes.partials.leftsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('right-sidebar'); ?>
+    <?php echo $__env->make('classes.partials.rightsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <div class="mot-hang">
+        <img alt="image-main" style="float:left;margin-right:15px;" src="resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/>
+        <div class="mot-hang-70">
+            <span class="mot-hang-chu-title">
+                Phân tích thiết kế phần mềm
+            </span>
+            <span class="mot-hang-chu-description">
+                @phantc231
+            </span>
+        </div>
+        <div class="button-setting icon-an-noi-dung" onclick="MoKhungChuaClassSetting()">
+            <div class="noidung-icon" style="left:-32px;">
+                Class settings
+            </div>
+        </div>
+        
+        <div class="main-area" style="margin-top: 90px;">
+            <div class="panel-body">
+                <?php /* You are logged in! */ ?>
+                <?php /* $user = auth(); */ ?>
+                <?php if(Auth::user()->hasRole('teacher')): ?>
+                    Teacher
+                <?php elseif(Auth::user()->hasRole('student')): ?>
+                    Student
+                <?php else: ?>
+                    Parent
+                <?php endif; ?>
+            </div>
+                
+            <form>
+              <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">To: </span>
+                    <input type="text" class="form-control" id="toClass" placeholder="Select class">
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="Type your annoucement to Class X"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">Attach file</label>
+                <input type="file" id="exampleInputFile">
+              </div>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+
+					
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

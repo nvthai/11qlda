@@ -54,7 +54,8 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            // 'host'      => 'localhost',
+            'host'      => '125.253.113.30',
             'database'  => 'vremind',
             'username'  => 'vremind',
             'password'  => 'vremind',

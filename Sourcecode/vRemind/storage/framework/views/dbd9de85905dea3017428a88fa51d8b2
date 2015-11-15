@@ -1,0 +1,47 @@
+<?php /* <h1><?php echo $thread->subject; ?></h1> */ ?>
+
+<?php foreach($thread->messages as $message): ?>
+    <div class="media">
+        <a class="pull-left" href="#">
+            <img src="//www.gravatar.com/avatar/<?php echo md5($message->user->email); ?>?s=64" alt="<?php echo $message->user->name; ?>" class="img-circle">
+        </a>
+        <div class="media-body">
+            <h5 class="media-heading"><?php echo $message->user->name; ?></h5>
+            <p><?php echo $message->body; ?></p>
+            <div class="text-muted"><small>Posted <?php echo $message->created_at->diffForHumans(); ?></small></div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<?php /* <h2>Add a new message</h2> */ ?>
+
+<?php /* <?php echo Form::open(['route' => ['messages.update', $thread->id], 'method' => 'PUT']); ?> */ ?>
+<?php echo Form::open(['data-pjax'=>'#message']); ?>
+
+<!-- Message Form Input -->
+<div class="form-group">
+    <div id="typingStatus" class="col-lg-12" style="padding: 15px"></div>
+    <?php echo Form::textarea('message', null, ['class' => 'form-control', 'rows' => '3', 'id' => 'message']); ?>
+
+</div>
+<?php /* <div class="col-lg-12">
+    <div id="typingStatus" class="col-lg-12" style="padding: 15px"></div>
+    <input type="text" id="text" class="form-control col-lg-12" autofocus="" onblur="notTyping()">
+</div>
+ */ ?>            
+<?php if($users->count() > 0): ?>
+<div class="checkbox">
+    <?php foreach($users as $user): ?>
+        <label title="<?php echo $user->name; ?>"><input type="checkbox" name="recipients[]" value="<?php echo $user->id; ?>"><?php echo $user->name; ?></label>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<!-- Submit Form Input -->
+<div class="form-group">
+    <?php /* <?php echo Form::submit('Submit', ['class' => 'btn btn-primary form-control']); ?> */ ?>
+    <?php echo Form::button('Submit', ['class' => 'btn btn-primary form-control', 'onclick'=>'sendMessage()', 'id' => 'submitButton']); ?>
+
+</div>
+<?php echo Form::close(); ?>
+
