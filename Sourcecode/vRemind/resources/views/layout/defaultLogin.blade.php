@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="x-pjax-version" content="v123">
-	<title>vRemind</title>
+	<title>@yield('titlePage') </title>
     
     
     <link rel="shortcut icon" href="{!! asset('resources/assets/img/ico-tab.png') !!}">
@@ -31,27 +31,17 @@
 	    <table class="table main-area">
 	        <tbody>
 	          <tr>
-	            {{-- LEFT SIDEBAR --}}
-	            <td class="col-lg-3 col-md-3 left-sidebar">
-	                <div class="scroll-area">
-	                     @yield('left-sidebar')
-	                </div>
-	            </td>
+	            
 	            <td class="col-lg-10 col-md-10 col-sm-8">
 	                <div class="row scroll-area">
 	                    {{-- CENTER PANEL --}}
-	                    <div class="col-md-8">
+	                    <div class="col-md-8" style="width:100%;">
 	                        {{-- <div class="panel panel-default"> --}}
 	                            {{-- code here --}}
 								@yield('content')
 	                        {{-- </div> --}}
 	                    </div>
-	                    {{-- RIGHT SIDEBAR --}}
-	                    <div class="col-md-4">
-		                    <div class="right-sidebar">
-		                        @yield('right-sidebar')
-		                    </div>
-	                    </div>
+	                    
 	                </div>
 	            </td>
 	          </tr>

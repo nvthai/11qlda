@@ -6,7 +6,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-        <img alt="image" src="resources/assets/img/logo.svg" height="25px" style="float:left;margin: 13px 25px 0px 20px;"/>
+        <img alt="image" src="/resources/assets/img/logo.svg" height="25px" style="float:left;margin: 13px 25px 0px 20px;"/>
 	</div>
 
 	<div class="collapse navbar-collapse" id="navbar">
