@@ -85,11 +85,11 @@
     margin: 30px 0px 30px 0px;
 }
 .button-login{
-    padding: 12px 23px 12px 23px;
+    padding: 10px 20px 10px 20px;
     border: 1px solid white;
     float: right;
     color: white;
-    margin-bottom: 15px;
+    background-color: rgba(73, 77, 105, 0.93);
     border-radius: 4px;
     margin: 14px 30px 0px 0px;
 }
@@ -150,7 +150,7 @@
     letter-spacing: -0.5;
 }
 .button-signup1:hover{
-    background: blue;
+    background: #1D66C5;
 }
 .button-signup:hover{
     background-color: #2174E2;
