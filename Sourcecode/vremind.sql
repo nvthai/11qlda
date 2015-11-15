@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2015 at 04:32 PM
+-- Generation Time: Nov 15, 2015 at 04:44 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -19,6 +19,39 @@ SET time_zone = "+00:00";
 --
 -- Database: `vremind`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classes`
+--
+
+CREATE TABLE IF NOT EXISTS `classes` (
+`id` int(10) unsigned NOT NULL,
+  `class_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `class_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `is_public` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_users`
+--
+
+CREATE TABLE IF NOT EXISTS `class_users` (
+`id` int(10) unsigned NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `is_owner` tinyint(1) NOT NULL,
+  `participant_can_reply` tinyint(1) NOT NULL,
+  `message_under_13` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -370,7 +403,9 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2014_11_20_131739_alter_last_read_in_participants_table', 4),
 ('2014_12_04_124531_add_softdeletes_to_threads_table', 4),
 ('2015_11_08_004540_add_is_typing_to_participants', 5),
-('2015_11_08_012651_add_read_to_messages', 5);
+('2015_11_08_012651_add_read_to_messages', 5),
+('2015_11_12_212026_create_classes_table', 6),
+('2015_11_12_212544_create_class_users_table', 6);
 
 -- --------------------------------------------------------
 
@@ -397,11 +432,11 @@ INSERT INTO `participants` (`id`, `thread_id`, `user_id`, `is_typing`, `last_rea
 (1, 1, 1, 0, '2015-11-09 10:25:34', '2015-11-04 18:26:24', '2015-11-09 10:25:34', NULL),
 (2, 1, 2, 0, '2015-11-08 16:06:22', '2015-11-04 18:26:24', '2015-11-08 16:06:22', NULL),
 (3, 2, 2, 0, '2015-11-09 15:03:22', '2015-11-08 15:57:36', '2015-11-09 15:03:22', NULL),
-(4, 2, 1, 0, '2015-11-09 17:42:05', '2015-11-08 15:57:36', '2015-11-09 17:42:05', NULL),
+(4, 2, 1, 0, '2015-11-11 19:43:12', '2015-11-08 15:57:36', '2015-11-11 19:43:12', NULL),
 (5, 3, 2, 0, '2015-11-09 18:44:22', '2015-11-08 16:05:49', '2015-11-09 18:44:22', NULL),
-(6, 3, 1, 0, '2015-11-09 18:52:49', '2015-11-08 16:05:49', '2015-11-09 18:52:49', NULL),
+(6, 3, 1, 0, '2015-11-11 19:43:11', '2015-11-08 16:05:49', '2015-11-11 19:43:11', NULL),
 (7, 4, 2, 0, '2015-11-09 18:47:44', '2015-11-08 16:09:51', '2015-11-09 18:47:44', NULL),
-(8, 4, 1, 0, '2015-11-09 18:58:28', '2015-11-08 16:09:51', '2015-11-09 18:58:28', NULL),
+(8, 4, 1, 0, '2015-11-11 19:43:13', '2015-11-08 16:09:51', '2015-11-11 19:43:13', NULL),
 (9, 5, 2, 0, '2015-11-08 17:02:09', '2015-11-08 16:58:43', '2015-11-08 17:02:09', NULL);
 
 -- --------------------------------------------------------
@@ -495,8 +530,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `title`, `last_name`, `signature`, `country`) VALUES
-(1, 'thai', 'thai@thai.com', '$2y$10$pJA0FFQm0G8KqPFWOnLjau2Uow6D1vslQ8hXRis09Zao65GvjGKta', 'AYZSglyHaCivTnTkcSpBYC4E4zzpixqcuR9nkIoQEubxKwf0fCfkrF5U7hxG', '2015-10-16 07:17:26', '2015-11-08 06:35:32', '', '', '', ''),
-(2, 'Thái', 'nvthai.fr@gmail.com', '$2y$10$U2HspLDCkel.ie/2iSqDh.Qa8N3giDZbT/ZQG/rIIhicHU3.n.d/S', '816A6WxS8hXdun86S9PwWoyidKnrBMRp5fm25xMkMXwDT9NYG9PSrfvoBi2Y', '2015-10-16 15:48:08', '2015-11-09 15:04:13', '', '', '', '');
+(1, 'thai', 'thai@thai.com', '$2y$10$pJA0FFQm0G8KqPFWOnLjau2Uow6D1vslQ8hXRis09Zao65GvjGKta', 'wRHkWpZRbV3CxX5OOB8P3zYlmTsHvKjOemMBHLcoytt1hRCWk2TF8S2OjJ8Z', '2015-10-16 07:17:26', '2015-11-15 03:17:35', '', '', '', ''),
+(2, 'Thái', 'nvthai.fr@gmail.com', '$2y$10$U2HspLDCkel.ie/2iSqDh.Qa8N3giDZbT/ZQG/rIIhicHU3.n.d/S', 'aJEcNnQCeDMUiQwwCwZuTSw7iTfbcOtl6JrdywVPsP45ATT459OdmohISyj9', '2015-10-16 15:48:08', '2015-11-15 03:44:17', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -523,6 +558,18 @@ INSERT INTO `user_roles` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `classes`
+--
+ALTER TABLE `classes`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `class_users`
+--
+ALTER TABLE `class_users`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `countries`
@@ -576,6 +623,16 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `classes`
+--
+ALTER TABLE `classes`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `class_users`
+--
+ALTER TABLE `class_users`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `messages`
 --
