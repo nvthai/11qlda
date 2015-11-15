@@ -4,10 +4,14 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-pjax-version" content="v123">
 	<title>vRemind</title>
+    
+    <link rel="shortcut icon" href="resources/assets/img/ico-tab.png">
 
     {!! Html::style('resources/assets/css/bootstrap.min.css') !!}
     {!! Html::style('resources/assets/css/style.css') !!}
+    {!! Html::style('resources/assets/css/main.css') !!}
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -22,12 +26,46 @@
 <body>
 	@include('layout.partials.navbar')
 
-	@yield('content')
+	<div class="container-fluid" id="pjax-container">
+	    <table class="table main-area">
+	        <tbody>
+	          <tr>
+	            {{-- LEFT SIDEBAR --}}
+	            <td class="col-lg-3 col-md-3 left-sidebar">
+	                <div class="scroll-area">
+	                     @yield('left-sidebar')
+	                </div>
+	            </td>
+	            <td class="col-lg-10 col-md-10 col-sm-8">
+	                <div class="row scroll-area">
+	                    {{-- CENTER PANEL --}}
+	                    <div class="col-md-8">
+	                        {{-- <div class="panel panel-default"> --}}
+	                            {{-- code here --}}
+								@yield('content')
+	                        {{-- </div> --}}
+	                    </div>
+	                    {{-- RIGHT SIDEBAR --}}
+	                    <div class="col-md-4">
+		                    <div class="right-sidebar">
+		                        @yield('right-sidebar')
+		                    </div>
+	                    </div>
+	                </div>
+	            </td>
+	          </tr>
+	        </tbody>
+	    </table>
+	</div>
 	
 	@include('layout.partials.modals')
 
+	@yield('footer');
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
+    {!! Html::script('resources/assets/js/jquery-1.11.1.min.js') !!}
+    {!! Html::script('resources/assets/js/jquery.pjax.js') !!}
     {!! Html::script('resources/assets/js/bootstrap.min.js') !!}
+    {!! Html::script('resources/assets/js/main.js') !!}
 </body>
 </html>

@@ -1,0 +1,25 @@
+<?php $__env->startSection('left-sidebar'); ?>
+    <?php echo $__env->make('messenger.partials.leftsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('right-sidebar'); ?>
+    <?php /* <?php echo $__env->make('messenger.partials.leftsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+        <h1 id="greeting">Hello, <span id="username"><?php echo e(Auth::user()->name); ?></span></h1>
+        <div id="chat-area" class="col-lg-12 scroll-area">
+            <div id="chat-window" class="col-lg-12">
+                <?php /* messages will show here */ ?>
+            </div>
+            
+        </div>        
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer'); ?>
+    <?php echo Html::script('resources/assets/js/jquery-1.11.1.min.js'); ?>
+
+    <?php echo Html::script('resources/assets/js/chats.js'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

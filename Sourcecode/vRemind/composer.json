@@ -8,7 +8,10 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "bestmomo/scafold": "dev-master",
-        "illuminate/html": "5.*"
+        "illuminate/html": "5.*",
+        "webpatser/laravel-countries": "dev-master",
+        "cmgmyr/messenger": "~2.0",
+        "jacobbennett/pjax": "0.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
