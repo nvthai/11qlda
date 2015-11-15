@@ -20,8 +20,6 @@ Route::filter('auth', function()
 
 Route::get('/', 'HomeController@index');
 
-Route::get('classes', ['before' => 'auth', 'uses' => 'ClassesController@index']);
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -53,4 +51,8 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
 	Route::post('notTyping', array('uses' => 'MessagesController@notTyping'));
 	Route::post('retrieveChatMessages', array('uses' => 'MessagesController@retrieveChatMessages'));
 	Route::post('retrieveTypingStatus', array('uses' => 'MessagesController@retrieveTypingStatus'));
+});
+
+Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
+    Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@index']);
 });
