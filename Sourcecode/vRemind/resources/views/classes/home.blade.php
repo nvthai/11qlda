@@ -38,7 +38,7 @@
                 @endif
             </div>
                 
-            <form>
+            <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/upload') }}">
               <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">To: </span>
@@ -49,10 +49,12 @@
                 <textarea class="form-control" rows="3" placeholder="Type your annoucement to Class X"></textarea>
               </div>
               <div class="form-group">
-                <label for="exampleInputFile">Attach file</label>
-                <input type="file" id="exampleInputFile">
+            <p class="errors">{!! Session::get('error') !!}</p>
+            <a href="classes/download" class="btn btn-large pull-right"><i class="icon-download-alt"> </i> Download Brochure </a>
+                <input type="file" name="file">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
               </div>
-              <button type="submit" class="btn btn-primary">Send</button>
+              <button  type="submit" class="btn btn-primary">Send</button>
             </form>
         </div>
     </div>

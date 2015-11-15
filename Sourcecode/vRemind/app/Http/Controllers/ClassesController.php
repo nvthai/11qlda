@@ -5,6 +5,9 @@ namespace vRemind\Http\Controllers;
 use Illuminate\Http\Request;
 use vRemind\Http\Requests;
 use vRemind\Http\Controllers\Controller;
+use Input;
+use Response;
+use Session;
 
 class ClassesController extends Controller
 {
@@ -17,4 +20,30 @@ class ClassesController extends Controller
     {
         return view('classes.home');
     }
+
+    public function upload()
+    {
+    	$file = Input::file('file');
+		$destinationPath = 'uploads';
+		// If the uploads fail due to file system, you can try doing public_path().'/uploads' 
+		$filename = str_random(12);
+		$extension = Input::file('file')->getClientOriginalExtension(); 
+		$link = Input::file('file')->getRealPath();
+		//$filename = $file->getClientOriginalName();
+		//$extension =$file->getClientOriginalExtension(); 
+		$upload_success = Input::file('file')->move($destinationPath, $filename.'.'.$extension);
+		if( $upload_success ) {
+			Session::put('error', $link);
+		   return redirect('classes');
+
+		} else {
+		   return Response::json('error', 400);
+		}
+	}
+
+	public function download()
+    {
+    	$pathToFile = 'C:\Users\Mr Harrroooo\Documents\GitHub\QLDA\11qlda\Sourcecode\vRemind\uploads\YNadThL2Nj7y.jpg';
+        return response()->download($pathToFile);
+	}
 }

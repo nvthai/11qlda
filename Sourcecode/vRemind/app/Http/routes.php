@@ -55,4 +55,6 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
 
 Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@index']);
+    Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@upload']);
+    Route::get('/download', ['as' => 'classes', 'uses' => 'ClassesController@download']);
 });
