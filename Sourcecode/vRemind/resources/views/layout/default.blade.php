@@ -58,7 +58,7 @@
 	    </table>
 	</div>
 	
-	@include('layout.partials.modals')
+	@include('layout.partials.navmodals')
 
 	@yield('footer');
 	<!-- Scripts -->

@@ -57,5 +57,5 @@
         </div>
     </div>
 
-					
+@include('classes.partials.modals')	
 @endsection
