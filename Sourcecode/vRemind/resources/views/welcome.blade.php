@@ -65,9 +65,9 @@
     letter-spacing: -0.5px; margin-bottom: 10px;">
                     Free for teachers. Always
                 </div>
-                <div class='mot-hang' style="margin-top:19px;">
+                <div class='mot-hang' style="margin-top:19px;width: 40%;margin-left: 30%;">
                     <div class="button-signup">
-                     <a href="{{ URL::to('auth/register') }}">Sign up</a>
+                     <a href="{{ URL::to('auth/register') }}" style="color:white;text-decoration:none">Sign up</a>
                     </div>
                     
                     
