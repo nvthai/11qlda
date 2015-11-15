@@ -44,28 +44,31 @@
         
         <div class="mot-hang" >
             {!! Html::image('resources/assets/img/logo1.png','image') !!}
-            <div class="button-login">
-                     <a href="{{ URL::to('auth/login') }}" style="text-decoration:none;">Log in</a>
-            </div>
+            <a href="{{ URL::to('auth/login') }}" style="text-decoration:none;color:white;">
+                <div class="button-login">
+                         Log in
+                </div>
+            </a>
         </div>
         <div class="mot-hang">
             <div class="mot-hang-30" style="height:10px;">
                 
             </div>
             <div class="mot-hang-70" style="text-align:center;">
-                {!! Html::image('resources/assets/img/logo2.svg','image',array('height' => '25px')) !!}
+                {!! Html::image('resources/assets/img/logo2.svg','image',array('height' => '40px')) !!}
                 <div class="mot-hang" style="    color: white;
-    font-size: 65px;
+    font-size: 55px;     font-family: inherit;
     white-space: nowrap;">
                     Reach students and parents <br /> where they are.
                 </div>
                 
                 <div class="mot-hang" style="color: white;
-    margin-top: 70px; font-size: 21px; font-family: monospace;
+    margin-top: 70px;  font-size: 20px;
+    font-family: inherit;
     letter-spacing: -0.5px; margin-bottom: 10px;">
                     Free for teachers. Always
                 </div>
-                <div class='mot-hang' style="margin-top:19px;width: 40%;margin-left: 30%;">
+                <div class='mot-hang' style="width: 40%;margin-left: 30%;">
                     <div class="button-signup">
                      <a href="{{ URL::to('auth/register') }}" style="color:white;text-decoration:none">Sign up</a>
                     </div>
@@ -86,8 +89,13 @@
                         in the U.S use Remind
                     </span>
                 </div>
+                <div class="mot-hang" style="margin-top:50px;color:white;text-align:center;">
+                    <font style="margin-right:25px;">#TeachSmall</font> <font style="margin-right:25px;">Terms & Privacy</font> <font>More</font> 
+                </div>
             </div>        
         </div>
+
+        
         <?php
             // if($var_value == "true")
             // {

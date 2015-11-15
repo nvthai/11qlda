@@ -6,10 +6,10 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-        <img alt="image" src="resources/assets/img/logo.svg" height="25px" style="float:left;margin: 13px 25px 0px 20px;"/>
+        <img alt="image" src="/resources/assets/img/logo.svg" height="25px" style="float:left;margin: 21px 25px 0px 20px;"/>
 	</div>
 
-	<div class="collapse navbar-collapse" id="navbar">
+	<div class="collapse navbar-collapse" id="navbar" style="padding:14px 0px 10px 0px;">
 		@if (Auth::user())
 			<ul class="nav navbar-nav">
 				<li><a href="{{ url('classes') }}" class="btn nav-left-btn">Classes</a></li>
@@ -18,13 +18,17 @@
 				<li><a href="{{ url('messages') }}" class="btn nav-left-btn">Chat @include('messenger.unread-count')</a></li>
 			</ul>
 		@endif
-		<ul class="nav navbar-nav navbar-right">
+		<ul class="nav navbar-nav navbar-right" style="height:40px;">
 			@if(auth()->guest())
 				@if(!Request::is('auth/login'))
 					<li><a href="{{ url('/auth/login') }}" class="Glyph Glyph-avatar ">Đăng nhập</a></li>
 				@endif
 				@if(!Request::is('auth/register'))
-					<li><a href="{{ url('/auth/register') }}">Đăng ký</a></li>
+					<li>
+					<a href="{{ url('/auth/register') }}" class="button-signup1" style="text-decoration:none; float:right;margin-right:20px;">
+                		Sign up
+            		</a>
+            		</li>
 				@endif
 			@else
 				<li>
