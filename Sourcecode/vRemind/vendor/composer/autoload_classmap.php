@@ -18,6 +18,7 @@ return array(
     'CreateClassUsersTable' => $baseDir . '/database/migrations/2015_11_12_212544_create_class_users_table.php',
     'CreateClassesTable' => $baseDir . '/database/migrations/2015_11_12_212026_create_classes_table.php',
     'CreateMessagesTable' => $baseDir . '/database/migrations/2014_10_28_175710_create_messages_table.php',
+    'CreateNotificationsTable' => $baseDir . '/database/migrations/2015_11_15_160951_create_notifications_table.php',
     'CreateParticipantsTable' => $baseDir . '/database/migrations/2014_10_28_180224_create_participants_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2015_10_16_233427_create_roles_table.php',

@@ -31,12 +31,12 @@ class ClassesController extends Controller
 		// If the uploads fail due to file system, you can try doing public_path().'/uploads' 
 		$filename = str_random(12);
 		$extension = Input::file('file')->getClientOriginalExtension(); 
-		$link = Input::file('file')->getRealPath();
+		$link = $filename.'.'.$extension;
 		//$filename = $file->getClientOriginalName();
 		//$extension =$file->getClientOriginalExtension(); 
 		$upload_success = Input::file('file')->move($destinationPath, $filename.'.'.$extension);
 		if( $upload_success ) {
-			Session::put('error', $link);
+			Session::put('image', $link);
 		   return redirect('classes');
 
 		} else {
@@ -44,6 +44,7 @@ class ClassesController extends Controller
 		}
 	}
 
+<<<<<<< HEAD
 	public function download()
     {
     	$pathToFile = 'C:\Users\Mr Harrroooo\Documents\GitHub\QLDA\11qlda\Sourcecode\vRemind\uploads\YNadThL2Nj7y.jpg';
@@ -89,4 +90,6 @@ class ClassesController extends Controller
 	}
 
 
+=======
+>>>>>>> origin/develop
 }

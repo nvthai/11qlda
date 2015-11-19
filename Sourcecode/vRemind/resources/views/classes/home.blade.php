@@ -50,12 +50,14 @@
                 <textarea class="form-control" rows="3" placeholder="Type your annoucement to Class X"></textarea>
               </div>
               <div class="form-group">
-            <p class="errors">{!! Session::get('error') !!}</p>
-            <a href="classes/download" class="btn btn-large pull-right"><i class="icon-download-alt"> </i> Download Brochure </a>
                 <input type="file" name="file">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
               </div>
               <button  type="submit" class="btn btn-primary">Send</button>
+                @if (Session()->has('image')) 
+                    <img src="..\uploads\{!! Session::get('image') !!}"   style="width:304px;height:228px;">
+                @endif
+              
             </form>
         </div>
     </div>
