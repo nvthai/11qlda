@@ -7,23 +7,23 @@
         <h4 class="modal-title" id="helpModalLabel">Thêm Lớp</h4>
       </div>
       
-      {!! Form::open(array('url'=>'classes/add','method'=>'POST', 'id'=>'addClassForm')) !!}
+      {!! Form::open(array('url' => 'classes', 'method' => 'post', 'id'=>'addClassForm')) !!}
       <div class="modal-body">
         <div class="mot-hang">
             <div class="mot-hang-30">
                 <img alt="image-random" width="90px" id="image-randomId" src="resources/assets/img/classesAvatar/avatar_baseball.png"/>
-                <span class="mot-hang-chu-edit" data-toggle="modal" data-target="#editIconModal" aria-haspopup="true" onclick="MoFormEditIcon()">
+                <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#editIconModal" aria-haspopup="true" onclick="MoFormEditIcon()">
                     Edit icon
                 </span>
                 <input type="hidden" name="soIconDuocChon" id="so-icon-duoc-chon-id"/>
             </div>
             <div class="mot-hang-70">
                 <form>
-                    <span class="mot-hang ">
+                    <span class="mot-hang">
                         Class name
                     </span>
                     <span class="mot-hang" style="margin-bottom:20px;">
-                         {!! Form::text('className','',array('id'=>'className','class'=>'form-control span6','placeholder' => 'e.g. Math101')) !!}
+                         {!! Form::text('className','',array('id'=>'className','class'=>'form-control span6','placeholder' => 'e.g. Math101', 'required')) !!}
 
                         <span class="mot-hang validator" id="validator-class-name-id">
                             The name must be at least 3 characters long.
@@ -35,7 +35,7 @@
                     </span>
                     <div class="input-group">
                       <div class="input-group-addon">@</div>
-                      {!! Form::text('classCode','',array('id'=>'classCode','class'=>'form-control')) !!}
+                      {!! Form::text('classCode','',array('id'=>'classCode','class'=>'form-control', 'required')) !!}
                     </div>
                 </form>
             </div>
@@ -62,12 +62,15 @@
                  It's okay if students are under 13. We’ll ask for a parent's email 
                  address to keep everyone in the loop.
              </span>
-        </div>          
+        </div>   
+        <div class="modal-footer">
+        {!! Form::submit('Thêm lớp', ['class' => 'btn btn-primary']) !!}
+      </div>       
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Thêm</button>
-      </div>
+      {!! Form::close() !!}
     </div>
+
+    
   </div>
 </div>
 
@@ -78,14 +81,16 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="editIconModalLabel">Select a class icon</h4>
+
       </div>
       <div class="modal-body">
         <div class="mot-hang" style="margin-top:15px; 
               padding-top: 15px; border-top:1px solid rgba(128, 128, 128, 0.42);">
-             
+          
         </div>
         <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
-            
+            <a href="#"><img alt="image-main" style="float:left;margin-right:15px;" src="resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/></a>
+           <a href="#"><img alt="image-main" style="float:left;margin-right:15px;" src="resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/></a>
         </div>
       </div>
     </div>

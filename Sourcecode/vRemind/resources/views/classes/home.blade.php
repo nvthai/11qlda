@@ -13,7 +13,7 @@
         <img alt="image-main" style="float:left;margin-right:15px;" src="resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/>
         <div class="mot-hang-70">
             <span class="mot-hang-chu-title">
-                Phân tích thiết kế phần mềm
+                Phân tích thiết kế phần mềm 
             </span>
             <span class="mot-hang-chu-description">
                 @phantc231
@@ -30,7 +30,8 @@
                 {{-- You are logged in! --}}
                 {{-- $user = auth(); --}}
                 @if (Auth::user()->hasRole('teacher'))
-                    Teacher
+                    Teacher 
+                    {!! $demoView !!}
                 @elseif (Auth::user()->hasRole('student'))
                     Student
                 @else

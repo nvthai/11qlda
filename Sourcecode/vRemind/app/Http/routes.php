@@ -55,6 +55,11 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
 
 Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@index']);
-    Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@upload']);
-    Route::get('/download', ['as' => 'classes', 'uses' => 'ClassesController@download']);
+    Route::post('/upload',['as' => 'classes.upload', 'uses' => 'ClassesController@upload']);
+    Route::get('/download', ['as' => 'classes.download', 'uses' => 'ClassesController@download']);
+    Route::post('/', ['as' => 'classes', 'uses' => 'ClassesController@addClass']);
+    // update calss
+    // LH 15-11-15
+    Route::post('/update', ['as' => 'classes.update', 'uses' => 'ClassesController@updateClass']);
+    //Route::post('/add',['as' => 'classes', 'uses' => 'ClassesController@addClass']);
 });

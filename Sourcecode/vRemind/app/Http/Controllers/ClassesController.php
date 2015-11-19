@@ -4,6 +4,7 @@ namespace vRemind\Http\Controllers;
 
 use Illuminate\Http\Request;
 use vRemind\Http\Requests;
+use vRemind\Classes;
 use vRemind\Http\Controllers\Controller;
 use Input;
 use Response;
@@ -18,7 +19,9 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        return view('classes.home');
+    	$demo = 'luan huynh';
+        return view('classes.home')
+        ->with('demoView', $demo);
     }
 
     public function upload()
@@ -46,4 +49,44 @@ class ClassesController extends Controller
     	$pathToFile = 'C:\Users\Mr Harrroooo\Documents\GitHub\QLDA\11qlda\Sourcecode\vRemind\uploads\YNadThL2Nj7y.jpg';
         return response()->download($pathToFile);
 	}
+
+
+	// --- LH ---
+	// 15-11-15
+	// Thêm lớp 
+	public function addClass()
+	{
+		$strClassName = Input::get('className');
+		$strClassCode = Input::get('classCode');
+		if (Input::has('participant_can_reply'))
+		{
+			$Reply = Input::get('participant_can_reply');	
+		}
+		if (Input::has('message_under_13'))
+		{
+			$Reply = Input::get('message_under_13');	
+		}
+		$Public = false;
+		$class = Classes::create(
+            [
+                'class_code' 	=> $strClassCode,
+                'class_name'    => $strClassName,
+                'icon'			=> 'resources/assets/img/classesAvatar/avatar_baseball.png',
+                'is_public'		=> $Public,
+            ]
+        );
+		//classes::table('classes')->insertGetId($values);
+		return view('classes.home')
+        ->with('demoView', $strClassName);
+	}
+
+	// --- LH ---
+	// 15-11-15
+	// Chỉnh sửa lớp
+	public function updateClass()
+	{
+
+	}
+
+
 }
