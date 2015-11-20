@@ -1,7 +1,10 @@
     <div class="mot-hang">
         <div class="button-add-student-parent">
-            <div class="button-add-student-parent-left" onclick="MoFormAddParents()">
+            <div class="button-add-student-parent-left" data-toggle="modal" data-target="#addStudentParentModal" aria-haspopup="true" onclick="MoFormAddParents()">
                 Add students and parents
+                    <div class="noidung-icon" style="left: -34px;
+                        top: 50px;font-size: 15px;">
+                    </div>
             </div>
             <div class="button-add-student-parent-right icon-an-noi-dung">
                 <div class="noidung-icon" style="left:-42px;">

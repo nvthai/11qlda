@@ -124,3 +124,68 @@
     </div>
   </div>
 </div>
+
+<!--Add students and parents modal-->
+
+<div class="modal fade" id="addStudentParentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentParentLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addStudentParentLabel">Add students and parents to </h4>
+      </div>
+      <div class="modal-body">
+        <div class="tabbed_area">
+
+         <ul class="tabs"> 
+            <li><a href="#" title="content_1" class="tab active">Download App</a></li> 
+            <li><a href="#" title="content_2" class="tab">Send Invitations</a></li> 
+        </ul> 
+        
+        <div id="content_1" class="content"> 
+          <ul> Students and parents can scan the QR code below to download the free Remind app on their mobile devices.</ul>
+          <img alt="image" src="resources/assets/img/iconScan.png" height="200px" />
+
+             <ul> 
+                <a href="https://itunes.apple.com/us/app/remind101/id522826277" target = "_blank"><img alt="image" src="resources/assets/img/appStore.png" height="50px"  /></a>
+                 <a href = "https://play.google.com/store/apps/details?id=com.remind101&utm_campaign=get-it-on-google-play&utm_medium=%2Fapps&utm_source=remind101" target = "_blank" class="btn btn-link"><img alt="image" src="resources/assets/img/playStore.png" height="50px" /></a>
+               </ul> 
+        </div> 
+
+          <div id="content_2" class="content"> 
+
+           <form class="form-horizontal" role="form" method="POST" action="{!! url('contact') !!}">
+                        {!! csrf_field() !!}
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Enter email addresses (one per line or separated by commas or semicolons):</label>
+                            <div class="col-md-6">
+                                <input type="email" class="required" id="email" name="email" value="" placeholder="example@example.com, another@example.com">
+                            </div>
+                        </div>
+<div>
+  <ul>
+    Invitations won't be sent from your personal email address or mobile number. By sending invitations, you acknowledge that you have permission to reach out to your contacts. You also agree that you won't use this service for commercial purposes.
+  </ul>
+</div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Send Invitations
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+        </div> 
+
+        </div>
+
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -44,7 +44,6 @@ class ClassesController extends Controller
 		}
 	}
 
-<<<<<<< HEAD
 	public function download()
     {
     	$pathToFile = 'C:\Users\Mr Harrroooo\Documents\GitHub\QLDA\11qlda\Sourcecode\vRemind\uploads\YNadThL2Nj7y.jpg';
@@ -90,6 +89,4 @@ class ClassesController extends Controller
 	}
 
 
-=======
->>>>>>> origin/develop
 }
