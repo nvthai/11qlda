@@ -55,5 +55,5 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
 
 Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@index']);
-    Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@upload']);
+    Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@send_annoucement']);
 });

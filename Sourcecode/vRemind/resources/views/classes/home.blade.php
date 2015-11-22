@@ -42,11 +42,11 @@
               <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">To: </span>
-                    <input type="text" class="form-control" id="toClass" placeholder="Select class">
+                    <input type="text" class="form-control" id="toClass" name="toClass" placeholder="Select class">
                 </div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Type your annoucement to Class X"></textarea>
+                <textarea class="form-control" name="content" rows="3" placeholder="Type your annoucement to Class X"></textarea>
               </div>
               <div class="form-group">
                 <input type="file" name="file">
@@ -55,8 +55,7 @@
               <button  type="submit" class="btn btn-primary">Send</button>
                 @if (Session()->has('image')) 
                     <img src="..\uploads\{!! Session::get('image') !!}"   style="width:304px;height:228px;">
-                @endif
-              
+                @endif            
             </form>
         </div>
     </div>
