@@ -706,3 +706,13 @@ body{
     color:gray;
     background-color:#FBFBFB;
 }
+
+.navigation-left-main{
+    position:fixed;
+    left:0px;
+    top:0px;
+    width:6%;
+    height:100%;
+    background-color:#1E2E4C;
+    color:white;
+}
