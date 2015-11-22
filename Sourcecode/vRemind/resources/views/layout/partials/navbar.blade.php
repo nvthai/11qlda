@@ -10,7 +10,7 @@
 	</div>
 
 	<div class="collapse navbar-collapse" id="navbar" style="padding:14px 0px 10px 0px;">
-		@if (Auth::user())
+		@if (Auth::user() && Auth::user()->role != null)
 			<ul class="nav navbar-nav">
 				<li><a href="{{ url('classes') }}" class="btn nav-left-btn">Classes</a></li>
 			</ul>
@@ -36,27 +36,29 @@
 					    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>								
 					</a>	
 				</li>
-				<li>
-					<a class="btn btn-lg" data-toggle="modal" data-target="#shareModal" aria-haspopup="true">
-					    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>								
-					</a>	
-				</li>
-				<li class="dropdown">
-					<a class="btn btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-					    <span class="caret"></span>
-				  	</a>
-					<ul class="dropdown-menu" role="menu">
-						<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Cài đặt</a></li>
-						<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Thông báo</a></li>
-						@if (Auth::user()->role == 'teacher')
-							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Chat</a></li>
-							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Widgets</a></li>
-							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> In</a></li>
-						@endif
-						<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Thoát</a></li>
-					</ul>
-				</li>
+				@if (Auth::user()->role != null)
+					<li>
+						<a class="btn btn-lg" data-toggle="modal" data-target="#shareModal" aria-haspopup="true">
+						    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>								
+						</a>	
+					</li>
+					<li class="dropdown">
+						<a class="btn btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						    <span class="caret"></span>
+					  	</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Cài đặt</a></li>
+							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Thông báo</a></li>
+							@if (Auth::user()->role == 'teacher')
+								<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Chat</a></li>
+								<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Widgets</a></li>
+								<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> In</a></li>
+							@endif
+							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Thoát</a></li>
+						</ul>
+					</li>
+				@endif
 			@endif
 		</ul>
 	</div>
