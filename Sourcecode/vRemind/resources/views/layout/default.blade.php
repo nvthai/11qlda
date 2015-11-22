@@ -25,8 +25,16 @@
 	<![endif]-->
 </head>
 <body>
+	@if (Auth::user())
+	
+	@include('layout.partials.navbarinclass')
+	
+	
+	@else
+	
 	@include('layout.partials.navbar')
-
+	
+	@endif
 	<div class="container-fluid" id="pjax-container">
 	    <table class="table main-area">
 	        <tbody>
