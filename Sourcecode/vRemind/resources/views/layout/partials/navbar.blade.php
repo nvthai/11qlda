@@ -49,7 +49,7 @@
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Cài đặt</a></li>
 						<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Thông báo</a></li>
-						@if (Auth::user()->hasRole('teacher'))
+						@if (Auth::user()->role == 'teacher')
 							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Chat</a></li>
 							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Widgets</a></li>
 							<li><a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> In</a></li>

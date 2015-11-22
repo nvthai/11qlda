@@ -1,5 +1,5 @@
 <nav class="groups-nav">
-	@if (Auth::user()->hasRole('teacher'))
+	@if (Auth::user()->role == 'teacher')
 		<section class="groups-nav-section">
 			{{-- <div class="group-header input-group">
 				<h4 class="groups-nav-section-title">CLASSES OWNED</h4>
