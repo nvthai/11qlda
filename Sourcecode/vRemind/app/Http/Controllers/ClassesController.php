@@ -10,6 +10,7 @@ use Response;
 use Session;
 use vRemind\Notification;
 use Illuminate\Support\Facades\Auth;
+use vRemind\User;
 
 class ClassesController extends Controller
 {
@@ -21,6 +22,20 @@ class ClassesController extends Controller
     public function index()
     {
         return view('classes.home');
+    }
+
+    public function rolePicker()
+    {
+        return view('auth.rolepicker');
+    }
+
+    public function saveRole()
+    {
+    	$user = User::find(Auth::id());
+    	$user->role = Input::get('role');
+
+    	if ($user->save())
+    		return redirect('classes');
     }
 
     public function upload()
