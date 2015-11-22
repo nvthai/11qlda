@@ -503,6 +503,15 @@ body{
 
 }
 
+.form-sign-up-class{
+    left:25%;
+    top:15%;
+    width:45%;
+    height:75%;
+    opacity: 0.4;
+}
+
+
 .form-setting-class{
     left:35%;
     top:10%;

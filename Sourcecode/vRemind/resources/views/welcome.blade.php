@@ -24,8 +24,15 @@
         {!! Html::style('resources/assets/css/style.css') !!}
         {!! Html::style('resources/assets/css/main.css') !!}
         {!! Html::script('resources/assets/js/jquery.min.js') !!}
+
+        <style>
+            .input-ben-trong{
+                padding:15px 10px;
+            }
+        </style>
     </head>
     <body>
+
 {{--         <div class="container">
             <div class="content">
                 <div class="title">
@@ -40,7 +47,7 @@
             </div>
         </div> --}}
 
-        <body class="background-all-login">
+        <div class="background-all-login">
         
         <div class="mot-hang" >
             {!! Html::image('resources/assets/img/logo1.png','image') !!}
@@ -69,8 +76,8 @@
                     Free for teachers. Always
                 </div>
                 <div class='mot-hang' style="width: 40%;margin-left: 30%;">
-                    <div class="button-signup">
-                     <a href="{{ URL::to('auth/register') }}" style="color:white;text-decoration:none">Sign up</a>
+                    <div class="button-signup" style="color:white;" onclick="OpenSignUp()">
+                        Sign up
                     </div>
                     
                     
@@ -96,6 +103,61 @@
         </div>
 
         
+        <!Khung Chua sign up remind>
+        <div class="khung-chua" id="khung-chua-signup-remind">
+            <div class="phu-mo" style="background-color:rgba(39, 110, 204, 0.73);" onclick="TatKhungChuaSignUpRemind()">
+            </div>
+            <div class="form-chua form-sign-up-class">
+                <div class="button-close" onclick="TatKhungChuaSignUpRemind()">
+                    X
+                </div>
+                <div >
+                    
+                </div>
+                <div class="title-form-chua">
+                    Welcome to Remind
+                </div>
+                <div class="mot-hang" style="margin-top:35px;">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> Thông tin bạn nhập vào không đúng. Vui lòng kiểm tra lại.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
+                        {!! csrf_field() !!}
+                        <div class="mot-hang" style="width:95%;margin:0px 0px 20px 4%;">
+                           <input type="text" class="input-ben-trong" name="name" value="{{ old('name') }}">
+                        </div>
+                        <div class="mot-hang" style="width:95%;margin:0px 0px 20px 4%;">
+                           <input type="email" class="input-ben-trong" name="email" value="{{ old('email') }}">
+                        </div>
+                        <div class="mot-hang" style="width:95%;margin:0px 0px 20px 4%;">
+                           <input type="password" class="input-ben-trong" name="password">
+                        </div>
+                        <div class="mot-hang" style="width:95%;margin:0px 0px 20px 4%;">
+                           <input type="password" class="input-ben-trong" name="password_confirmation">
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Đăng ký
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
         <?php
             // if($var_value == "true")
             // {
@@ -103,6 +165,21 @@
             // }
         ?>
         
-    </body>
+        </div>
+
+
+
+        <script type="text/javascript">
+        function OpenSignUp()
+        {
+            $("#khung-chua-signup-remind").css("display","block");
+            $(".form-sign-up-class").animate({top: "10%",opacity: "1"});
+        }
+        function TatKhungChuaSignUpRemind()
+        {
+            $("#khung-chua-signup-remind").css("display","none");   
+            $(".form-sign-up-class").animate({top: "15%",opacity: "0.4"});
+        }
+        </script>
     </body>
 </html>
