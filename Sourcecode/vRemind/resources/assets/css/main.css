@@ -674,3 +674,45 @@ body{
   background-position: 0px 0px;
     
 }
+.font-or
+{
+    position: relative;
+    height: 1px;
+    margin-left: 4%;
+    float: left;
+    width: 90%;
+    background-color: #E4E4E4;
+}
+.font-or::before{
+    position:absolute;
+    color:gray;
+    content:"OR";
+    z-index:2;
+    left:50%;
+    top:-9px;
+    background-color:white;
+   
+}
+.butonGoogle{
+    background-image:url('../img/google-icon.svg');
+    background-repeat: no-repeat;
+    background-size: 34px;
+    background-position: 10px;
+    background-color:white;
+    color:gray;
+    border-color:gray;
+}
+.butonGoogle:hover{
+    color:gray;
+    background-color:#FBFBFB;
+}
+
+.navigation-left-main{
+    position:fixed;
+    left:0px;
+    top:0px;
+    width:6%;
+    height:100%;
+    background-color:#1E2E4C;
+    color:white;
+}

@@ -16,6 +16,9 @@ Route::filter('auth', function()
     {
         return Redirect::to('auth/login');
     }
+    elseif (Auth::user()->role == null) {
+        return Redirect::to('join/role_picker');
+    }
 });
 
 Route::get('/', 'HomeController@index');
@@ -25,14 +28,9 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-// // Authentication routes...
-// Route::get('auth/login', 'Auth\AuthController@getLogin');
-// Route::post('auth/login', 'Auth\AuthController@postLogin');
-// Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-// // Registration routes...
-// Route::get('auth/register', 'Auth\AuthController@getRegister');
-// Route::post('auth/register', 'Auth\AuthController@postRegister');
+// // Chose role routes...
+Route::get('join/role_picker', 'ClassesController@rolePicker');
+Route::post('join/{role?}',['as' => 'role.selected', 'uses' => 'ClassesController@saveRole']);
 
 Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
