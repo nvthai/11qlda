@@ -4,12 +4,14 @@ namespace vRemind\Http\Controllers;
 
 use Illuminate\Http\Request;
 use vRemind\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use vRemind\Classes;
+use vRemind\ClassUser;
 use vRemind\Http\Controllers\Controller;
 use Input;
 use Response;
 use Session;
 use vRemind\Notification;
-use Illuminate\Support\Facades\Auth;
 use vRemind\User;
 
 class ClassesController extends Controller
@@ -21,7 +23,22 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        return view('classes.home');
+
+    	// class 
+    	$classes = ClassUser::where('user_id', Auth::user()->id)
+    							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
+    		// nếu không tìm được id thì gán mặc định là first 
+    		$ClassId = ClassUser::where('user_id', Auth::user()->id)
+    							->orwhere('class_id', Session::get('sesClassId')->class_id)
+    							->join('users', 'users.id', '=', 'class_users.user_id')
+    							->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
+    	// gán session
+    	if (is_null(Session::get('sesClassId')->class_id))					
+    		Session::put('sesClassId', $ClassId);
+    	$id = Session::get('sesClassId')->class_id;
+        //return view('classes.home')
+        //->with('classes', $classes);
+        return redirect('classes/' . $id);
     }
 
     public function rolePicker()
@@ -35,7 +52,7 @@ class ClassesController extends Controller
     	$user->role = Input::get('role');
 
     	if ($user->save())
-    		return redirect('classes');
+    		return redirect('classes');	
     }
 
     public function upload()
@@ -58,6 +75,13 @@ class ClassesController extends Controller
 		}
 	}
 
+
+	public function download()
+    {
+    	$pathToFile = 'C:\Users\Mr Harrroooo\Documents\GitHub\QLDA\11qlda\Sourcecode\vRemind\uploads\YNadThL2Nj7y.jpg';
+        return response()->download($pathToFile);
+	}
+
 	public function send_annoucement(Request $request)
 	{
 		// upload hinh anh dinh kem
@@ -74,15 +98,131 @@ class ClassesController extends Controller
 
 		$input_data = $request->all();
 		$notification = new Notification;
+	}	
+	// --- LH ---
+	// 15-11-15
+	// Thêm lớp 
+	public function addClass()
+	{
 
-		$notification->sender_id = Auth::user()->id;
-		$notification->class_id = $input_data["toClass"];
-		$notification->content = $input_data["content"];
-		$notification->file = "..\uploads\\".$link;
-		$notification->save();
+		// khai báo biến 
+		$Public = false;
+		$Reply = false;
+		$Message = false;
+		$strClassName = Input::get('className');
+		$strClassCode = Input::get('classCode');
+		if (Input::has('participant_can_reply'))
+		{
+			$Reply = Input::get('participant_can_reply');	
+		}
+		if (Input::has('message_under_13'))
+		{
+			$Message = Input::get('message_under_13');	
+		}
+		$class = Classes::create(
+            [
+                'class_code' 	=> $strClassCode,
+                'class_name'    => $strClassName,
+                'icon'			=> 'resources/assets/img/classesAvatar/avatar_baseball.png',
+                'is_public'		=> $Public,
+            ]
+        );
 
-		return redirect("classes");
+
+		// lấy lớp vừa tạo
+		$classId = Classes::orderBy('id', 'desc')->first();
+
+		// insert vào lớp class_users với giáo viên hiện tại tương ứng user_id
+		$class_users = ClassUser::create(
+			[
+				'class_id'				=> $classId->id,
+				'user_id'				=> Auth::user()->id,
+				'is_owner'				=> true,
+				'participant_can_reply' => $Reply,
+				'message_under_13'		=> $Message,
+			]);
+
+		//classes::table('classes')->insertGetId($values);
+		//return view('classes.home')
+        //->with('demoView', $strClassName);
+        return redirect('classes');
 
 	}
 
+	// --- LH ---
+	// 15-11-15
+	// Chỉnh sửa lớp
+	public function updateClass($id)
+	{
+		if ($id == null)
+		{
+			$id = Session::get('sesClassId')->class_id;
+		}
+		$Public = false;
+		$Reply = false;
+		$Message = false;
+		$strClassName = Input::get('className');
+		$strClassCode = Input::get('classCode');
+		if (Input::has('participant_can_reply'))
+		{
+			$Reply = Input::get('participant_can_reply');	
+		}
+		if (Input::has('message_under_13'))
+		{
+			$Message = Input::get('message_under_13');	
+		}
+		if (Input::has('participant_be_public'))
+		{
+			$Public = Input::get('participant_be_public');	
+		}
+		//$notification->sender_id = Auth::user()->id;
+		//$notification->class_id = $input_data["toClass"];
+		//$notification->content = $input_data["content"];
+		//$notification->file = "..\uploads\\".$link;
+		//$notification->save();
+
+
+		$class = Classes::find($id);
+		$class->class_code = $strClassCode;
+		$class->class_name = $strClassName;
+		$class->is_public = $Public;
+		$class->save();
+
+		//return view('classes.home')
+        //->with('classes', $classes);
+
+        return redirect('classes/' . $id);
+	}
+
+	public function show($id)
+    {
+
+    	// class 
+    	$classes = ClassUser::where('user_id', Auth::user()->id)
+    							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
+
+    	//$PresentClass = 
+    	if ($id != null)
+    	{
+    		// chọn lớp tương ứng id
+    		$ClassId = ClassUser::where('class_id', Auth::user()->id)
+    							->orwhere('class_id', $id)
+    							->join('classes', 'classes.id', '=', 'class_users.class_id')
+    							->join('users', 'users.id', '=', 'class_users.user_id')
+    							->first();
+    	}
+    	else
+    	{
+    		// nếu không tìm được id thì gán mặc định là first 
+    		$ClassId = ClassUser::where('user_id', Auth::user()->id)
+    							->join('classes', 'classes.id', '=', 'class_users.class_id')
+								->join('users', 'users.id', '=', 'class_users.user_id')
+    							->first();
+    	}
+
+    	// gán session						
+    	Session::put('sesClassId', $ClassId);
+        return view('classes.home')
+        ->with('classes', $classes);
+    }
 }

@@ -51,7 +51,15 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
 	Route::post('retrieveTypingStatus', array('uses' => 'MessagesController@retrieveTypingStatus'));
 });
 
+
 Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@index']);
-    Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@send_annoucement']);
+    Route::get('/{id}', ['as' => 'classes', 'uses' => 'ClassesController@show']);
+    Route::post('/upload',['as' => 'classes.upload', 'uses' => 'ClassesController@upload']);
+    Route::get('/download', ['as' => 'classes.download', 'uses' => 'ClassesController@download']);
+    // update class
+    // LH 15-11-15
+    Route::post('/', ['as' => 'classes', 'uses' => 'ClassesController@addClass']);
+    Route::put('/{id}', ['as' => 'classes.update', 'uses' => 'ClassesController@updateClass']);
+    Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@upload']);
 });

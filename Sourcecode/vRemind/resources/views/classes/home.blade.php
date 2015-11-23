@@ -9,17 +9,19 @@
 @endsection
 
 @section('content')
+
     <div class="mot-hang">
-        <img alt="image-main" style="float:left;margin-right:15px;" src="resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/>
+        <img alt="image-main" style="float:left;margin-right:15px;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/>
         <div class="mot-hang-70">
             <span class="mot-hang-chu-title">
-                Phân tích thiết kế phần mềm
+                {{Session::get('sesClassId')->class_name}}
             </span>
             <span class="mot-hang-chu-description">
-                @phantc231
+               @
+               {{Session::get('sesClassId')->email}}
             </span>
         </div>
-        <div class="button-setting icon-an-noi-dung" onclick="MoKhungChuaClassSetting()">
+        <div class="button-setting icon-an-noi-dung" data-target="#editClassModal" data-toggle="modal" onclick="MoTrangAddClass()" aria-haspopup="true">
             <div class="noidung-icon" style="left:-32px;">
                 Class settings
             </div>
@@ -30,7 +32,7 @@
                 {{-- You are logged in! --}}
                 {{-- $user = auth(); --}}
                 @if (Auth::user()->hasRole('teacher'))
-                    Teacher
+                    Teacher                     
                 @elseif (Auth::user()->hasRole('student'))
                     Student
                 @else
