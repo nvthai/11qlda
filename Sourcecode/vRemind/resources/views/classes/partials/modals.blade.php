@@ -1,4 +1,12 @@
 {{-- Add Class Modal --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+  function changePicInAdd(hinh) {
+      $("#image-randomId").attr("src", hinh);
+      $('#image-randomId-box').attr("value", hinh);
+      $('#editIconModal').modal('hide');      
+  };
+</script>
 <div class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -11,6 +19,10 @@
         <div class="mot-hang">
             <div class="mot-hang-30">
                 <img alt="image-random" width="90px" id="image-randomId" src="../resources/assets/img/classesAvatar/avatar_baseball.png"/>
+                <!--LH-->
+                <!--29/11/2015-->
+                <!--Pass value of image-->
+                <input type="hidden" name="icon-image" value="../resources/assets/img/classesAvatar/avatar_baseball.png" id="image-randomId-box" />
                 <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#editIconModal" aria-haspopup="true" onclick="MoFormEditIcon()">
                     Edit icon
                 </span>
@@ -78,6 +90,14 @@
 <!--LH-->
 <!--Form chỉnh sửa class-->
 {{-- Edit Class Modal --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+  function changePic(hinh) {
+      $("#image-randomIdUpdate").attr("src", hinh);
+      $('#image-randomId-boxUpdate').attr("value", hinh);
+      $('#editIconModalUpdateClass').modal('hide');      
+  };
+</script>
 <div class="modal fade" id="editClassModal" tabindex="-1" role="dialog" aria-labelledby="editClassModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -91,8 +111,12 @@
       <div class="modal-body">    
         <div class="mot-hang">
             <div class="mot-hang-30">
-                <img alt="image-random" width="90px" id="image-randomId" src="../resources/assets/img/classesAvatar/avatar_baseball.png"/>
-                <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#editIconModal" aria-haspopup="true" onclick="MoFormEditIcon()">
+                <img alt="image-random" width="90px" id="image-randomIdUpdate" src="{!! Session::get('sesClassId')->icon !!}"/>
+                <!--LH-->
+                <!--29/11/2015-->
+                <!--Pass value of image-->
+                <input type="hidden" name="icon-image" value="../resources/assets/img/classesAvatar/avatar_baseball.png" id="image-randomId-boxUpdate" />
+                <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#editIconModalUpdateClass" aria-haspopup="true" onclick="MoFormEditIcon()">
                     Edit icon
                 </span>
                 <input type="hidden" name="soIconDuocChon" id="so-icon-duoc-chon-id"/>
@@ -175,7 +199,7 @@
 
 
 
-<!-- Edit Icon Modal -->
+<!-- Edit Icon Modal Add class-->
 <div class="modal fade" id="editIconModal" tabindex="-1" role="dialog" aria-labelledby="editIconModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -189,13 +213,39 @@
              
         </div>
         <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
-            <a href="#"><img alt="image-main" style="float:left;margin-right:15px;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/></a>
-           <a href="#"><img alt="image-main" style="float:left;margin-right:15px;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px"/></a>
+            
+            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_baseball.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_art.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_art.png')" />
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Edit Icon Modal Update Class -->
+<div class="modal fade" id="editIconModalUpdateClass" tabindex="-1" role="dialog" aria-labelledby="editIconModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editIconModalLabel">Select a class icon</h4>
+      </div>
+      <div class="modal-body">
+        <div class="mot-hang" style="margin-top:15px; 
+              padding-top: 15px; border-top:1px solid rgba(128, 128, 128, 0.42);">
+             
+        </div>
+        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
+            
+            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_baseball.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_art.png')" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Join Class Modal -->
 <div class="modal fade" id="joinClassModal" tabindex="-1" role="dialog" aria-labelledby="joinClassModalLabel">
