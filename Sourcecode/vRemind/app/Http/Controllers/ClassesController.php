@@ -84,7 +84,7 @@ class ClassesController extends Controller
 
 	public function send_annoucement(Request $request)
 	{
-		// upload hinh anh dinh kem
+				// upload hinh anh dinh kem
 		$file = Input::file('file');
 		$destinationPath = 'uploads';
 		// If the uploads fail due to file system, you can try doing public_path().'/uploads' 
@@ -98,6 +98,15 @@ class ClassesController extends Controller
 
 		$input_data = $request->all();
 		$notification = new Notification;
+
+		$notification->sender_id = Auth::user()->id;
+		$notification->class_id = Session::get('sesClassId')->class_id;
+		$notification->content = $input_data["content"];
+		$notification->schedule = $input_data["bdaytime"];
+		$notification->file = "..\uploads\\".$link;
+		$notification->save();
+
+		return redirect("classes");
 	}	
 	// --- LH ---
 	// 15-11-15

@@ -61,5 +61,5 @@ Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     // LH 15-11-15
     Route::post('/', ['as' => 'classes', 'uses' => 'ClassesController@addClass']);
     Route::put('/{id}', ['as' => 'classes.update', 'uses' => 'ClassesController@updateClass']);
-    Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@upload']);
+    Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@send_annoucement']);
 });

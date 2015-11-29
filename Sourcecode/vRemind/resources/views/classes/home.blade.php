@@ -53,12 +53,16 @@
               <div class="form-group">
                 <input type="file" name="file">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="datetime-local" name="bdaytime">
               </div>
               <button  type="submit" class="btn btn-primary">Send</button>
                 @if (Session()->has('image')) 
                     <img src="..\uploads\{!! Session::get('image') !!}"   style="width:304px;height:228px;">
                 @endif            
             </form>
+
+
+
         </div>
     </div>
 
