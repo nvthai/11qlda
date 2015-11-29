@@ -16,38 +16,43 @@
                     +
                     <div class="noidung-icon" style="left: -34px;
                         top: 50px;font-size: 15px;">
-                        Add a class
+                        Add a class 
                     </div>
                 </div>
             </div>
 
 			<div class="group-list">
 				<ul class="menu-class">
+                <!--21/11/15-->
+                <!--LH-->
+                <!--Hien thi class-->
+                    @foreach ($classes as $class)
+                        @if (Session::get('sesClassId')->class_id === $class->id)
+                    <a href="/classes/{{$class->id}}" name="classid" id="classid">
                     <li class="menu-class-child class-selected">
-                        <img alt="avatarclass"  src="resources/assets/img/classesAvatar/avatar_baseball.png"/>
+                        <img alt="avatarclass"  src="../{!! $class->icon !!}"/>
                         <font>
-                            Phân tích thiết kế phần mềm
-                        </font>
-                        
-                    </li>
-                    <li class="menu-class-child">
-                        <img alt="avatarclass" src="resources/assets/img/classesAvatar/avatar_apple_default.png" />
-                        
-                        <font>
-                            Thiết kế dữ liệu và giải thuật
+                            {{ $class->class_name }}
                         </font>
                     </li>
-                    <li class="menu-class-child">
-                        <img alt="avatarclass" src="resources/assets/img/classesAvatar/avatar_history.png"/>
+                    </a>
+                        @endif
+                        @if (Session::get('sesClassId')->class_id !== $class->id)
+                    <a href="/classes/{{$class->id}}" name="classid" id="classid"> 
+                     <li class="menu-class-child">
+                        <img alt="avatarclass"  src="../{!! $class->icon !!}"/>
                         <font>
-                             Lập trình ứng dụng
+                            {{ $class->class_name }}
                         </font>
-                    </li>
+                    </li>        
+                    </a>
+                        @endif
+                    @endforeach
                 </ul>
+                
 			</div>
 		</section>
 	@endif
-
 	<section class="groups-nav-section">
 		<div class="class-ow-jo" style="margin-top:50px;">
             <div class="mot-hang" >
@@ -64,7 +69,7 @@
             </div>
             <ul class="menu-class">
                 <li class="menu-class-child class-selected">
-                    <img alt="avatarclass"  src="resources/assets/img/classesAvatar/avatar_baseball.png"/>
+                    <img alt="avatarclass"  src="../resources/assets/img/classesAvatar/avatar_baseball.png"/>
                     <font>
                         Cơ sở dữ liệu nâng cao
                     </font>                        
