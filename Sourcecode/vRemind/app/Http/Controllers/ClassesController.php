@@ -24,17 +24,29 @@ class ClassesController extends Controller
     public function index()
     {
 
-    	// class 
     	$classes = ClassUser::where('user_id', Auth::user()->id)
-    							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
-    		// nếu không tìm được id thì gán mặc định là first 
+							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
+
+
+
+    	if (Session::has('sesClassId'))
+    	{
+    		    		// nếu không tìm được id thì gán mặc định là first 
     		$ClassId = ClassUser::where('user_id', Auth::user()->id)
     							->orwhere('class_id', Session::get('sesClassId')->class_id)
     							->join('users', 'users.id', '=', 'class_users.user_id')
-    							->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
-    	// gán session
-    	if (is_null(Session::get('sesClassId')->class_id))					
-    		Session::put('sesClassId', $ClassId);
+    							->join('classes', 'classes.id', '=', 'class_users.class_id')->first();	
+    	}
+    	else
+    	{
+			$ClassId = ClassUser::where('user_id', Auth::user()->id)
+			//->orwhere('class_id', Session::get('sesClassId')->class_id)
+								->join('users', 'users.id', '=', 'class_users.user_id')
+								->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
+	    	// gán session
+			Session::put('sesClassId', $ClassId);
+    	}								
+
     	$id = Session::get('sesClassId')->class_id;
         //return view('classes.home')
         //->with('classes', $classes);
@@ -118,8 +130,13 @@ class ClassesController extends Controller
 		$Public = false;
 		$Reply = false;
 		$Message = false;
+		$Icon = '';
 		$strClassName = Input::get('className');
 		$strClassCode = Input::get('classCode');
+		if (Input::has('icon-image'))
+		{
+			$Icon = Input::get('icon-image');
+		}
 		if (Input::has('participant_can_reply'))
 		{
 			$Reply = Input::get('participant_can_reply');	
@@ -132,7 +149,7 @@ class ClassesController extends Controller
             [
                 'class_code' 	=> $strClassCode,
                 'class_name'    => $strClassName,
-                'icon'			=> 'resources/assets/img/classesAvatar/avatar_baseball.png',
+                'icon'			=> $Icon,
                 'is_public'		=> $Public,
             ]
         );
@@ -170,8 +187,13 @@ class ClassesController extends Controller
 		$Public = false;
 		$Reply = false;
 		$Message = false;
+		$Icon = '';
 		$strClassName = Input::get('className');
 		$strClassCode = Input::get('classCode');
+		if (Input::has('icon-image'))
+		{
+			$Icon = Input::get('icon-image');
+		}
 		if (Input::has('participant_can_reply'))
 		{
 			$Reply = Input::get('participant_can_reply');	
@@ -195,6 +217,7 @@ class ClassesController extends Controller
 		$class->class_code = $strClassCode;
 		$class->class_name = $strClassName;
 		$class->is_public = $Public;
+		$class->icon = $Icon;
 		$class->save();
 
 		//return view('classes.home')

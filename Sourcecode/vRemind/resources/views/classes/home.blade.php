@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="mot-hang">
-        <img alt="image-main" style="float:left;margin-right:15px;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/>
+        <img alt="image-main" style="float:left;margin-right:15px;" src="{!! Session::get('sesClassId')->icon !!}" height="65px"/>
         <div class="mot-hang-70">
             <span class="mot-hang-chu-title">
                 {{Session::get('sesClassId')->class_name}}
