@@ -229,6 +229,7 @@ class ClassesController extends Controller
     							->first();
     	}
 
+    	$test = "abc";
     	// gán session						
     	Session::put('sesClassId', $ClassId);
         return view('classes.home')
