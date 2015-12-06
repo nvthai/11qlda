@@ -73,11 +73,15 @@
 
     <!--Can chinh sua giao dien o day-->
     <div class="group-list">
-      
+      {{Session::get('sesClassId')->class_id}}
         @foreach($notifications as $noti)
           @if($noti->class_id == Session::get('sesClassId')->class_id)
-            <div>
-              {{Auth::user()->name}}
+            <div>           
+              <?php 
+                $sender = vRemind\User::find($noti->sender_id); 
+                $name = $sender->name;
+              ?>
+              {{$name}}
             </div>
             <div>
               {{$noti->created_at}}
