@@ -55,7 +55,7 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
 Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@index']);
     Route::get('/{id}', ['as' => 'classes', 'uses' => 'ClassesController@show']);
-    Route::post('/upload',['as' => 'classes.upload', 'uses' => 'ClassesController@upload']);
+    Route::post('/upload',['as' => 'classes.upload', 'uses' => 'ClassesController@send_annoucement']);
     Route::get('/download', ['as' => 'classes.download', 'uses' => 'ClassesController@download']);
     // update class
     // LH 15-11-15

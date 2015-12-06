@@ -62,15 +62,36 @@
                 <input type="datetime-local" name="bdaytime">
               </div>
               <button  type="submit" class="btn btn-primary">Send</button>
-                @if (Session()->has('image')) 
-                    <img src="..\uploads\{!! Session::get('image') !!}"   style="width:304px;height:228px;">
-                @endif            
+           
             </form>
 
 
 
         </div>
     </div>
+
+
+    <!--Can chinh sua giao dien o day-->
+    <div class="group-list">
+      
+        @foreach($notifications as $noti)
+          @if($noti->class_id == Session::get('sesClassId')->class_id)
+            <div>
+              {{Auth::user()->name}}
+            </div>
+            <div>
+              {{$noti->created_at}}
+            </div>
+            <div>
+              {{$noti->content}}
+            </div>
+            <div>
+              <img src="{!! $noti->file !!}"   style="width:304px;height:228px;">
+            </div>
+           @endif
+        @endforeach
+      
+      </div>
 
 @include('classes.partials.modals')	
 @endsection

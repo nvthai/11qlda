@@ -26,8 +26,7 @@ class ClassesController extends Controller
 
     	$classes = ClassUser::where('user_id', Auth::user()->id)
 							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
-
-
+		
 
     	if (Session::has('sesClassId'))
     	{
@@ -36,13 +35,15 @@ class ClassesController extends Controller
     							->orwhere('class_id', Session::get('sesClassId')->class_id)
     							->join('users', 'users.id', '=', 'class_users.user_id')
     							->join('classes', 'classes.id', '=', 'class_users.class_id')->first();	
+
     	}
     	else
     	{
 			$ClassId = ClassUser::where('user_id', Auth::user()->id)
 			//->orwhere('class_id', Session::get('sesClassId')->class_id)
 								->join('users', 'users.id', '=', 'class_users.user_id')
-								->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
+								->join('classes', 'classes.id', '=', 'class_users.class
+									+_id')->first();
 	    	// gán session
 			Session::put('sesClassId', $ClassId);
     	}								
@@ -97,16 +98,19 @@ class ClassesController extends Controller
 	public function send_annoucement(Request $request)
 	{
 				// upload hinh anh dinh kem
-		$file = Input::file('file');
-		$destinationPath = 'uploads';
-		// If the uploads fail due to file system, you can try doing public_path().'/uploads' 
-		$filename = str_random(12);
-		$extension = Input::file('file')->getClientOriginalExtension(); 
-		$link = $filename.'.'.$extension;
-		//$filename = $file->getClientOriginalName();
-		//$extension =$file->getClientOriginalExtension(); 
-		$upload_success = Input::file('file')->move($destinationPath, $filename.'.'.$extension);
-		Session::put('image', $link);
+		$link = '';
+		if(Input::file('file') != null)
+		{
+			$file = Input::file('file');
+			$destinationPath = 'uploads';
+			// If the uploads fail due to file system, you can try doing public_path().'/uploads' 
+			$filename = str_random(12);
+			$extension = Input::file('file')->getClientOriginalExtension(); 
+			$link = $filename.'.'.$extension;
+			$upload_success = Input::file('file')->move($destinationPath, $filename.'.'.$extension);
+			Session::put('image', $link);
+		}
+
 
 		$input_data = $request->all();
 		$notification = new Notification;
@@ -233,6 +237,10 @@ class ClassesController extends Controller
     	$classes = ClassUser::where('user_id', Auth::user()->id)
     							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
 
+		$id = Session::get('sesClassId')->class_id;
+    	$notifications = Notification::where('sender_id', Auth::user()->id)
+    									->orwhere('class_id', $id)->orderBy('id','desc')->get();
+    							
     	//$PresentClass = 
     	if ($id != null)
     	{
@@ -256,6 +264,6 @@ class ClassesController extends Controller
     	// gán session						
     	Session::put('sesClassId', $ClassId);
         return view('classes.home')
-        ->with('classes', $classes);
+        ->with('classes', $classes)->with('notifications', $notifications);
     }
 }
