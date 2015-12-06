@@ -21,13 +21,10 @@ class ClassesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+   public function index()
     {
-
     	$classes = ClassUser::where('user_id', Auth::user()->id)
 							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
-		
-
     	if (Session::has('sesClassId'))
     	{
     		    		// nếu không tìm được id thì gán mặc định là first 
@@ -35,19 +32,16 @@ class ClassesController extends Controller
     							->orwhere('class_id', Session::get('sesClassId')->class_id)
     							->join('users', 'users.id', '=', 'class_users.user_id')
     							->join('classes', 'classes.id', '=', 'class_users.class_id')->first();	
-
     	}
     	else
     	{
 			$ClassId = ClassUser::where('user_id', Auth::user()->id)
 			//->orwhere('class_id', Session::get('sesClassId')->class_id)
 								->join('users', 'users.id', '=', 'class_users.user_id')
-								->join('classes', 'classes.id', '=', 'class_users.class
-									+_id')->first();
+								->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
 	    	// gán session
 			Session::put('sesClassId', $ClassId);
     	}								
-
     	$id = Session::get('sesClassId')->class_id;
         //return view('classes.home')
         //->with('classes', $classes);
