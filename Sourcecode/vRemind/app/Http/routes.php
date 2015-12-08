@@ -63,3 +63,8 @@ Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::put('/{id}', ['as' => 'classes.update', 'uses' => 'ClassesController@updateClass']);
     Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@send_annoucement']);
 });
+
+//Setting
+Route::get('/settings',function(){
+    return view("classes.setting")->with("pageReturn","setting");
+});

@@ -12,6 +12,7 @@
 .cach-nhau-hang-navigation{
     padding: 17px 0px 17px 0px;
     margin-top: 5px;
+    color:white !important;
     opacity:0.6;
     cursor:pointer;
 }
@@ -41,6 +42,7 @@
 	background-image:url('../resources/assets/img/icon-more.png');
 	background-repeat:no-repeat;
 	background-size:35px;
+	color:white;
 }
 .khung-chua-icon-more li:hover{
 	opacity:1;
@@ -66,33 +68,43 @@
     top: 82%;
     width: 100%;   
 }
-
-
 </style>
+<div id="test">
+<?php
+	$giaTriTuyenSelected = "class";
+	if(!empty($pageReturn))
+	{
+		$giaTriTuyenSelected = $pageReturn;
 
-
+	}
+	echo $giaTriTuyenSelected;
+?>
+</div>
 <div class="navigation-left-main" id="navigation-left-main-id">
 	<div class="mot-hang" id="mot-hang-chua-icon">
 		<img alt="image" src="../resources/assets/img/logo2.svg"/>
 	</div>
-	<div class="mot-hang cach-nhau-hang-navigation selected">
+	<a class=<?php if($giaTriTuyenSelected == "class") echo '"mot-hang cach-nhau-hang-navigation selected"'; else echo '"mot-hang cach-nhau-hang-navigation"'; ?>  href="/classes">
 		<img alt="image-classs" src="../resources/assets/img/logo-class.png" />
 		<font style="float:left; margin:7px 0px 0px 15px;">
 			Classer
 		</font>
-	</div>
-	<div class="mot-hang cach-nhau-hang-navigation">
+	</a>
+	<a class=<?php if($giaTriTuyenSelected == "class") echo '"mot-hang cach-nhau-hang-navigation selected"'; else echo '"mot-hang cach-nhau-hang-navigation"'; ?> href="/messages">
 		<img alt="image-chat" src="../resources/assets/img/logo-chat.png"/>
 		<font style="float:left; margin:7px 0px 0px 15px;">
 			Chat
 		</font>
-	</div>
+	</a>
 	<div class="mot-hang" style="position:relative;height:58%">
 		<div id="khung-chua-icon-bottom">
 			<ul class="khung-chua-icon-more" style="display:none;">
+				<a href="/settings" target="_blank">
 				<li style="  background-position: 8px 7px;">
 					Settings
 				</li>
+				</a>
+
 				<li style="background-position: 7px -30px;">
 					Log out
 				</li>
