@@ -258,6 +258,7 @@ class ClassesController extends Controller
     	// gán session						
     	Session::put('sesClassId', $ClassId);
         return view('classes.home')
-        ->with('classes', $classes)->with('notifications', $notifications);
+        ->with('notifications', $notifications)
+        ->with('classes', $classes);
     }
 }
