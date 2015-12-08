@@ -212,12 +212,54 @@
               padding-top: 15px; border-top:1px solid rgba(128, 128, 128, 0.42);">
              
         </div>
+        <!--
         <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
             
             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_baseball.png')" />
            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_art.png')" />
            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_art.png')" />
         </div>
+        -->
+        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
+            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_baseball.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_art.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_apple_default.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_apple_default.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_basketball.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_basketball.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_chemistry.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_chemistry.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_dinosaur.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_dinosaur.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_earthscience.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_earthscience.png')" />           
+        </div>
+        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
+          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_football.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_football.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_geography.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_geography.png')" />
+
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_government.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_government.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_history.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_history.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_literature.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_literature.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_math.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_math.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_music_default.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_music_default.png')" />
+       </div>
+
+        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
+          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_physics.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_football.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_piano.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_geography.png')" />
+
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_reading.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_reading.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_rocket.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_science.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_science.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_soccer.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_soccer.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_sports_default.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_sports_default.png')" />
+       </div>
+       <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
+          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_stats.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_stats.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_tech.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_tech.png')" />
+
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_theatre.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_theatre.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_rocket.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_track.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_track.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_writing.png" height="65px" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_writing.png')" />
+          
+       </div> 
       </div>
     </div>
   </div>
@@ -237,10 +279,46 @@
              
         </div>
         <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
-            
             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_baseball.png')" />
            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_art.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_apple_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_apple_default.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_basketball.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_basketball.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_chemistry.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_chemistry.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_dinosaur.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_dinosaur.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_earthscience.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_earthscience.png')" />           
         </div>
+        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
+          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_football.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_football.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_geography.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_geography.png')" />
+
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_government.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_government.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_history.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_history.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_literature.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_literature.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_math.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_math.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_music_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_music_default.png')" />
+       </div>
+
+        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
+          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_physics.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_football.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_piano.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_geography.png')" />
+
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_reading.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_reading.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_rocket.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_science.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_science.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_soccer.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_soccer.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_sports_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_sports_default.png')" />
+       </div>
+       <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
+          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_stats.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_stats.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_tech.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_tech.png')" />
+
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_theatre.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_theatre.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_rocket.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_track.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_track.png')" />
+           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_writing.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_writing.png')" />
+          
+       </div> 
+
       </div>
     </div>
   </div>
