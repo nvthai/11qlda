@@ -44,11 +44,11 @@
               <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">To: </span>
-                    <input type="text" class="form-control" id="toClass" name="toClass" placeholder="Select class">
+                    <input type="text" class="form-control" id="toClass" name="toClass" placeholder="{!!Session::get('sesClassId')->class_name!!}" disabled>
                 </div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="content" rows="3" placeholder="Type your annoucement to Class X"></textarea>
+                <textarea class="form-control" name="content" rows="3" placeholder="Type your annoucement to Class {!!Session::get('sesClassId')->class_name!!}"></textarea>
               </div>
               <div class="form-group">
                 <input type="file" name="file">
