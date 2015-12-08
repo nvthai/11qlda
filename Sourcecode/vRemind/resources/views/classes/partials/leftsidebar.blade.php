@@ -1,4 +1,4 @@
-<nav class="groups-nav">
+<nav class="groups-nav" style="padding:0px;">
 	@if (Auth::user()->role == 'teacher')
 		<section class="groups-nav-section">
 			{{-- <div class="group-header input-group">

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-
+      
     <div class="mot-hang">
         <img alt="image-main" style="float:left;margin-right:15px;" src="{!! Session::get('sesClassId')->icon !!}" height="65px"/>
         <div class="mot-hang-70">

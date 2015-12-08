@@ -13,7 +13,7 @@
     {!! Html::style('resources/assets/css/bootstrap.min.css') !!}
     {!! Html::style('resources/assets/css/style.css') !!}
     {!! Html::style('resources/assets/css/main.css') !!}
-
+    {!! Html::script('resources/assets/js/jquery-1.11.1.min.js') !!}
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -24,7 +24,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body style="margin:0px">
 	@if (Auth::user())
 	
 	@include('layout.partials.navbarinclass')
@@ -40,13 +40,13 @@
 	        <tbody>
 	          <tr>
 	            {{-- LEFT SIDEBAR --}}
-	            <td class="col-lg-3 col-md-3 left-sidebar">
-	                <div class="scroll-area">
+	            <td class="col-lg-3 col-md-3 left-sidebar" style="padding:30px 0px 0px 5%;overflow:scroll;">
+	                <div class="scroll-area" style="overflow:initial;">
 	                     @yield('left-sidebar')
 	                </div>
 	            </td>
-	            <td class="col-lg-10 col-md-10 col-sm-8">
-	                <div class="row scroll-area">
+	            <td class="col-lg-10 col-md-10 col-sm-8" style="width: 60%;padding: 30px 3% 0px 3%;">
+	                <div class="row scroll-area" style="overflow:initial;">
 	                    {{-- CENTER PANEL --}}
 	                    <div class="col-md-8">
 	                        {{-- <div class="panel panel-default"> --}}
@@ -72,7 +72,7 @@
 	@yield('footer');
 	<!-- Scripts -->
 	{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
-    {!! Html::script('resources/assets/js/jquery-1.11.1.min.js') !!}
+    
     {!! Html::script('resources/assets/js/jquery.pjax.js') !!}
     {!! Html::script('resources/assets/js/bootstrap.min.js') !!}
     {!! Html::script('resources/assets/js/main.js') !!}
