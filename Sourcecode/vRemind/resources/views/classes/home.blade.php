@@ -44,13 +44,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">To: </span>
-                    <input type="text" class="form-control" id="toClass" name="toClass" placeholder="{!!Session::get('sesClassId')->class_name!!}">
-                    <select>
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="opel">Opel</option>
-                      <option value="audi">Audi</option>
-                    </select>
+                    <input type="text" class="form-control" id="toClass" name="toClass" placeholder="{!!Session::get('sesClassId')->class_name!!}" disabled>
                 </div>
               </div>
               <div class="form-group">
@@ -61,37 +55,39 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="datetime-local" name="bdaytime">
               </div>
-              <button  type="submit" class="btn btn-primary">Send</button>
-           
+              <button  type="submit" class="btn btn-primary">Send</button>            
             </form>
+            
+    <!--Can chinh sua giao dien o day-->
+        <div class="group-list">
+          
+            @foreach($notifications as $noti)
+              @if($noti->class_id == Session::get('sesClassId')->class_id)
+                <div>
+                  <?php 
+                    $sender = vRemind\User::find($noti->sender_id); 
+                    $name = $sender->name;
+                  ?>
+              {{$name}}
+                </div>
+                <div>
+                  {{$noti->created_at}}
+                </div>
+                <div>
+                  {{$noti->content}}
+                </div>
+                <div>
+                  <img src="{!! $noti->file !!}"   style="width:304px;height:228px;">
+                </div>
+               @endif
+            @endforeach
+          
+          </div>
 
 
 
         </div>
     </div>
-
-
-    <!--Can chinh sua giao dien o day-->
-    <div class="group-list">
-      
-        @foreach($notifications as $noti)
-          @if($noti->class_id == Session::get('sesClassId')->class_id)
-            <div>
-              {{Auth::user()->name}}
-            </div>
-            <div>
-              {{$noti->created_at}}
-            </div>
-            <div>
-              {{$noti->content}}
-            </div>
-            <div>
-              <img src="{!! $noti->file !!}"   style="width:304px;height:228px;">
-            </div>
-           @endif
-        @endforeach
-      
-      </div>
 
 @include('classes.partials.modals')	
 @endsection

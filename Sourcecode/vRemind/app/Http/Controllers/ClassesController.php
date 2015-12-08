@@ -21,10 +21,14 @@ class ClassesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   public function index()
+    public function index()
     {
+
     	$classes = ClassUser::where('user_id', Auth::user()->id)
 							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
+
+
+
     	if (Session::has('sesClassId'))
     	{
     		    		// nếu không tìm được id thì gán mặc định là first 
@@ -42,6 +46,7 @@ class ClassesController extends Controller
 	    	// gán session
 			Session::put('sesClassId', $ClassId);
     	}								
+
     	$id = Session::get('sesClassId')->class_id;
         //return view('classes.home')
         //->with('classes', $classes);
@@ -104,7 +109,6 @@ class ClassesController extends Controller
 			$upload_success = Input::file('file')->move($destinationPath, $filename.'.'.$extension);
 			Session::put('image', $link);
 		}
-
 
 		$input_data = $request->all();
 		$notification = new Notification;
@@ -231,10 +235,11 @@ class ClassesController extends Controller
     	$classes = ClassUser::where('user_id', Auth::user()->id)
     							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
 
-		$id = Session::get('sesClassId')->class_id;
+    	$idn = Session::get('sesClassId')->class_id;
     	$notifications = Notification::where('sender_id', Auth::user()->id)
-    									->orwhere('class_id', $id)->orderBy('id','desc')->get();
+    									->orwhere('class_id', $idn)->orderBy('id','desc')->get();
     							
+
     	//$PresentClass = 
     	if ($id != null)
     	{
@@ -254,7 +259,6 @@ class ClassesController extends Controller
     							->first();
     	}
 
-    	$test = "abc";
     	// gán session						
     	Session::put('sesClassId', $ClassId);
         return view('classes.home')
