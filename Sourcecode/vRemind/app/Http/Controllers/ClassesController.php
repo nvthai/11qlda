@@ -105,7 +105,7 @@ class ClassesController extends Controller
 			// If the uploads fail due to file system, you can try doing public_path().'/uploads' 
 			$filename = str_random(12);
 			$extension = Input::file('file')->getClientOriginalExtension(); 
-			$link = $filename.'.'.$extension;
+			$link = "..\uploads\\".$filename.'.'.$extension;
 			$upload_success = Input::file('file')->move($destinationPath, $filename.'.'.$extension);
 			Session::put('image', $link);
 		}
@@ -117,7 +117,7 @@ class ClassesController extends Controller
 		$notification->class_id = Session::get('sesClassId')->class_id;
 		$notification->content = $input_data["content"];
 		$notification->schedule = $input_data["bdaytime"];
-		$notification->file = "..\uploads\\".$link;
+		$notification->file = $link;
 		$notification->save();
 
 		return redirect("classes");

@@ -68,7 +68,7 @@
                     $sender = vRemind\User::find($noti->sender_id); 
                     $name = $sender->name;
                   ?>
-              {{$name}}
+                <b> {{$name}}</b>
                 </div>
                 <div>
                   {{$noti->created_at}}
@@ -76,9 +76,11 @@
                 <div>
                   {{$noti->content}}
                 </div>
+                @if($noti->file != null)
                 <div>
                   <img src="{!! $noti->file !!}"   style="width:304px;height:228px;">
                 </div>
+                @endif
                @endif
             @endforeach
           
