@@ -69,7 +69,7 @@
     width: 100%;   
 }
 </style>
-<div id="test">
+
 <?php
 	$giaTriTuyenSelected = "class";
 	if(!empty($pageReturn))
@@ -77,10 +77,10 @@
 		$giaTriTuyenSelected = $pageReturn;
 
 	}
-	echo $giaTriTuyenSelected;
+	
 ?>
-</div>
-<div class="navigation-left-main" id="navigation-left-main-id">
+
+<div class="navigation-left-main" id="navigation-left-main-id" style="z-index=10;">
 	<div class="mot-hang" id="mot-hang-chua-icon">
 		<img alt="image" src="../resources/assets/img/logo2.svg"/>
 	</div>
@@ -90,7 +90,7 @@
 			Classer
 		</font>
 	</a>
-	<a class=<?php if($giaTriTuyenSelected == "class") echo '"mot-hang cach-nhau-hang-navigation selected"'; else echo '"mot-hang cach-nhau-hang-navigation"'; ?> href="/messages">
+	<a class=<?php if($giaTriTuyenSelected == "chat") echo '"mot-hang cach-nhau-hang-navigation selected"'; else echo '"mot-hang cach-nhau-hang-navigation"'; ?> href="/messages">
 		<img alt="image-chat" src="../resources/assets/img/logo-chat.png"/>
 		<font style="float:left; margin:7px 0px 0px 15px;">
 			Chat
