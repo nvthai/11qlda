@@ -105,9 +105,11 @@
 				</li>
 				</a>
 
+				<a href="{{ url('/auth/logout') }}">
 				<li style="background-position: 7px -30px;">
 					Log out
 				</li>
+				</a>
 				<li style="background-position: 7px -65px;" onclick="MoKhungChuaHelp()">
 					Help
 				</li>

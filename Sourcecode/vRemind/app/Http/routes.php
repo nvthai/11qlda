@@ -64,7 +64,15 @@ Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@send_annoucement']);
 });
 
+
+
 //Setting
 Route::get('/settings',function(){
     return view("classes.setting")->with("pageReturn","setting");
 });
+
+
+//09-12-15
+Route::post('join/role_picker', ['as' => 'addusers', 'uses' => 'ClassesController@addUser']);
+
+Route::post('/','HomeController@dangky');
