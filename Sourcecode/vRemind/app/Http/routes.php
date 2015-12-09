@@ -62,4 +62,8 @@ Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::post('/', ['as' => 'classes', 'uses' => 'ClassesController@addClass']);
     Route::put('/{id}', ['as' => 'classes.update', 'uses' => 'ClassesController@updateClass']);
     Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@send_annoucement']);
+
+    //join
+    //Nam 
+    Route::post('/joinClass',['as' => 'classes.joinclass', 'uses' => 'ClassesController@joinClass']);
 });

@@ -329,6 +329,7 @@
 <div class="modal fade" id="joinClassModal" tabindex="-1" role="dialog" aria-labelledby="joinClassModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      {!! Form::open(array('url' => 'classes', 'method' => 'post', 'id'=>'joinClassForm')) !!}
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="joinClassModalLabel">Join a class</h4>
@@ -349,6 +350,7 @@
         </form>
         <a class="btn btn-link">Search for your class instead</a>
       </div>
+       {!! Form::close() !!}
     </div>
   </div>
 </div>

@@ -264,4 +264,37 @@ class ClassesController extends Controller
         return view('classes.home')
         ->with('classes', $classes)->with('notifications', $notifications);
     }
+
+    public function joinClass()
+    {
+    	$strClassCode = Input::get('classCode');
+
+    	$strclassId = Classes::where('class_code', $strClassCode)
+    	->orwhere('is_public', true)
+    	->value(id);
+    	if(is_null($strclassId))
+    	{
+    		//Dua thong bao ra khong tim thay lop
+    		return view('classes.home');
+    	}
+    	else
+    	{
+    		//Them vao lop class_users: class_id, user_id, is_owner
+    		//Tim is_owner 
+    			$class_users = ClassUser::create(
+				[
+					'class_id'				=> $strclassId,
+					'user_id'				=> Auth::user()->id,
+					'is_owner'				=> false,
+					'participant_can_reply' => false,
+					'message_under_13'		=> false,
+				]);
+    		
+              //return view('classes.home');
+    		//return redirect('classes');
+    			  return redirect()->action('ClassesController@index');
+    	}
+
+    }
+
 }
