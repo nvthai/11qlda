@@ -287,7 +287,7 @@ class ClassesController extends Controller
         ->with('participants', $Participants);
     }
 
-<<<<<<< HEAD
+
     public function joinClass()
     {
     	$strClassCode = Input::get('classCode');
@@ -320,7 +320,6 @@ class ClassesController extends Controller
 
     }
 
-=======
     public function addUser()
     {
     	$du_lieu_tu_input = $request->all();
@@ -389,6 +388,9 @@ class ClassesController extends Controller
 
     ///
     /// Đuổi tất cả người tham dự ra khỏi lớp
+
+    // 09-12-2015
+    // --- LH ---
     public function removeParticipant()
     {
     	$ClassId = Session::get('sesClassId')->class_id;
@@ -409,8 +411,5 @@ class ClassesController extends Controller
 					 ->where('is_owner', false)->delete();
     		return redirect('classes/' . $ClassId);
     	}						
-    	
-    	
     }
->>>>>>> origin/develop
 }
