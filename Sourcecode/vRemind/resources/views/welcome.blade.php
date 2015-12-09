@@ -182,7 +182,7 @@
                 <div class="title-form-chua" style="margin-bottom:25px;">
                     Welcome to Remind
                 </div>
-                {!! Form::open(array('url' => 'addusers', 'method' => 'post', 'name' => 'frm_signup')) !!}
+                {!! Form::open(array('url' => '/role_picker', 'method' => 'post', 'name' => 'frm_signup')) !!}
                 
                 <div class="mot-hang" id="firstname-frm">
                     <input type="text" class="input-ben-trong cachnhau"  name="name" placeholder="First name"/>
@@ -359,6 +359,7 @@
                                 $("#khung-chua-sign-up-remind").find(".button-action-signup").text("Sign up");
                                 giaTriTong = 0;    
                             }else{
+
                                 $("form[name='frm_signup']").submit();
                             }
                         },error:function(){ 
@@ -391,6 +392,7 @@
                     
                     
                 }
+
                 
             }
             

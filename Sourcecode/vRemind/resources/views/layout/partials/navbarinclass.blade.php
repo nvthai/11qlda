@@ -283,19 +283,26 @@ function TatKhungChuaShareRemind()
 {
 	$("#khung-chua-share-remiknd").css("display","none");
 }
+var aTimeOut;
 $("#navigation-left-main-id").hover(function(){
-	$(this).animate({
-		width:"18%"
-	},360);
-	$("#mot-hang-chua-icon").css("width","100%");
-	$("#khung-chua-icon-bottom").find(".khung-chua-icon-more").fadeIn();
-	$("#khung-chua-icon-bottom").find(".khung-chua-more").css("display","none");
-	$("#khung-chua-icon-bottom").css({
-		"opacity":"1",
-		"top":"65%"
-	});
-	$(this).find(".selected").css("background-color","rgb(42,60,93)");
+		aTimeOut = setTimeout(function(){
+
+		$("#navigation-left-main-id").animate({
+			width:"18%",
+		},360);
+		$("#mot-hang-chua-icon").css("width","100%");
+		$("#khung-chua-icon-bottom").find(".khung-chua-icon-more").fadeIn();
+		$("#khung-chua-icon-bottom").find(".khung-chua-more").css("display","none");
+		$("#khung-chua-icon-bottom").css({
+			"opacity":"1",
+			"top":"65%"
+		});
+		$(this).find(".selected").css("background-color","rgb(42,60,93)");
+
+		},1000);
+
 },function(){
+	clearTimeout(aTimeOut);
 	$(this).animate({
 		width:"6%"
 		
