@@ -27,6 +27,10 @@ class ClassesController extends Controller
     	$classes = ClassUser::where('user_id', Auth::user()->id)
 							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
 
+		if (is_null($classes))
+		{
+			return view ('classes.nothing');
+		}
 
 
     	if (Session::has('sesClassId'))
@@ -46,9 +50,15 @@ class ClassesController extends Controller
 								->join('users', 'users.id', '=', 'class_users.user_id')
 								->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
 	    	// gán session
-			Session::put('sesClassId', $ClassId);
+			if (is_null($ClassId))					
+			{
+				return view('classes.nothing');
+			}
     	}								
-    	
+
+
+    	Session::put('sesClassId', $ClassId);
+
     	$id = Session::get('sesClassId')->class_id;
     	
     	
@@ -245,7 +255,8 @@ class ClassesController extends Controller
 
     	// class 
     	$classes = ClassUser::where('user_id', Auth::user()->id)
-    							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
+    						->where('is_owner', true)	
+							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
 
     	$idn = Session::get('sesClassId')->class_id;
     	
@@ -259,8 +270,10 @@ class ClassesController extends Controller
     	if ($id != null)
     	{
     		// chọn lớp tương ứng id
-    		$ClassId = ClassUser::where('class_id', Auth::user()->id)
-    							->orwhere('class_id', $id)
+
+    		// thay đổi class_id thành user_id
+    		$ClassId = ClassUser::where('class_id', $id)
+    							->where('is_owner', true)	
     							->join('classes', 'classes.id', '=', 'class_users.class_id')
     							->join('users', 'users.id', '=', 'class_users.user_id')
     							->first();
@@ -269,18 +282,75 @@ class ClassesController extends Controller
     	{
     		// nếu không tìm được id thì gán mặc định là first 
     		$ClassId = ClassUser::where('user_id', Auth::user()->id)
+    							->where('is_owner', true)	
     							->join('classes', 'classes.id', '=', 'class_users.class_id')
 								->join('users', 'users.id', '=', 'class_users.user_id')
     							->first();
+
+    		// Nếu không tìm được lớp					
+			Session::put('sesClassId', $ClassId);
     	}
 
     	// gán session						
     	Session::put('sesClassId', $ClassId);
+
+
+
+	$ClassId = Session::get('sesClassId')->class_id;
+
+    	// Tìm tất cả người tham gia lớp
+    	$Participants = ClassUser::where('class_id',  $ClassId)
+    							->where('is_owner', false)->get();
+
+
+    	// Remove người tham gia
+
+    	//return redirect('classes/' . $ClassId);
+
+
+
+
         return view('classes.home')
-        ->with('classes', $classes)->with('notifications', $notifications);
+        ->with('classes', $classes)
+        ->with('notifications', $notifications)
+        ->with('participants', $Participants);
+    }
+
+
+    public function joinClass()
+    {
+    	$strClassCode = Input::get('classCode');
+
+    	$strclassId = Classes::where('class_code', $strClassCode)
+    	->orwhere('is_public', true)
+    	->value(id);
+    	if(is_null($strclassId))
+    	{
+    		//Dua thong bao ra khong tim thay lop
+    		return view('classes.home');
+    	}
+    	else
+    	{
+    		//Them vao lop class_users: class_id, user_id, is_owner
+    		//Tim is_owner 
+    			$class_users = ClassUser::create(
+				[
+					'class_id'				=> $strclassId,
+					'user_id'				=> Auth::user()->id,
+					'is_owner'				=> false,
+					'participant_can_reply' => false,
+					'message_under_13'		=> false,
+				]);
+    		
+              //return view('classes.home');
+    		//return redirect('classes');
+    			  return redirect()->action('ClassesController@index');
+    	}
+
     }
     public function themMotUserMoi(Request $request)
     {
+
 
     	$du_lieu_tu_input = $request->all();
     	$userNew = new User;
@@ -298,5 +368,98 @@ class ClassesController extends Controller
     public function opensetting()
     {
     	return view("classes.setting")->with("pageReturn","setting");
+
+    	$du_lieu_tu_input = $request->all();
+        
+    	User::create([
+            'name' => $du_lieu_tu_input['firstname'],
+            'email' => $du_lieu_tu_input['email'],
+            'password' => bcrypt($du_lieu_tu_input['pass']),
+        ]);
+        return Redirect::to("join/role_picker"); 
+    }
+
+
+
+
+    // --- 09-12-2015
+    // --- LH ---
+    // Xóa lớp và đuổi người tham gia
+
+        // Xóa lớp hiện hành
+	public function deleteClass()
+    {
+
+    	$class_id = Session::get('sesClassId')->class_id;
+
+    	// Remove tất cả thành viên	
+		$Participants = ClassUser::where('class_id',  $class_id)
+								 ->get();
+
+		if (is_null($Participants))
+		{
+			return view('class.home');
+		}
+		else
+		{
+			// Remove tất cả mọi người ra lớp
+			$Participants = ClassUser::where('class_id',  $class_id)
+								 ->delete();
+
+
+			// Xóa lớp					 
+			$classes = Classes::where('id', $class_id)->delete();				 
+
+			// tìm lớp khác trên tài khoản					 
+			$other_class = ClassUser::where('user_id', Auth::user()->id)
+									->join('users', 'users.id', '=', 'class_users.user_id')
+									->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
+
+									
+	    	if (is_null($other_class))
+	    	{
+	    		// Không tìm thấy
+	    		return view('classes.nothing');
+	    	}
+	    	else
+	    	{
+	    		// tìm thấy
+
+	    		// gán lại session
+	    		Session::put('sesClassId', $other_class);
+
+	    		$id = Session::get('sesClassId')->class_id;        
+        		return redirect('classes/' . $id);		
+	    	}
+    	}
+    }
+
+
+    ///
+    /// Đuổi tất cả người tham dự ra khỏi lớp
+
+    // 09-12-2015
+    // --- LH ---
+    public function removeParticipant()
+    {
+    	$ClassId = Session::get('sesClassId')->class_id;
+    	// Tìm tất cả người tham gia lớp
+    	$Participants = ClassUser::where('class_id',  $ClassId)
+    							->where('is_owner', false)->get();
+
+
+    	// Remove người tham gia
+    	if (is_null($Participants))
+    	{
+    		return redirect('classes/' . $ClassId);	
+    		
+    	}
+    	else
+    	{
+    		ClassUser::where('class_id',  $ClassId)
+					 ->where('is_owner', false)->delete();
+    		return redirect('classes/' . $ClassId);
+    	}						
+
     }
 }

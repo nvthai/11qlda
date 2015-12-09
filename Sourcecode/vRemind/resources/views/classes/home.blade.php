@@ -18,7 +18,7 @@
             </span>
             <span class="mot-hang-chu-description">
                @
-               {{Session::get('sesClassId')->email}}
+               {{Session::get('sesClassId')->class_code}}
             </span>
         </div>
         <div class="button-setting icon-an-noi-dung" data-target="#editClassModal" data-toggle="modal" onclick="MoTrangAddClass()" aria-haspopup="true">
@@ -48,43 +48,45 @@
                 </div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="content" rows="3" placeholder="Type your annoucement to Class {!!Session::get('sesClassId')->class_name!!}"></textarea>
+                <textarea class="form-control" name="content" rows="3" placeholder="Type your annoucement to {!!Session::get('sesClassId')->class_name!!}"></textarea>
               </div>
-              <div class="form-group">
-                <input type="file" name="file">
+              <div class="btn-group" role="group" aria-label="...">
+                <input type="file" name="file" class="btn btn-default">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="datetime-local" name="bdaytime">
+                <input type="datetime-local" name="bdaytime" class="btn btn-default" style="width: 200px;">
               </div>
               <button  type="submit" class="btn btn-primary">Send</button>            
             </form>
             
     <!--Can chinh sua giao dien o day-->
-        <div class="group-list">
+        
           
-            @foreach($notifications as $noti)
+            @foreach($notifications as $noti)                        
               @if($noti->class_id == Session::get('sesClassId')->class_id)
-                <div>
+              <div class = "panel panel-default" style="margin-top: 20px;">
+                <div style="padding-left: 15px; padding-top: 15px;">
                   <?php 
                     $sender = vRemind\User::find($noti->sender_id); 
                     $name = $sender->name;
                   ?>
                 <b> {{$name}}</b>
                 </div>
-                <div>
+                <div style="padding-left: 15px;">
                   {{$noti->created_at}}
                 </div>
-                <div>
+                <div class = "panel-body">
                   {{$noti->content}}
                 </div>
                 @if($noti->file != null)
-                <div>
+                <div class = "panel-body">
                   <img src="{!! $noti->file !!}"   style="width:304px;height:228px;">
                 </div>
+
                 @endif
-               @endif
+              </div>
+               @endif          
             @endforeach
           
-          </div>
 
 
 
