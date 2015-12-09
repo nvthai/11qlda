@@ -42,7 +42,7 @@ class MessagesController extends Controller
         // $threads = Thread::forUser($currentUserId)->latest('updated_at')->get();
         // All threads that user is participating in, with new messages
         // $threads = Thread::forUserWithNewMessages($currentUserId)->latest('updated_at')->get();
-        return view('messenger.index', compact('threads', 'currentUserId'));
+        return view('messenger.index', compact('threads', 'currentUserId'))->with("pageReturn","chat") ;
     }
     /**
      * Shows a message thread

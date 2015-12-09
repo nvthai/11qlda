@@ -389,16 +389,15 @@ body{
 
 
 .button-add{
-    float: right;
-    position: relative;
-    padding: 4px 12px;
+    float: left;
+    padding: 0px 10px 0px 10px;
     border-radius: 50%;
     background-color: white;
     color: #3373b8;
     font-size: 22px;
     border: 1px solid #3373b8;
     font-weight: normal;
-    margin-right: 10px;
+    margin: 0px 10px 0px 49px;
     cursor: pointer;
 }
 .button-add:hover{
@@ -422,13 +421,13 @@ body{
 }
 .menu-class-child img
 {
-    float:left;
-    height:45px;
-    margin:0px 15px 0px 27px;
+    float: left;
+    height: 35px;
+    margin: 0px 15px 0px 47px;
 }
 .menu-class-child font{
     float:left;
-    padding-top:16px;
+    padding-top:10px;
 }
 .menu-class-child:hover{
     background-color:#F7F7F7;
@@ -564,56 +563,60 @@ body{
 }
 
 .button-add-student-parent-left{
-    float:left;
-    padding:15px 25px 15px 25px;
-    border-right:1px solid #309457;
-    
+    float: left;
+    height: 46px;
+    padding: 0px 15px 0px 15px;
+    line-height: 46px;
+    background-color: #4a89dc;
+    color: white;
+    border-right: 1px solid #929292;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 500;
 }
 .button-add-student-parent-left:hover{
-    color:white;
-    background-color: #309457;
+     background-color: #2F71C7;
 }
 
 .button-add-student-parent{
-    float:left;
-    color:#309457;
-    cursor:pointer;
-    border:1px solid #309457;
-    border-radius:7px;
-    margin-left:5px;
+    float: left;
+    cursor: pointer;
+    border: 1px solid #668BBB;
+    border-radius: 7px;
+    margin-left: 5px;
     
 }
 
 .button-add-student-parent-right{
-    float:left;
-    padding:15px 25px 15px 25px; 
-    background-image:url("../img/iconDonwn.png");
+    float: left;
+    padding: 15px 25px 15px 25px;
+    background-image: url("../img/iconDonwn.png");
     background-repeat: no-repeat;
-    background-size: 75px;
-    background-position: 8px 13px;
-    height: 18px;
+    background-size: 65px;
+    background-position: -25px 13px;
+    background-color: #4a89dc;
+    height: 46px;
     
 }
 .button-add-student-parent-right:hover{
-    background-color: #309457;
-    background-position:-33px 12px;
+    background-color: #2F71C7;
 }
 .mot-hang-chu-title{
     float: left;
     width: 100%;
-    overflow:hidden;
-    font-size: 25px;
-    margin-top: 5px;
-    cursor:pointer;
+    font-family: sans-serif;
+    overflow: hidden;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
 }
 .mot-hang-chu-title:hover{
     color:#3373b8;
 }
 .mot-hang-chu-description{
-    float:left;
-    width:100%;
-    margin-top:4px;
-    color:gray;
+    float: left;
+    width: 100%;
+    color: gray;
 }
 
 .button-setting{
@@ -630,7 +633,7 @@ body{
     background-size: 22px;
 }
 .button-setting:hover{
-    background-color:#FAFAF9;
+    background-color:rgb(238,238,238);
 }
 .icon-an-noi-dung{
     position:relative;

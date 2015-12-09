@@ -40,13 +40,13 @@
 	        <tbody>
 	          <tr>
 	            {{-- LEFT SIDEBAR --}}
-	            <td class="col-lg-3 col-md-3 left-sidebar" style="padding:30px 0px 0px 5%;overflow:scroll;">
+	            <td class="col-lg-3 col-md-3 left-sidebar" style="padding:30px 0px 0px 5%;overflow:hidden;width:28%;">
 	                <div class="scroll-area" style="overflow:initial;">
 	                     @yield('left-sidebar')
 	                </div>
 	            </td>
-	            <td class="col-lg-10 col-md-10 col-sm-8" style="width: 60%;padding: 30px 3% 0px 3%;">
-	                <div class="row scroll-area" style="overflow:initial;">
+	            <td class="col-lg-10 col-md-10 col-sm-8" >
+	                <div class="row scroll-area" style="    padding: 30px 0px 0px 22px;">
 	                    {{-- CENTER PANEL --}}
 	                    <div class="col-md-8">
 	                        {{-- <div class="panel panel-default"> --}}

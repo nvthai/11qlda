@@ -25,7 +25,7 @@
 				@endif
 				@if(!Request::is('auth/register'))
 					<li>
-					<a href="{{ url('/auth/register') }}" class="button-signup1" style="text-decoration:none; float:right;margin-right:20px;padding-top:10px;font-weight:100;">
+					<a href="{{ url('/?sign-up=true') }}" class="button-signup1" style="text-decoration:none; float:right;margin-right:20px;padding-top:10px;font-weight:100;">
                 		Sign up
             		</a>
             		</li>
