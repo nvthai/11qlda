@@ -8,7 +8,7 @@
   };
 </script>
 <div class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document" style="width:450px;">
     <div class="modal-content" >
       <div class="modal-header" style="border-bottom:none;">
         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"
@@ -222,7 +222,7 @@ margin:10px 10% 10px 10%;
 }
 </style>
 <!-- Edit Icon Modal Add class-->
-<div class="modal fade" id="editIconModal" tabindex="-1" role="dialog" aria-labelledby="editIconModalLabel">
+<div class="modal fade" style="background-color:rgba(0, 0, 0, 0.89);" id="editIconModal" tabindex="-1" role="dialog" aria-labelledby="editIconModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

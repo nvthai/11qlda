@@ -1,4 +1,4 @@
-<nav class="groups-nav" style="padding:0px;">
+<nav class="groups-nav" style="padding:0px;font-family: cursive; font-size:13px;" >
 	@if (Auth::user()->role == 'teacher')
 		<section class="groups-nav-section">
 			{{-- <div class="group-header input-group">
@@ -18,11 +18,11 @@
                 <!--21/11/15-->
                 <!--LH-->
                 <!--Hien thi class-->
-                    <li class="menu-class-child">
-                        <div class="button-add" data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" onclick="MoTrangAddClass()">
+                    <li class="menu-class-child" data-toggle="modal" data-target="#addClassModal" aria-haspopup="true">
+                        <div class="button-add" >
                             +
                         </div>
-                         <span style="float:left;padding-top:8px;">
+                         <span style="float:left;padding-top:8px;color: #3373b8;;">
                         Add a Class
                         </span>
                     </li>
@@ -61,11 +61,11 @@
                 </span>
             </div>
             <ul class="menu-class">
-                <li class="menu-class-child">
-                    <div class="button-add" data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" onclick="MoTrangJoinClass()">
+                <li class="menu-class-child" data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true">
+                    <div class="button-add" >
                      +
                     </div>
-                    <span style="float:left;padding-top:8px;">
+                    <span style="float:left;padding-top:8px;color: #3373b8;">
                         Join a Class
                     </span>
 

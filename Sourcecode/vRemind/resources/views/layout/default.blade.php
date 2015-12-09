@@ -40,7 +40,7 @@
 	        <tbody>
 	          <tr>
 	            {{-- LEFT SIDEBAR --}}
-	            <td class="col-lg-3 col-md-3 left-sidebar" style="padding:30px 0px 0px 5%;overflow:hidden;">
+	            <td class="col-lg-3 col-md-3 left-sidebar" style="padding:30px 0px 0px 5%;overflow:hidden;width:28%;">
 	                <div class="scroll-area" style="overflow:initial;">
 	                     @yield('left-sidebar')
 	                </div>

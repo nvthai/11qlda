@@ -1,18 +1,34 @@
+<style>
+	#id-content-search-chat
+	{
+	    background-image: url('../resources/assets/img/iconChat.png');
+	    background-repeat: no-repeat;
+	    background-size: 70px;
+	    padding-left: 30px;
+	    background-position: -39px 7px;
+	    border: 1px solid #DADADA;
+	    border-radius: 5px;
+	}
+	.padding-form-search-chat{
+		padding:0px;
+	}
+</style>
 <nav class="groups-nav">
 	<section class="groups-nav-section">
 		<div class="group-header input-group">
-			{!! Form::open(array('route' => 'messages', 'class'=>'form navbar-form navbar-left searchform')) !!}
+			{!! Form::open(array('route' => 'messages', 'class'=>'form navbar-form navbar-left searchform padding-form-search-chat')) !!}
 			    {!! Form::text('search', null, array('required',
-			                                'class'=>'form-control',
-			                                'placeholder'=>'Search')) !!}
+			                                'class'=>'form-control input-ben-trong',
+			                                'placeholder'=>'Search','id'=>'id-content-search-chat')) !!}
 			    {{-- {!! Form::submit('Search', array('class'=>'btn btn-default')) !!} --}}
 			{!! Form::close() !!}
-			<span class="input-group-btn">
-				<a onclick="createMessage()" class="btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-			</span>
+			
 		</div>
 
-		<div class="group-list">			
+		<div class="group-list">
+			<span class="input-group-btn">
+				<a onclick="createMessage()" class="btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+			</span>			
 			@if (Session::has('error_message'))
                 <div class="alert alert-danger" role="alert">
                     {!! Session::get('error_message') !!}
