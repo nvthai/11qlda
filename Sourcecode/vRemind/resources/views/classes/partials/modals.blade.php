@@ -66,13 +66,13 @@
         </div>
         
         <div class="mot-hang">
-            <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check"/>
+            <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" checked value="1" />
              <span style="float:left;margin:7px 0px 0px 10px;">
                  Participants can reply to your messages.
              </span>
          </div>
         <div class="mot-hang">
-             <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check"/>
+             <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" checked value="1"/>
              <span style="float:left;margin:7px 0px 0px 10px;">
                  I will only message people 13 or older
              </span>
@@ -166,20 +166,40 @@
         <br>
         </div>
         
+
+        <!--Participant checkbox-->
+        <!--LH 10/12/2015-->
         <div class="mot-hang">
-            <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check"/>
+        @if (Session::get('sesClassId')->participant_can_reply == 1)
+          <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" checked value="1" />
+        @else
+          <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" value="1"/>
+        @endif
              <span style="float:left;margin:7px 0px 0px 10px;">
                  Participants can reply to your messages
              </span>
          </div>
+         <!--Public checkbox-->
+        <!--LH 10/12/2015-->
          <div class="mot-hang">
-            <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check"/>
+         @if (Session::get('sesClassId')->is_public == 1)
+            <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" checked value="1"/>
+         @else
+            <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" value="1"/>
+         @endif
              <span style="float:left;margin:7px 0px 0px 10px;">
                  Anyone from school can find this classes
              </span>
          </div>
+         <!--message_under_13 checkbox-->
+        <!--LH 10/12/2015-->
         <div class="mot-hang">
-             <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check"/>
+        @if (Session::get('sesClassId')->message_under_13 == 1)
+          <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" checked value="1"/>
+        @else
+          <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" value="1"/>
+        @endif
+             
              <span style="float:left;margin:7px 0px 0px 10px;">
                  I will only message people 13 or older
              </span>

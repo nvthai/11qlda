@@ -159,7 +159,7 @@ class ClassesController extends Controller
 	{
 
 		// khai báo biến 
-		$Public = false;
+		$Public = true;
 		$Reply = false;
 		$Message = false;
 		$Icon = '';
