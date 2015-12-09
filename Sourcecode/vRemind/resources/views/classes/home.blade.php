@@ -53,7 +53,7 @@
               <div class="btn-group" role="group" aria-label="...">
                 <input type="file" name="file" class="btn btn-default">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="datetime-local" name="bdaytime" class="btn btn-default">
+                <input type="datetime-local" name="bdaytime" class="btn btn-default" style="width: 200px;">
               </div>
               <button  type="submit" class="btn btn-primary">Send</button>            
             </form>
