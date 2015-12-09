@@ -37,7 +37,7 @@
                             </div>
                             <div class="mot-hang">
                                 
-                                <input  type="email" name="email" value="{{ old('email') }}" class="input-ben-trong"/>
+                                <input  type="text" name="email" value="{{ old('email') }}" placeholder="Email address" class="input-ben-trong"/>
                            
                             </div>
                             <div class="mot-hang">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="mot-hang">
                                     
-                               		<input type="password" class="input-ben-trong" name="password">
+                               		<input type="passworld" class="input-ben-trong" placeholder="Password" name="password">
                             </div>
                             <div class="mot-hang" style="margin:20px 0px 20px 0px;">
                                 <input name="remember" style="margin: 0px 12px 12px 4%;" type="checkbox" class="input-ben-trong-check" />

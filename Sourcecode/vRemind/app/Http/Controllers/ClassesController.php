@@ -350,33 +350,53 @@ class ClassesController extends Controller
     }
     public function themMotUserMoi(Request $request)
     {
+    	if(Session::has("secIdUser"))
+    	{
+    		$userSec = User::find(Session::get("secIdUser"));
+    		if((!empty($userSec)) && ($userSec->role != ""))
+    		{
+    			return view('auth.rolepicker')->with("idUser",$userSec->id);
+    		}else{
+    			return redirect("/classes");
+    		}
 
+    	}else{
+    		if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    			$du_lieu_tu_input = $request->all();
+		    	$userNew = new User;
+		    	$userNew->name = $du_lieu_tu_input["name"];
+		    	$userNew->last_name = $du_lieu_tu_input["lasttname"];
+		    	$userNew->email = $du_lieu_tu_input["email"];
+		    	$userNew->password = bcrypt($du_lieu_tu_input["pass"]);
+		    	
+				$userNew->save();
+				if(!empty($userNew))
+				{
+					Session::put("secIdUser",$userNew->id);
+					Auth::login($userNew);
+				}
 
-    	$du_lieu_tu_input = $request->all();
-    	$userNew = new User;
-    	$userNew->name = $du_lieu_tu_input["name"];
-    	$userNew->last_name = $du_lieu_tu_input["lasttname"];
-    	$userNew->email = $du_lieu_tu_input["email"];
-    	$userNew->password = bcrypt($du_lieu_tu_input["pass"]);
+		    	return view('auth.rolepicker')->with("idUser",$userNew->id);
+    		}else{
+    			return redirect("/");
+    		}
+    	}
+
     	
-		$userNew->save();
-	
-
-    	return view('auth.rolepicker')->with("idUser",$userNew->id);
     }
    
     public function opensetting()
     {
     	return view("classes.setting")->with("pageReturn","setting");
 
-    	$du_lieu_tu_input = $request->all();
+    	/*$du_lieu_tu_input = $request->all();
         
     	User::create([
             'name' => $du_lieu_tu_input['firstname'],
             'email' => $du_lieu_tu_input['email'],
             'password' => bcrypt($du_lieu_tu_input['pass']),
         ]);
-        return Redirect::to("join/role_picker"); 
+        return Redirect::to("join/role_picker"); */
     }
 
 

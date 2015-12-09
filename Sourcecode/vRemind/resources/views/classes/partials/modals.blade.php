@@ -262,7 +262,7 @@ margin:10px 10% 10px 10%;
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_tech.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_tech.png')" />
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_theatre.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_theatre.png')" />
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_rocket.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
-                  <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_track.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_track.png')" />
+                  
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_writing.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_writing.png')" />
                   
                

@@ -78,10 +78,8 @@ Route::get('/settings',['before' => 'auth','uses' => 'ClassesController@opensett
 
 //09-12-15
 
-Route::post('/role_picker', 'ClassesController@themMotUserMoi' );
+Route::any('/role_picker', 'ClassesController@themMotUserMoi' );
 Route::post('/addRole',"ClassesController@saveRole");
 Route::post('/','HomeController@dangky');
 
-Route::post('join/role_picker', ['as' => 'addusers', 'uses' => 'ClassesController@addUser']);
 
-Route::post('/','HomeController@dangky');
