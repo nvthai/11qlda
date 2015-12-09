@@ -426,3 +426,122 @@ margin:10px 10% 10px 10%;
         });
 });
 </script>
+
+<!--29/11/15-->
+<!--THUAN-->
+<!--Form thông tin member-->
+{{-- Member Infomation Modal --}}
+<div class="modal fade" id="MemberInfoModal" tabindex="-1" role="dialog" aria-labelledby="MemberInfoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        
+      </div>
+      {{-- $idClass = Session::get('sesClassId')->class_id --}}
+      
+      
+      <div class="modal-body">    
+        <div class="mot-hang">
+            <div class="mot-hang-30">
+                <img alt="image-main" style="float:left;margin-right:15px;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/>
+                <div class="mot-hang-70">
+                  <span class="mot-hang-chu-title">
+                    {{Session::get('sesClassId')->class_name}}
+                  </span>
+                  <div class="mot-hang chat-title">
+                    <span class="mot-hang-chu-description">
+                      @if(count($members)>0) {{count($members)}} PARTICIPANTS
+                      @else 0 PARTICIPANTS
+                      @endif
+                    </span>
+                    <div class="button-search-chat">
+            
+                    </div>
+                  </div>
+
+                  <div class="group-list">
+                    <ul class="menu-class">
+                      <!--29/11/15-->
+                      <!--THUAN-->
+                      <!--Hien thi member-->
+                      @foreach ($members as $member)
+                      
+                        
+                        <li class="menu-class-child">
+                          <font>
+
+                              {{ $member->name }}
+                          </font>
+                        </li>        
+                      
+                      @endforeach
+                      
+                        <div class="button-add-student-parent-left"  onclick="MoFormAddParents()">
+                          
+                          Add students and parents
+                        </div>
+                      
+                    </ul>
+                
+                  </div>
+
+
+                </div>
+            </div>
+            <div class="mot-hang-70">
+                <form>
+                    <span class="mot-hang">
+                      {{Session::get('sesClassId')->name}}
+                      {{Session::get('sesClassId')->email}}
+                      <button  >...</button>
+                       
+                    </span>
+                    
+                </form>
+
+                <div class="mot-hang chat-title">
+                  Details
+                  
+                </div>
+                  No details about this person.
+                <div class="mot-hang chat-title">
+                  Classes joined
+                </div>
+                <div class="group-list">
+                  <ul class="menu-class">
+                    <!--21/11/15-->
+                    <!--LH-->
+                    <!--Hien thi class-->
+                    @foreach ($classes as $class)
+                    <a href="/classes/{{$class->id}}" name="classid" id="classid"> 
+                     <li class="menu-class-child">
+                        <img alt="avatarclass"  src="../{!! $class->icon !!}"/>
+                        <font>
+                            {{ $class->class_name }}
+                        </font>
+                    </li>        
+                    </a>
+                        
+                    @endforeach
+                  </ul>
+                
+                </div>
+
+              </div>
+
+              
+            </div>
+            <div class="group-list">
+              <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/remove') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <button class='btn btn-danger btn-xs' type="submit" name="remove_parts_levels" value="delete"><span class="fa fa-times"></span> Remove all participant</button>         
+              </form>
+            </div>
+        </div>
+        {!! Form::close() !!}
+    </div>
+  </div>
+</div>
+
