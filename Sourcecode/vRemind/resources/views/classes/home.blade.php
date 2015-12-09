@@ -10,8 +10,8 @@
 
 @section('content')
       
-    <div class="mot-hang">
-        <img alt="image-main" style="float:left;margin-right:15px;" src="{!! Session::get('sesClassId')->icon !!}" height="65px"/>
+    <div class="mot-hang" style="font-family: cursive; font-size:13px; width:97%;margin-left:3%;">
+        <img alt="image-main" style="float:left;margin-right:10px;" src="{!! Session::get('sesClassId')->icon !!}" height="50px"/>
         <div class="mot-hang-70">
             <span class="mot-hang-chu-title">
                 {{Session::get('sesClassId')->class_name}}

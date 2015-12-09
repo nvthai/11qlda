@@ -13,7 +13,7 @@ use Response;
 use Session;
 use vRemind\Notification;
 use vRemind\User;
-
+use Redirect;
 class ClassesController extends Controller
 {
     /**
@@ -263,5 +263,18 @@ class ClassesController extends Controller
     	Session::put('sesClassId', $ClassId);
         return view('classes.home')
         ->with('classes', $classes)->with('notifications', $notifications);
+    }
+
+    public function addUser()
+    {
+    	$du_lieu_tu_input = $request->all();
+        
+    	User::create([
+            'name' => $du_lieu_tu_input['firstname'],
+            'email' => $du_lieu_tu_input['email'],
+            'password' => bcrypt($du_lieu_tu_input['pass']),
+        ]);
+        return Redirect::to("join/role_picker"); 
+
     }
 }
