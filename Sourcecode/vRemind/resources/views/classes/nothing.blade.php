@@ -5,8 +5,7 @@
 @section('left-sidebar')
     @include('classes.partials.leftsidebarnothing')
 @endsection
-@section('content')
-      
+@section('content')      
     <div class="mot-hang" style="font-family: cursive; font-size:13px; width:97%;margin-left:3%;">
         <div class="mot-hang-70">
             <span class="mot-hang-chu-title">
@@ -21,12 +20,12 @@
                         Add a Class
                 </span>
                 or 
-                <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#" aria-haspopup="true" >
+                <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
                         Join a class
                 </span>
                 to start using Remind.
             </div>
                
 
-@include('classes.partials.modals')	
+@include('classes.partials.modalsnothing')	
 @endsection
