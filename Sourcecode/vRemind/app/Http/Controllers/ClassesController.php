@@ -27,6 +27,10 @@ class ClassesController extends Controller
     	$classes = ClassUser::where('user_id', Auth::user()->id)
 							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
 
+		if (is_null($classes))
+		{
+			return view ('classes.nothing');
+		}
 
 
     	if (Session::has('sesClassId'))
@@ -44,8 +48,13 @@ class ClassesController extends Controller
 								->join('users', 'users.id', '=', 'class_users.user_id')
 								->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
 	    	// gán session
-			Session::put('sesClassId', $ClassId);
+			if (is_null($ClassId))					
+			{
+				return view('classes.nothing');
+			}
     	}								
+
+    	Session::put('sesClassId', $ClassId);
 
     	$id = Session::get('sesClassId')->class_id;
         //return view('classes.home')
@@ -261,6 +270,9 @@ class ClassesController extends Controller
     							->join('classes', 'classes.id', '=', 'class_users.class_id')
 								->join('users', 'users.id', '=', 'class_users.user_id')
     							->first();
+
+    		// Nếu không tìm được lớp					
+			Session::put('sesClassId', $ClassId);
     	}
 
     	// gán session						
@@ -269,6 +281,7 @@ class ClassesController extends Controller
 
 
 	$ClassId = Session::get('sesClassId')->class_id;
+
     	// Tìm tất cả người tham gia lớp
     	$Participants = ClassUser::where('class_id',  $ClassId)
     							->where('is_owner', false)->get();
@@ -367,10 +380,12 @@ class ClassesController extends Controller
 			$other_class = ClassUser::where('user_id', Auth::user()->id)
 									->join('users', 'users.id', '=', 'class_users.user_id')
 									->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
+
+									
 	    	if (is_null($other_class))
 	    	{
 	    		// Không tìm thấy
-	    		return view('class.nothing');
+	    		return view('classes.nothing');
 	    	}
 	    	else
 	    	{
