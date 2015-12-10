@@ -62,20 +62,17 @@ Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::post('/', ['as' => 'classes', 'uses' => 'ClassesController@addClass']);
     Route::put('/{id}', ['as' => 'classes.update', 'uses' => 'ClassesController@updateClass']);
     Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@send_annoucement']);
-<<<<<<< HEAD
 
 
     //join
     //Nam 
     Route::post('/joinclass',['as' => 'classes/joinclass', 'uses' => 'ClassesController@joinClass']);
-=======
     Route::post('/delete',['as' => 'classes.delete', 'uses' => 'ClassesController@deleteClass']);
     Route::post('/remove',['as' => 'classes.remove', 'uses' => 'ClassesController@removeParticipant']);
 
     //join
     //Nam 
     Route::post('/joinClass',['as' => 'classes.joinclass', 'uses' => 'ClassesController@joinClass']);
->>>>>>> origin/develop
 });
 
 
@@ -93,7 +90,3 @@ Route::any('/role_picker', 'ClassesController@themMotUserMoi' );
 Route::post('/addRole',"ClassesController@saveRole");
 Route::post('/','HomeController@dangky');
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/develop

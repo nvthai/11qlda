@@ -476,7 +476,6 @@ margin:10px 10% 10px 10%;
     </div>
   </div>
 </div>
-=======
 <!-- Confirm remove participant class modal-->
 <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
   <div class="modal-dialog" role="document" style="width:450px;">
@@ -671,4 +670,3 @@ margin:10px 10% 10px 10%;
   </div>
 </div>
 
->>>>>>> origin/develop

@@ -397,15 +397,8 @@ class ClassesController extends Controller
     		}
     	}
 
-<<<<<<< HEAD
-
-    public function addUser()
-=======
-    	
-    }
-   
+   }
     public function opensetting()
->>>>>>> origin/develop
     {
     	return view("classes.setting")->with("pageReturn","setting");
 
@@ -502,8 +495,4 @@ class ClassesController extends Controller
     	}						
 
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/develop
 }
