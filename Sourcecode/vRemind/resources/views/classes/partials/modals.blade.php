@@ -107,17 +107,56 @@
   };
 </script>
 <div class="modal fade" id="editClassModal" tabindex="-1" role="dialog" aria-labelledby="editClassModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="helpModalLabel">Class settings</h4>
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" style="float:left; width:480px;">
+      <div class="modal-header" style="border-bottom:none;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"
+        style="position:absolute;left:95%;top:-20px;color:white;">
+        X
+        </button>
+        <h4 class="modal-title" id="helpModalLabel" style="    text-align: center;
+    color: gray;
+    font-size: 19px;
+    margin: 12px 0px 15px 0px;">Class settings</h4>
+
+      <style>
+        .tab-setting-class10
+        {
+          color:#3373b8;
+          border-bottom: 4px solid #3373b8;;
+        }
+        #khungg-chua-setting{
+          width:80%;
+          margin:0px 10% 20px 10%;
+        }
+        #khungg-chua-owner{
+          width:80%;
+          margin:0px 10% 20px 10%;
+        }
+      </style>
+
+
+      <div class="mot-hang" id="tab-setting-class-id" style="    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 25px;">
+        <div class="mot-hang-50 tab-setting-class10" style="width:35%; padding-bottom:10px;
+        text-align:center;margin-left:15%;cursor:pointer;">
+          Information
+        </div>
+        <div class="mot-hang-50" style="width:35%;text-align:center; padding-bottom:10px;
+        margin-right:15%;cursor:pointer;">
+          Owner
+        </div>
+      </div>
       </div>
       {{-- $idClass = Session::get('sesClassId')->class_id --}}
       
       {!! Form::open(array('url' =>  @$idClass, 'method' => 'put', 'id'=>'updateClassForm')) !!}
-      <div class="modal-body">    
-        <div class="mot-hang">
+      
+      
+
+         
+        <div class="mot-hang" id="khungg-chua-setting" >
+          <div class="mot-hang">
             <div class="mot-hang-30">
                 <img alt="image-random" width="90px" id="image-randomIdUpdate" src="{!! Session::get('sesClassId')->icon !!}"/>
                 <!--LH-->
@@ -162,72 +201,106 @@
                 </form>
             </div>
         </div>
-        <div class="mot-hang"> 
-        <br>
-        </div>
+        
         
 
         <!--Participant checkbox-->
         <!--LH 10/12/2015-->
-        <div class="mot-hang">
-        @if (Session::get('sesClassId')->participant_can_reply == 1)
-          <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" checked value="1" />
-        @else
-          <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" value="1"/>
-        @endif
-             <span style="float:left;margin:7px 0px 0px 10px;">
-                 Participants can reply to your messages
-             </span>
-         </div>
-         <!--Public checkbox-->
-        <!--LH 10/12/2015-->
-         <div class="mot-hang">
-         @if (Session::get('sesClassId')->is_public == 1)
-            <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" checked value="1"/>
-         @else
-            <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" value="1"/>
-         @endif
-             <span style="float:left;margin:7px 0px 0px 10px;">
-                 Anyone from school can find this classes
-             </span>
-         </div>
-         <!--message_under_13 checkbox-->
-        <!--LH 10/12/2015-->
-        <div class="mot-hang">
-        @if (Session::get('sesClassId')->message_under_13 == 1)
-          <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" checked value="1"/>
-        @else
-          <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" value="1"/>
-        @endif
-             
-             <span style="float:left;margin:7px 0px 0px 10px;">
-                 I will only message people 13 or older
-             </span>
-             <span style="float:left;width:87%;margin-left:12%;
-                   font-size:11px; color:gray;">
-                 It's okay if students are under 13. We’ll ask for a parent's email 
-                 address to keep everyone in the loop.
-             </span>
+        <div class="mot-hang" style="padding: 20px 0px 20px 0px;
+               border-top: 1px solid #E0E0E0; border-bottom: 1px solid #E0E0E0;
+              font-size: 13px; font-family: cursive; margin-top: 15px;">
+        
+            <div class="mot-hang">
+            @if (Session::get('sesClassId')->participant_can_reply == 1)
+              <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" checked value="1" />
+            @else
+              <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" value="1"/>
+            @endif
+                 <span style="float:left;margin:7px 0px 0px 10px;">
+                     Participants can reply to your messages
+                 </span>
+             </div>
+             <!--Public checkbox-->
+            <!--LH 10/12/2015-->
+             <div class="mot-hang">
+             @if (Session::get('sesClassId')->is_public == 1)
+                <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" checked value="1"/>
+             @else
+                <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" value="1"/>
+             @endif
+                 <span style="float:left;margin:7px 0px 0px 10px;">
+                     Anyone from school can find this classes
+                 </span>
+             </div>
+             <!--message_under_13 checkbox-->
+            <!--LH 10/12/2015-->
+            <div class="mot-hang">
+            @if (Session::get('sesClassId')->message_under_13 == 1)
+              <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" checked value="1"/>
+            @else
+              <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" value="1"/>
+            @endif
+                 
+                 <span style="float:left;margin:7px 0px 0px 10px;">
+                     I will only message people 13 or older
+                 </span>
+                 <span style="float:left;width:87%;margin-left:12%;
+                       font-size:11px; color:gray;">
+                     It's okay if students are under 13. We’ll ask for a parent's email 
+                     address to keep everyone in the loop.
+                 </span>
+            </div>
         </div>
-
-        <div class="modal-footer">
+       
+        <div class="mot-hang" style="margin-top:20px;">
+          <div class="mot-hang-50">
+            <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/delete') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button class='btn btn-danger btn-xs' style="    color: #d9534f;
+                    background-color: white; padding: 10px 18px; font-size: 14px;
+                    font-weight: bold;" type="submit" name="remove_levels" value="delete"><span class="fa fa-times"></span> Delete class</button>         
+            </form>
+          </div>
+          <div class="mot-hang-50">
+            <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/remove') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button class='btn btn-danger btn-xs' type="submit" name="remove_parts_levels" value="delete"><span class="fa fa-times"></span> Remove all participant</button>         
+            </form>
+          </div>
+          
         </div>
-       <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/remove') }}">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <button class='btn btn-danger btn-xs' type="submit" name="remove_parts_levels" value="delete"><span class="fa fa-times"></span> Remove all participant</button>         
-      </form>
-      <br>
-       <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/delete') }}">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <button class='btn btn-danger btn-xs' type="submit" name="remove_levels" value="delete"><span class="fa fa-times"></span> Delete class</button>         
-      </form>
-      <br>
-      </div>
+       
+        </div>
+        <div class="mot-hang" id="khungg-chua-owner" style="display:none;">
+          <div class="mot-hang" style="color:#4a89dc;">
+            <?php 
+              echo Auth::user()->name ." ". Auth::user()->lastname;
+            ?>
+          </div>
+        </div>
+      
     </div>
 {!! Form::close() !!}
   </div>
 </div>
+<script>
+$("#tab-setting-class-id").find(".mot-hang-50").click(function(){
+  $("#tab-setting-class-id").find(".mot-hang-50").removeClass("tab-setting-class10");
+  $(this).addClass("tab-setting-class10");
 
+  if($("#khungg-chua-owner").css("display") == "none")
+  {
+    $("#khungg-chua-owner").css("display","block");
+    $("#khungg-chua-setting").css("display","none");
+    
+  }else{
+    $("#khungg-chua-setting").css("display","block");
+    $("#khungg-chua-owner").css("display","none");
+  }
+  
+
+});
+</script>
 
 <style>
 .noi-chua-image-edit
@@ -298,7 +371,7 @@ margin:10px 10% 10px 10%;
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        <button type="button" style="display:none;" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="editIconModalLabel" style="text-align:center;padding: 20px 0px 17px 0px;">Select a class icon</h4>
       </div>
         <div class="mot-hang" style="background-color:white;margin-top:-4px;border-top:1px solid #e5e5e5;">

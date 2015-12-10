@@ -21,7 +21,7 @@
                {{Session::get('sesClassId')->class_code}}
             </span>
         </div>
-        <div class="button-setting icon-an-noi-dung" data-target="#editClassModal" data-toggle="modal" onclick="MoTrangAddClass()" aria-haspopup="true">
+        <div class="button-setting icon-an-noi-dung" data-target="#editClassModal" data-toggle="modal" aria-haspopup="true">
             <div class="noidung-icon" style="left:-32px;">
                 Class settings
             </div>
