@@ -417,7 +417,7 @@ margin:10px 10% 10px 10%;
 <div class="modal fade" id="joinClassModal" tabindex="-1" role="dialog" aria-labelledby="joinClassModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      {!! Form::open(array('url' => 'classes', 'method' => 'post', 'id'=>'joinClassForm')) !!}
+      {!! Form::open(array('url' => 'classes/joinclass', 'method' => 'post', 'id'=>'joinClassForm')) !!}
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="joinClassModalLabel">Join a class</h4>
@@ -436,14 +436,47 @@ margin:10px 10% 10px 10%;
           </div>
           <button type="submit" class="btn btn-primary">Join</button>
         </form>
-        <a class="btn btn-link">Search for your class instead</a>
+        <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#SearchForClassInsteadModal" aria-haspopup="true" onclick="MoFormSearch()">
+                    <a class="btn btn-link">Search for your class instead</a>
+                </span>
+       
       </div>
        {!! Form::close() !!}
     </div>
   </div>
 </div>
 
+<!-- Search for class instead-->
+<div class="modal fade" id="SearchForClassInsteadModal" tabindex="-1" role="dialog" aria-labelledby="searchClassModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {!! Form::open(array('url' => 'classes', 'method' => 'post', 'id'=>'searchClassInsteadForm')) !!}
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="SearchForClassInsteadModalLabel">Search for class instead</h4>
+      </div>
+      <div class="modal-body">
+        <span>
+            Enter class name
+        </span>
+        <form class="form-inline">
+          <div class="form-group">
+            <label class="sr-only" for="prefixClassCode">@</label>
+            <div class="input-group">
+              <div class="input-group-addon">@</div>
+              <input type="text" class="form-control" id="className" placeholder="Enter class name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Join</button>
+        </form>
+          {!! Form::close() !!}
+      </div>
 
+<<<<<<< HEAD
+    </div>
+  </div>
+</div>
+=======
 <!-- Confirm remove participant class modal-->
 <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
   <div class="modal-dialog" role="document" style="width:450px;">
@@ -638,3 +671,4 @@ margin:10px 10% 10px 10%;
   </div>
 </div>
 
+>>>>>>> origin/develop
