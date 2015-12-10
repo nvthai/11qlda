@@ -13,11 +13,32 @@
         
     </div>
     
+    <!--29/11/15-->
+    <!--THUAN-->
+    <!--Hien thi member-->
     <div class="mot-hang chat-title">
-        3 PARTICIPANTS
+        @if(count($members)>0) {{count($members)}} PARTICIPANTS
+        @else 0 PARTICIPANTS
+        @endif
         <div class="button-search-chat">
             
         </div>
+    </div>
+    
+    <div class="group-list">
+        <ul class="menu-class">
+            @foreach ($members as $member)
+                <a href="javascript:MoTrangMemberInfo();" data-toggle="modal" data-target="#MemberInfoModal">
+                <li class="menu-class-child">
+                    
+                    <font>
+                        {{ $member->name }}
+                    </font>
+                </li>        
+            </a>
+            @endforeach
+        </ul>
+                
     </div>
 
 <style>

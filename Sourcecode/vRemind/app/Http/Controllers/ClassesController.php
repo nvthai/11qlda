@@ -60,6 +60,14 @@ class ClassesController extends Controller
     	Session::put('sesClassId', $ClassId);
 
     	$id = Session::get('sesClassId')->class_id;
+
+    	$members  = ClassUser::where('class_id', $id)
+//    							->join('classes', 'classes.id', '=', 'class_users.class_id')
+    							->join('users', 'users.id', '=', 'class_users.user_id')
+    							
+    							->get();
+
+    	$count = $members->count();
     	
     	
         //return view('classes.home')
@@ -151,7 +159,7 @@ class ClassesController extends Controller
 	{
 
 		// khai báo biến 
-		$Public = false;
+		$Public = true;
 		$Reply = false;
 		$Message = false;
 		$Icon = '';
@@ -277,6 +285,15 @@ class ClassesController extends Controller
     							->join('classes', 'classes.id', '=', 'class_users.class_id')
     							->join('users', 'users.id', '=', 'class_users.user_id')
     							->first();
+
+    		$members  = ClassUser::where('class_id', $id)
+//    							->join('classes', 'classes.id', '=', 'class_users.class_id')
+	   							->join('users', 'users.id', '=', 'class_users.user_id')
+    							
+    							->get();
+
+    							$count = $members->count();
+
     	}
     	else
     	{
@@ -289,6 +306,9 @@ class ClassesController extends Controller
 
     		// Nếu không tìm được lớp					
 			Session::put('sesClassId', $ClassId);
+
+			$members  = null;
+    		$count = $members->count();
     	}
 
     	// gán session						
@@ -313,7 +333,8 @@ class ClassesController extends Controller
         return view('classes.home')
         ->with('classes', $classes)
         ->with('notifications', $notifications)
-        ->with('participants', $Participants);
+        ->with('participants', $Participants)
+        ->with('members', $members);
     }
 
 
