@@ -17,7 +17,7 @@ Route::filter('auth', function()
         return Redirect::to('auth/login');
     }
     elseif (Auth::user()->role == null) {
-        return Redirect::to('join/role_picker');
+        return Redirect::to('/role_picker');
     }
 });
 
@@ -29,8 +29,8 @@ Route::controllers([
 ]);
 
 // // Chose role routes...
-Route::get('join/role_picker', 'ClassesController@rolePicker');
-Route::post('join/{role?}',['as' => 'role.selected', 'uses' => 'ClassesController@saveRole']);
+
+//Route::post('join/{role?}',['as' => 'role.selected', 'uses' => 'ClassesController@saveRole']);
 
 Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
@@ -73,12 +73,13 @@ Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
 
 
 //Setting
-Route::get('/settings',function(){
-    return view("classes.setting")->with("pageReturn","setting");
-});
+Route::get('/settings',['before' => 'auth','uses' => 'ClassesController@opensetting']);
 
 
 //09-12-15
-Route::post('join/role_picker', ['as' => 'addusers', 'uses' => 'ClassesController@addUser']);
 
+Route::any('/role_picker', 'ClassesController@themMotUserMoi' );
+Route::post('/addRole',"ClassesController@saveRole");
 Route::post('/','HomeController@dangky');
+
+

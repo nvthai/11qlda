@@ -35,11 +35,13 @@ class ClassesController extends Controller
 
     	if (Session::has('sesClassId'))
     	{
-    		    		// nếu không tìm được id thì gán mặc định là first 
+    		// nếu không tìm được id thì gán mặc định là first 
     		$ClassId = ClassUser::where('user_id', Auth::user()->id)
     							->orwhere('class_id', Session::get('sesClassId')->class_id)
     							->join('users', 'users.id', '=', 'class_users.user_id')
-    							->join('classes', 'classes.id', '=', 'class_users.class_id')->first();	
+    							->join('classes', 'classes.id', '=', 'class_users.class_id')->first();
+    		// gán session
+			Session::put('sesClassId', $ClassId);	
     	}
     	else
     	{
@@ -54,9 +56,20 @@ class ClassesController extends Controller
 			}
     	}								
 
+
     	Session::put('sesClassId', $ClassId);
 
     	$id = Session::get('sesClassId')->class_id;
+
+    	$members  = ClassUser::where('class_id', $id)
+//    							->join('classes', 'classes.id', '=', 'class_users.class_id')
+    							->join('users', 'users.id', '=', 'class_users.user_id')
+    							
+    							->get();
+
+    	$count = $members->count();
+    	
+    	
         //return view('classes.home')
         //->with('classes', $classes);
         return redirect('classes/' . $id);
@@ -64,16 +77,24 @@ class ClassesController extends Controller
 
     public function rolePicker()
     {
-        return view('auth.rolepicker');
+    	if(Session::has('userTraVe'))
+    	{
+    		return view('auth.rolepicker')->with("userIdTraVe",Session::get('userTraVe'));	
+    	}else{
+    		return redirect('/');	
+    	}
+        
     }
 
-    public function saveRole()
+    public function saveRole(Request $request)
     {
-    	$user = User::find(Auth::id());
-    	$user->role = Input::get('role');
+    	$du_lieu_tu_input = $request->all();
+    	$user = User::find($du_lieu_tu_input["iduser"]);
+    	//$user = User::find(Auth::id());
+    	$user->role = $du_lieu_tu_input["roleofuser"] ;
 
-    	if ($user->save())
-    		return redirect('classes');	
+    	$user->save();
+    	return redirect('classes');	
     }
 
     public function upload()
@@ -99,8 +120,8 @@ class ClassesController extends Controller
 
 	public function download()
     {
-    	$pathToFile = 'C:\Users\Mr Harrroooo\Documents\GitHub\QLDA\11qlda\Sourcecode\vRemind\uploads\YNadThL2Nj7y.jpg';
-        return response()->download($pathToFile);
+    	$pathToFile = '‪D:\github\11qlda\Documents\DacTaKiemThu.doc';
+        //return response()->download($pathToFile);
 	}
 
 	public function send_annoucement(Request $request)
@@ -138,7 +159,7 @@ class ClassesController extends Controller
 	{
 
 		// khai báo biến 
-		$Public = false;
+		$Public = true;
 		$Reply = false;
 		$Message = false;
 		$Icon = '';
@@ -246,6 +267,9 @@ class ClassesController extends Controller
 							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
 
     	$idn = Session::get('sesClassId')->class_id;
+    	
+    	
+    	
     	$notifications = Notification::where('sender_id', Auth::user()->id)
     									->orwhere('class_id', $idn)->orderBy('id','desc')->get();
     							
@@ -261,6 +285,15 @@ class ClassesController extends Controller
     							->join('classes', 'classes.id', '=', 'class_users.class_id')
     							->join('users', 'users.id', '=', 'class_users.user_id')
     							->first();
+
+    		$members  = ClassUser::where('class_id', $id)
+//    							->join('classes', 'classes.id', '=', 'class_users.class_id')
+	   							->join('users', 'users.id', '=', 'class_users.user_id')
+    							
+    							->get();
+
+    							$count = $members->count();
+
     	}
     	else
     	{
@@ -273,6 +306,9 @@ class ClassesController extends Controller
 
     		// Nếu không tìm được lớp					
 			Session::put('sesClassId', $ClassId);
+
+			$members  = null;
+    		$count = $members->count();
     	}
 
     	// gán session						
@@ -297,7 +333,8 @@ class ClassesController extends Controller
         return view('classes.home')
         ->with('classes', $classes)
         ->with('notifications', $notifications)
-        ->with('participants', $Participants);
+        ->with('participants', $Participants)
+        ->with('members', $members);
     }
 
 
@@ -332,17 +369,55 @@ class ClassesController extends Controller
     	}
 
     }
-
-    public function addUser()
+    public function themMotUserMoi(Request $request)
     {
-    	$du_lieu_tu_input = $request->all();
+    	if(Session::has("secIdUser"))
+    	{
+    		$userSec = User::find(Session::get("secIdUser"));
+    		if((!empty($userSec)) && ($userSec->role != ""))
+    		{
+    			return view('auth.rolepicker')->with("idUser",$userSec->id);
+    		}else{
+    			return redirect("/classes");
+    		}
+
+    	}else{
+    		if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    			$du_lieu_tu_input = $request->all();
+		    	$userNew = new User;
+		    	$userNew->name = $du_lieu_tu_input["name"];
+		    	$userNew->last_name = $du_lieu_tu_input["lasttname"];
+		    	$userNew->email = $du_lieu_tu_input["email"];
+		    	$userNew->password = bcrypt($du_lieu_tu_input["pass"]);
+		    	
+				$userNew->save();
+				if(!empty($userNew))
+				{
+					Session::put("secIdUser",$userNew->id);
+					Auth::login($userNew);
+				}
+
+		    	return view('auth.rolepicker')->with("idUser",$userNew->id);
+    		}else{
+    			return redirect("/");
+    		}
+    	}
+
+    	
+    }
+   
+    public function opensetting()
+    {
+    	return view("classes.setting")->with("pageReturn","setting");
+
+    	/*$du_lieu_tu_input = $request->all();
         
     	User::create([
             'name' => $du_lieu_tu_input['firstname'],
             'email' => $du_lieu_tu_input['email'],
             'password' => bcrypt($du_lieu_tu_input['pass']),
         ]);
-        return Redirect::to("join/role_picker"); 
+        return Redirect::to("join/role_picker"); */
     }
 
 
@@ -426,5 +501,6 @@ class ClassesController extends Controller
 					 ->where('is_owner', false)->delete();
     		return redirect('classes/' . $ClassId);
     	}						
+
     }
 }

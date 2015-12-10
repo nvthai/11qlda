@@ -105,7 +105,7 @@
 				</li>
 				</a>
 
-				<a href="{{ url('/auth/logout') }}">
+				<a href="{{ url('/auth/logout') }}" style="text-decoration:none;">
 				<li style="background-position: 7px -30px;">
 					Log out
 				</li>
@@ -187,10 +187,43 @@
 								    font-size: 12px;
 								    color: gray;
 								    cursor:pointer;
+								    
 	                    	}
 	                    	.khung-help-them:hover{
 	                    			color:#4a89dc;
 	                    	}
+	                    	.khung-chua-hinh-help{
+	                    		float: left;
+							    width: 40%;
+							    height: 50%;
+							    margin: 0px 30% 8px 30%;
+							    overflow: hidden;
+							    background-image: url("../resources/assets/img/help-icona.png");
+							    background-repeat: no-repeat;
+							    background-size: 170px;
+   
+	                    	}
+	                    	.khung-1:hover{
+	                    		background-position: -79px 7px !important;
+	                    	}
+	                    	.khung-2:hover{
+	                    		background-position: -79px -50px !important;
+	                    	}
+	                    	.khung-3:hover{
+	                    		background-position: -79px -110px !important;
+	                    	}
+	                    	.khung-4:hover{
+	                    		background-position: -79px -186px !important;
+	                    	}
+
+	                    	#search-for-help{
+	                    		background-image: url('../resources/assets/img/iconChat.png');
+							    background-repeat: no-repeat;
+							    background-size: 70px;
+							    padding-left: 30px;
+							    background-position: -35px 7px;
+	                    	}
+	                    	
 	                    	</style>
 	                    	<div class="khung-text-share-remind">
 	                    		<?php 
@@ -236,23 +269,39 @@
                     </div>
                     
                     <div class="mot-hang" style="margin-top:20px;">
-	                    <input type="text" class="input-ben-trong" style="    margin-left: 0px;
-    		float: left;width: 97%; font-size: 15px;padding: 11px;" 
+	                    <input type="text" class="input-ben-trong" id="search-for-help" style="    margin-left: 0px;
+    		float: left;width: 97%; font-size: 15px;padding: 11px 0px 11px 35px;" 
     				name="content-help" placeholder='Search our FAQs using keywords like "attach"'/>
                     </div>
                     <div class="mot-hang" style="margin-top:17px;">
                     	
                     		<div class="mot-hang-50 khung-help-them">
+                    			<span class="khung-chua-hinh-help khung-1" style="background-position: 29px 7px;">
+                    			</span>
+                    			<font>
 		                     	Freequently asked questions
+		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">
+		                     <span class="khung-chua-hinh-help khung-2" style="background-position: 29px -50px;">
+                    			</span>
+                    			<font>
 		                     	Resources
+		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">
+		                     <span class="khung-chua-hinh-help khung-3" style="background-position: 29px -115px;">
+                    			</span>
+                    			<font>
 		                     	Tutorial videos
+		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">
+		                     <span class="khung-chua-hinh-help khung-4" style="background-position: 29px -186px;">
+                    			</span>
+                    			<font>
 		                     	Email Remind
+		                     	</font>
 		                     </div>
                     	
                     </div>
@@ -266,6 +315,8 @@
 
 
 <script>
+
+
 function MoKhungChuaHelp()
 {
 	$("#khung-chua-help").css("display","block");
@@ -283,19 +334,26 @@ function TatKhungChuaShareRemind()
 {
 	$("#khung-chua-share-remiknd").css("display","none");
 }
+var aTimeOut;
 $("#navigation-left-main-id").hover(function(){
-	$(this).animate({
-		width:"18%"
-	},360);
-	$("#mot-hang-chua-icon").css("width","100%");
-	$("#khung-chua-icon-bottom").find(".khung-chua-icon-more").fadeIn();
-	$("#khung-chua-icon-bottom").find(".khung-chua-more").css("display","none");
-	$("#khung-chua-icon-bottom").css({
-		"opacity":"1",
-		"top":"65%"
-	});
-	$(this).find(".selected").css("background-color","rgb(42,60,93)");
+		aTimeOut = setTimeout(function(){
+
+		$("#navigation-left-main-id").animate({
+			width:"18%",
+		},360);
+		$("#mot-hang-chua-icon").css("width","100%");
+		$("#khung-chua-icon-bottom").find(".khung-chua-icon-more").fadeIn();
+		$("#khung-chua-icon-bottom").find(".khung-chua-more").css("display","none");
+		$("#khung-chua-icon-bottom").css({
+			"opacity":"1",
+			"top":"65%"
+		});
+		$(this).find(".selected").css("background-color","rgb(42,60,93)");
+
+		},800);
+
 },function(){
+	clearTimeout(aTimeOut);
 	$(this).animate({
 		width:"6%"
 		
