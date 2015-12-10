@@ -174,7 +174,6 @@ class ClassesController extends Controller
 		//return view('classes.home')
         //->with('demoView', $strClassName);
         return redirect('classes');
-
 	}
 
 	// --- LH ---
@@ -230,7 +229,6 @@ class ClassesController extends Controller
 
 	public function show($id)
     {
-
     	// class 
     	$classes = ClassUser::where('user_id', Auth::user()->id)
     							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
@@ -238,7 +236,6 @@ class ClassesController extends Controller
     	$idn = Session::get('sesClassId')->class_id;
     	$notifications = Notification::where('sender_id', Auth::user()->id)
     									->orwhere('class_id', $idn)->orderBy('id','desc')->get();
-    							
 
     	//$PresentClass = 
     	if ($id != null)
@@ -265,40 +262,37 @@ class ClassesController extends Controller
         ->with('classes', $classes)->with('notifications', $notifications);
     }
 
-<<<<<<< HEAD
+
     public function joinClass()
     {
     	$strClassCode = Input::get('classCode');
-
-    	$strclassId = Classes::where('class_code', $strClassCode)
+    	$classes = Classes::where('class_code', $strClassCode)
     	->orwhere('is_public', true)
-    	->value(id);
-    	if(is_null($strclassId))
-    	{
-    		//Dua thong bao ra khong tim thay lop
-    		return view('classes.home');
-    	}
-    	else
+    	->first();
+    	if(is_null($classes->id))
     	{
     		//Them vao lop class_users: class_id, user_id, is_owner
-    		//Tim is_owner 
+    		//Tim is_owner
+    		return view('classes.home'); 
+   		}
+    	else
+    	{
     			$class_users = ClassUser::create(
 				[
-					'class_id'				=> $strclassId,
+					'class_id'				=> $classes->id,
 					'user_id'				=> Auth::user()->id,
 					'is_owner'				=> false,
 					'participant_can_reply' => false,
 					'message_under_13'		=> false,
 				]);
-    		
-              //return view('classes.home');
+   		}
+            //return view('classes.home');
     		//return redirect('classes');
-    			  return redirect()->action('ClassesController@index');
-    	}
-
+    		return redirect()->action('ClassesController@show', [$class_users->class_id]);
+    	
     }
 
-=======
+
     public function addUser()
     {
     	$du_lieu_tu_input = $request->all();
@@ -311,5 +305,5 @@ class ClassesController extends Controller
         return Redirect::to("join/role_picker"); 
 
     }
->>>>>>> origin/develop
+
 }
