@@ -65,4 +65,7 @@ class HomeController extends Controller
         $return["json"] = json_encode($return);
         echo json_encode($return);
     }
+    
+
+
 }

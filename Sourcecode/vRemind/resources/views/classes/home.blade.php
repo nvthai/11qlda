@@ -18,10 +18,10 @@
             </span>
             <span class="mot-hang-chu-description">
                @
-               {{Session::get('sesClassId')->email}}
+               {{Session::get('sesClassId')->class_code}}
             </span>
         </div>
-        <div class="button-setting icon-an-noi-dung" data-target="#editClassModal" data-toggle="modal" onclick="MoTrangAddClass()" aria-haspopup="true">
+        <div class="button-setting icon-an-noi-dung" data-target="#editClassModal" data-toggle="modal" aria-haspopup="true">
             <div class="noidung-icon" style="left:-32px;">
                 Class settings
             </div>
@@ -53,7 +53,7 @@
               <div class="btn-group" role="group" aria-label="...">
                 <input type="file" name="file" class="btn btn-default">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="datetime-local" name="bdaytime" class="btn btn-default">
+                <input type="datetime-local" name="bdaytime" class="btn btn-default" style="width: 200px;">
               </div>
               <button  type="submit" class="btn btn-primary">Send</button>            
             </form>
@@ -86,7 +86,6 @@
               </div>
                @endif          
             @endforeach
-          
           
 
 

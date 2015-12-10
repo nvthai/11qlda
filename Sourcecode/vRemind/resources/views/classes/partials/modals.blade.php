@@ -1,5 +1,8 @@
 {{-- Add Class Modal --}}
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <script>
   function changePicInAdd(hinh) {
       $("#image-randomId").attr("src", hinh);
@@ -7,6 +10,8 @@
       $('#editIconModal').modal('hide');      
   };
 </script>
+
+
 <div class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
   <div class="modal-dialog" role="document" style="width:450px;">
     <div class="modal-content" >
@@ -61,13 +66,13 @@
         </div>
         
         <div class="mot-hang">
-            <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check"/>
+            <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" checked value="1" />
              <span style="float:left;margin:7px 0px 0px 10px;">
                  Participants can reply to your messages.
              </span>
          </div>
         <div class="mot-hang">
-             <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check"/>
+             <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" checked value="1"/>
              <span style="float:left;margin:7px 0px 0px 10px;">
                  I will only message people 13 or older
              </span>
@@ -78,7 +83,7 @@
              </span>
         </div>   
         <div class="modal-footer" style="border-top:none;">
-        {!! Form::submit('Thêm lớp', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Add', ['class' => 'btn btn-primary']) !!}
       </div>       
       </div>
       {!! Form::close() !!}
@@ -102,17 +107,56 @@
   };
 </script>
 <div class="modal fade" id="editClassModal" tabindex="-1" role="dialog" aria-labelledby="editClassModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="helpModalLabel">Class settings</h4>
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" style="float:left; width:480px;">
+      <div class="modal-header" style="border-bottom:none;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"
+        style="position:absolute;left:95%;top:-20px;color:white;">
+        X
+        </button>
+        <h4 class="modal-title" id="helpModalLabel" style="    text-align: center;
+    color: gray;
+    font-size: 19px;
+    margin: 12px 0px 15px 0px;">Class settings</h4>
+
+      <style>
+        .tab-setting-class10
+        {
+          color:#3373b8;
+          border-bottom: 4px solid #3373b8;;
+        }
+        #khungg-chua-setting{
+          width:80%;
+          margin:0px 10% 20px 10%;
+        }
+        #khungg-chua-owner{
+          width:80%;
+          margin:0px 10% 20px 10%;
+        }
+      </style>
+
+
+      <div class="mot-hang" id="tab-setting-class-id" style="    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 25px;">
+        <div class="mot-hang-50 tab-setting-class10" style="width:35%; padding-bottom:10px;
+        text-align:center;margin-left:15%;cursor:pointer;">
+          Information
+        </div>
+        <div class="mot-hang-50" style="width:35%;text-align:center; padding-bottom:10px;
+        margin-right:15%;cursor:pointer;">
+          Owner
+        </div>
+      </div>
       </div>
       {{-- $idClass = Session::get('sesClassId')->class_id --}}
       
       {!! Form::open(array('url' =>  @$idClass, 'method' => 'put', 'id'=>'updateClassForm')) !!}
-      <div class="modal-body">    
-        <div class="mot-hang">
+      
+      
+
+         
+        <div class="mot-hang" id="khungg-chua-setting" >
+          <div class="mot-hang">
             <div class="mot-hang-30">
                 <img alt="image-random" width="90px" id="image-randomIdUpdate" src="{!! Session::get('sesClassId')->icon !!}"/>
                 <!--LH-->
@@ -151,55 +195,112 @@
                     <!--LH-->
                     <!--Chỉnh sửa edit form-->
                     <span class="mot-hang">
-                         {!! Form::submit('Thay đổi', ['class' => 'btn btn-primary']) !!}
+                         {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                     </span>
  
                 </form>
             </div>
         </div>
-        <div class="mot-hang" style="margin-top:15px; 
-              padding-top: 15px; border-top:1px solid rgba(128, 128, 128, 0.42);">
-             
-        </div>
         
-        <div class="mot-hang">
-            <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check"/>
-             <span style="float:left;margin:7px 0px 0px 10px;">
-                 Participants can reply to your messages
-             </span>
-         </div>
-         <div class="mot-hang">
-            <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check"/>
-             <span style="float:left;margin:7px 0px 0px 10px;">
-                 Anyone from school can find this classes
-             </span>
-         </div>
-        <div class="mot-hang">
-             <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check"/>
-             <span style="float:left;margin:7px 0px 0px 10px;">
-                 I will only message people 13 or older
-             </span>
-             <span style="float:left;width:87%;margin-left:12%;
-                   font-size:11px; color:gray;">
-                 It's okay if students are under 13. We’ll ask for a parent's email 
-                 address to keep everyone in the loop.
-             </span>
-        </div>
+        
 
-        <div class="modal-footer">
-          <div class="mot-hang" style="margin-top:15px; 
-                padding-top: 15px; border-top:1px solid rgba(128, 128, 128, 0.42);">
+        <!--Participant checkbox-->
+        <!--LH 10/12/2015-->
+        <div class="mot-hang" style="padding: 20px 0px 20px 0px;
+               border-top: 1px solid #E0E0E0; border-bottom: 1px solid #E0E0E0;
+              font-size: 13px; font-family: cursive; margin-top: 15px;">
+        
+            <div class="mot-hang">
+            @if (Session::get('sesClassId')->participant_can_reply == 1)
+              <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" checked value="1" />
+            @else
+              <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" value="1"/>
+            @endif
+                 <span style="float:left;margin:7px 0px 0px 10px;">
+                     Participants can reply to your messages
+                 </span>
+             </div>
+             <!--Public checkbox-->
+            <!--LH 10/12/2015-->
+             <div class="mot-hang">
+             @if (Session::get('sesClassId')->is_public == 1)
+                <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" checked value="1"/>
+             @else
+                <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" value="1"/>
+             @endif
+                 <span style="float:left;margin:7px 0px 0px 10px;">
+                     Anyone from school can find this classes
+                 </span>
+             </div>
+             <!--message_under_13 checkbox-->
+            <!--LH 10/12/2015-->
+            <div class="mot-hang">
+            @if (Session::get('sesClassId')->message_under_13 == 1)
+              <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" checked value="1"/>
+            @else
+              <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" value="1"/>
+            @endif
+                 
+                 <span style="float:left;margin:7px 0px 0px 10px;">
+                     I will only message people 13 or older
+                 </span>
+                 <span style="float:left;width:87%;margin-left:12%;
+                       font-size:11px; color:gray;">
+                     It's okay if students are under 13. We’ll ask for a parent's email 
+                     address to keep everyone in the loop.
+                 </span>
+            </div>
+        </div>
+       
+        <div class="mot-hang" style="margin-top:20px;">
+          <div class="mot-hang-50">
+            <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/delete') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button class='btn btn-danger btn-xs' style="    color: #d9534f;
+                    background-color: white; padding: 10px 18px; font-size: 14px;
+                    font-weight: bold;" type="submit" name="remove_levels" value="delete"><span class="fa fa-times"></span> Delete class</button>         
+            </form>
+          </div>
+          <div class="mot-hang-50">
+            <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/remove') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button class='btn btn-danger btn-xs' type="submit" name="remove_parts_levels" value="delete"><span class="fa fa-times"></span> Remove all participant</button>         
+            </form>
+          </div>
+          
+        </div>
+       
+        </div>
+        <div class="mot-hang" id="khungg-chua-owner" style="display:none;">
+          <div class="mot-hang" style="color:#4a89dc;">
+            <?php 
+              echo Auth::user()->name ." ". Auth::user()->lastname;
+            ?>
           </div>
         </div>
-      {!! Form::submit('Xóa lớp', ['class' => 'btn btn-danger']) !!}       
-      </div>
-      {!! Form::close() !!}
+      
     </div>
-
-    
+{!! Form::close() !!}
   </div>
 </div>
+<script>
+$("#tab-setting-class-id").find(".mot-hang-50").click(function(){
+  $("#tab-setting-class-id").find(".mot-hang-50").removeClass("tab-setting-class10");
+  $(this).addClass("tab-setting-class10");
 
+  if($("#khungg-chua-owner").css("display") == "none")
+  {
+    $("#khungg-chua-owner").css("display","block");
+    $("#khungg-chua-setting").css("display","none");
+    
+  }else{
+    $("#khungg-chua-setting").css("display","block");
+    $("#khungg-chua-owner").css("display","none");
+  }
+  
+
+});
+</script>
 
 <style>
 .noi-chua-image-edit
@@ -231,8 +332,6 @@ margin:10px 10% 10px 10%;
       </div>
       <div class="mot-hang" style="background-color:white;margin-top:-4px;border-top:1px solid #e5e5e5;">
         <div class="noi-chua-image-edit">
-        
-                  
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_baseball.png" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_baseball.png')" />
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_art.png" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_art.png')" />
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_apple_default.png" onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_apple_default.png')" />
@@ -256,7 +355,7 @@ margin:10px 10% 10px 10%;
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_tech.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_tech.png')" />
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_theatre.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_theatre.png')" />
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_rocket.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
-                  <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_track.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_track.png')" />
+                  
                   <img alt="image-main"  src="../resources/assets/img/classesAvatar/avatar_writing.png"  onclick="changePicInAdd('../resources/assets/img/classesAvatar/avatar_writing.png')" />
                   
                
@@ -268,60 +367,47 @@ margin:10px 10% 10px 10%;
 </div>
 
 <!-- Edit Icon Modal Update Class -->
-<div class="modal fade" id="editIconModalUpdateClass" tabindex="-1" role="dialog" aria-labelledby="editIconModalLabel">
+<div class="modal fade" style="background-color:rgba(0, 0, 0, 0.89);" id="editIconModalUpdateClass" tabindex="-1" role="dialog" aria-labelledby="editIconModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editIconModalLabel">Select a class icon</h4>
+        <button type="button" style="display:none;" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editIconModalLabel" style="text-align:center;padding: 20px 0px 17px 0px;">Select a class icon</h4>
       </div>
-      <div class="modal-body">
-        <div class="mot-hang" style="margin-top:15px; 
-              padding-top: 15px; border-top:1px solid rgba(128, 128, 128, 0.42);">
-             
-        </div>
-        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
-            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_baseball.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_art.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_apple_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_apple_default.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_basketball.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_basketball.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_chemistry.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_chemistry.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_dinosaur.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_dinosaur.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_earthscience.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_earthscience.png')" />           
-        </div>
-        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
-          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_football.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_football.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_geography.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_geography.png')" />
-
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_government.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_government.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_history.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_history.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_literature.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_literature.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_math.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_math.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_music_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_music_default.png')" />
-       </div>
-
-        <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
-          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_physics.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_football.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_piano.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_geography.png')" />
-
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_reading.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_reading.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_rocket.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_science.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_science.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_soccer.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_soccer.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_sports_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_sports_default.png')" />
-       </div>
-       <div class="mot-hang" id="noi-chua-icon-id" style="margin-top:35px;">
-          <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_stats.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_stats.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_tech.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_tech.png')" />
-
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_theatre.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_theatre.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_rocket.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_track.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_track.png')" />
-           <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_writing.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_writing.png')" />
+        <div class="mot-hang" style="background-color:white;margin-top:-4px;border-top:1px solid #e5e5e5;">
+        <div class="noi-chua-image-edit">
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_baseball.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_art.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_art.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_apple_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_apple_default.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_basketball.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_basketball.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_chemistry.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_chemistry.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_dinosaur.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_dinosaur.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_earthscience.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_earthscience.png')" />            
+            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_football.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_football.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_geography.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_geography.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_government.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_government.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_history.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_history.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_literature.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_literature.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_math.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_math.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_music_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_music_default.png')" />
           
+            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_physics.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_football.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_piano.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_geography.png')" />
+
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_reading.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_reading.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_rocket.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_science.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_science.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_soccer.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_soccer.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_sports_default.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_sports_default.png')" />
+            <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_stats.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_stats.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_tech.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_tech.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_theatre.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_theatre.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_rocket.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_rocket.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_track.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_track.png')" />
+             <img alt="image-main" style="float:left;margin-right:15px; cursor:pointer;" src="../resources/assets/img/classesAvatar/avatar_writing.png" height="65px" onclick="changePic('../resources/assets/img/classesAvatar/avatar_writing.png')" />
+          </div>
        </div> 
 
-      </div>
     </div>
   </div>
 </div>
@@ -386,6 +472,203 @@ margin:10px 10% 10px 10%;
           {!! Form::close() !!}
       </div>
 
+<<<<<<< HEAD
     </div>
   </div>
 </div>
+=======
+<!-- Confirm remove participant class modal-->
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
+  <div class="modal-dialog" role="document" style="width:450px;">
+    <div class="modal-content" >
+      <div class="modal-header" style="border-bottom:none;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"
+        style="position:absolute;left:95%;top:-20px;color:white;">
+        X
+        </button>
+        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Are you sure you want to remove all participants?</h4>
+         <span style="float:left;width:87%;margin-left:12%;
+                   font-size:11px; color:gray;">
+                   <h5>Once participants have been removed, they won't receive messages from {{Session::get('sesClassId')->class_name}}</h5>
+             </span>
+        <div class="modal-body">
+          <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+          <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Remove</button>
+        </div>   
+      </div>       
+      </div>
+    </div>
+</div>
+
+
+<script>
+  $('button[name="remove_parts_levels"]').on('click', function(e){
+    var $form=$(this).closest('form');
+    e.preventDefault();
+    $('#confirm').modal({ backdrop: 'static', keyboard: false })
+        .one('click', '#delete', function (e) {
+            $form.trigger('submit');
+        });
+});
+</script>
+
+
+
+<!-- Confirm delete class modal-->
+
+
+
+
+
+<div class="modal fade" id="confirmRemove" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
+  <div class="modal-dialog" role="document" style="width:450px;">
+    <div class="modal-content" >
+      <div class="modal-header" style="border-bottom:none;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"
+        style="position:absolute;left:95%;top:-20px;color:white;">
+        X
+        </button>
+        <h5 class="modal-title" style="text-align:center;" id="helpModalLabel">Delete this class forever?</h5>
+         <span style="float:left;width:87%;margin-left:12%;
+                   font-size:11px; color:gray;">
+                   <h5>All participants will be removed and the class will no longer be accessible.</h5>
+             </span>
+        <div class="modal-body">
+          <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+          <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+        </div>   
+      </div>       
+      </div>
+    </div>
+</div>
+
+<script>
+  $('button[name="remove_levels"]').on('click', function(e){
+    var $form=$(this).closest('form');
+    e.preventDefault();
+    $('#confirmRemove').modal({ backdrop: 'static', keyboard: false })
+        .one('click', '#delete', function (e) {
+            $form.trigger('submit');
+        });
+});
+</script>
+
+<!--29/11/15-->
+<!--THUAN-->
+<!--Form thông tin member-->
+{{-- Member Infomation Modal --}}
+<div class="modal fade" id="MemberInfoModal" tabindex="-1" role="dialog" aria-labelledby="MemberInfoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        
+      </div>
+      {{-- $idClass = Session::get('sesClassId')->class_id --}}
+      
+      
+      <div class="modal-body">    
+        <div class="mot-hang">
+            <div class="mot-hang-30">
+                <img alt="image-main" style="float:left;margin-right:15px;" src="../resources/assets/img/classesAvatar/avatar_baseball.png" height="65px"/>
+                <div class="mot-hang-70">
+                  <span class="mot-hang-chu-title">
+                    {{Session::get('sesClassId')->class_name}}
+                  </span>
+                  <div class="mot-hang chat-title">
+                    <span class="mot-hang-chu-description">
+                      @if(count($members)>0) {{count($members)}} PARTICIPANTS
+                      @else 0 PARTICIPANTS
+                      @endif
+                    </span>
+                    <div class="button-search-chat">
+            
+                    </div>
+                  </div>
+
+                  <div class="group-list">
+                    <ul class="menu-class">
+                      <!--29/11/15-->
+                      <!--THUAN-->
+                      <!--Hien thi member-->
+                      @foreach ($members as $member)
+                      
+                        
+                        <li class="menu-class-child">
+                          <font>
+
+                              {{ $member->name }}
+                          </font>
+                        </li>        
+                      
+                      @endforeach
+                      
+                        <div class="button-add-student-parent-left"  onclick="MoFormAddParents()">
+                          
+                          Add students and parents
+                        </div>
+                      
+                    </ul>
+                
+                  </div>
+
+
+                </div>
+            </div>
+            <div class="mot-hang-70">
+                <form>
+                    <span class="mot-hang">
+                      {{Session::get('sesClassId')->name}}
+                      {{Session::get('sesClassId')->email}}
+                      <button  >...</button>
+                       
+                    </span>
+                    
+                </form>
+
+                <div class="mot-hang chat-title">
+                  Details
+                  
+                </div>
+                  No details about this person.
+                <div class="mot-hang chat-title">
+                  Classes joined
+                </div>
+                <div class="group-list">
+                  <ul class="menu-class">
+                    <!--21/11/15-->
+                    <!--LH-->
+                    <!--Hien thi class-->
+                    @foreach ($classes as $class)
+                    <a href="/classes/{{$class->id}}" name="classid" id="classid"> 
+                     <li class="menu-class-child">
+                        <img alt="avatarclass"  src="../{!! $class->icon !!}"/>
+                        <font>
+                            {{ $class->class_name }}
+                        </font>
+                    </li>        
+                    </a>
+                        
+                    @endforeach
+                  </ul>
+                
+                </div>
+
+              </div>
+
+              
+            </div>
+            <div class="group-list">
+              <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/remove') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <button class='btn btn-danger btn-xs' type="submit" name="remove_parts_levels" value="delete"><span class="fa fa-times"></span> Remove all participant</button>         
+              </form>
+            </div>
+        </div>
+        {!! Form::close() !!}
+    </div>
+  </div>
+</div>
+
+>>>>>>> origin/develop
