@@ -109,13 +109,21 @@
               font-weight: bold;
             }
             .khung-chon-icon-notifi{
-                display:none;
+                  display:none;
                   position: absolute;
-                  left: -65px;
+                  left: -129px;
                   top: 85%;
-                  padding: 20px;
-                  border-radius: 20px;
+                  padding: 11px 11px;
+                  border-radius: 7px;
                   background-color: rgba(0, 0, 0, 0.78);
+            }
+            .icon-noitifi-child{
+                  background-image: url('../resources/assets/img/icon-content-notifi.png');
+                  background-repeat: no-repeat;
+                  width: 34px;
+                  float: left;
+                  height: 30px;
+                  background-size: 200px;
             }
                 
             </style>
@@ -196,7 +204,7 @@
                         ?>
                   </div>
                   <div class="mot-hang-30">
-                    <div class="content-icon-notification" style=
+                    <div class="content-icon-notification" tabindex="1" style=
                         <?php 
                         if($noidungUserChon == "ngoisao")
                         {
@@ -214,16 +222,16 @@
                         {
                           echo '"background-position:0px 0px;"';
                         }
-                        ?> onclick="MoKhungChonIcon({{$noti->class_id}})">
+                        ?> id=<?php echo '"khung-chua-icon-id'.$noti->class_id.'"' ?>>
 
-                        <div class="khung-chon-icon-notifi" id=<?php echo '"khung-chua-icon-id'.$noti->class_id.'"' ?>>
-                          <span class="icon-noitifi-child">
+                        <div class="khung-chon-icon-notifi">
+                          <span class="icon-noitifi-child" onclick="DoiHinhAnh(1,{{$noti->class_id}})" style="background-position: -149px -83px;">
                           </span>
-                          <span class="icon-noitifi-child">
+                          <span class="icon-noitifi-child" onclick="DoiHinhAnh(2,{{$noti->class_id}})" style="background-position: -150px -159px;">
                           </span>
-                          <span class="icon-noitifi-child">
+                          <span class="icon-noitifi-child" onclick="DoiHinhAnh(3,{{$noti->class_id}})" style="background-position: -150px -10px;">
                           </span>
-                          <span class="icon-noitifi-child">
+                          <span class="icon-noitifi-child" onclick="DoiHinhAnh(4,{{$noti->class_id}})" style="background-position: -150px -243px;">
                           </span>
                         </div>
                     </div>
@@ -246,21 +254,44 @@
                @endif          
             @endforeach
           <script>
-            function MoKhungChonIcon(giaTri)
-            {
-              var idKhungChua = "#khung-chua-icon-id" + giaTri;
-              $(idKhungChua).css("display","block");
 
-              setTimeout(function(){
-                $(idKhungChua).css("display","none");
-              },3000);
+            $(".content-icon-notification").focus(function(){
+              
+              $(this).find(".khung-chon-icon-notifi").css("display","block");
+            });
+            $(".content-icon-notification").blur(function(){
+              $(this).find(".khung-chon-icon-notifi").css("display","none");
+            });
 
-            }
             $(".khung-chua-noi-dung-notifi").hover(function(){
               $(this).find(".khung-chua-tweet-sendag").css("display","block");
             },function(){
               $(this).find(".khung-chua-tweet-sendag").css("display","none");
             });
+
+            function DoiHinhAnh(giaTriDoi,idDoi)
+            {
+                var idCanDoi = "#khung-chua-icon-id" + idDoi;
+                if(giaTriDoi == 1)
+                {
+                  $(idCanDoi).css("backgroundPosition","0px -71px");
+                }
+                if(giaTriDoi == 2)
+                {
+                  $(idCanDoi).css("backgroundPosition","0px -148px");
+                }
+                if(giaTriDoi == 3)
+                {
+                  $(idCanDoi).css("backgroundPosition","0px 0px");
+                  
+                }
+                if(giaTriDoi == 4)
+                {
+                  $(idCanDoi).css("backgroundPosition","0px -228px"); 
+                }
+                
+            }
+            
           </script>
 
 

@@ -277,6 +277,16 @@
               echo Auth::user()->name ." ". Auth::user()->lastname;
             ?>
           </div>
+          <div class="mot-hang" style="border-top:1px solid #D4D4D4;margin-top:10px;padding-top:10px;">
+          </div>
+          <div class="button-add" style="margin:10px 10px 0px 0px;">
+            +
+          </div>
+          <span style="float:left;padding-top:15px;color: #3373b8;;">
+            Add class Owner
+          </span>
+
+
         </div>
       
     </div>

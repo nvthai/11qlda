@@ -100,11 +100,12 @@
 .button-login1{
     padding: 18px 220px 18px 220px;
     border: 1px solid white;
-    float: center;
+    float: left;
     color: white;
     margin-bottom: 15px;
     border-radius: 4px;
     margin: auto;
+    cursor:pointer;
 	background-color:#4a89dc;
 }
 .button-login1:hover{

@@ -270,7 +270,7 @@
                     
                     <div class="mot-hang" style="margin-top:20px;">
 	                    <input type="text" class="input-ben-trong" id="search-for-help" style="    margin-left: 0px;
-    		float: left;width: 97%; font-size: 15px;padding: 11px 0px 11px 35px;" 
+    		float: left;width: 100%; font-size: 15px;padding: 11px 0px 11px 40px;" 
     				name="content-help" placeholder='Search our FAQs using keywords like "attach"'/>
                     </div>
                     <div class="mot-hang" style="margin-top:17px;">
@@ -348,9 +348,10 @@ $("#navigation-left-main-id").hover(function(){
 			"opacity":"1",
 			"top":"65%"
 		});
-		$(this).find(".selected").css("background-color","rgb(42,60,93)");
+		
 
 		},800);
+		$(this).find(".selected").css("background-color","rgb(42,60,93)");
 
 },function(){
 	clearTimeout(aTimeOut);
