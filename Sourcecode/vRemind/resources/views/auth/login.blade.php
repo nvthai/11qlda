@@ -1,7 +1,7 @@
 
 @extends('layout.defaultLogin')
 @section('titlePage')
-	Log in
+	Đăng nhập
 @endsection
 @section('content')
 
@@ -11,7 +11,7 @@
             <div class="mot-hang-content" style="text-align:center;height:100%;">
                 <div class="mot-hang" style="    margin-top: 20px;
     font-size: 37px; font-family: sans-serif;color: #4A4A4A;">
-                    Log in
+                    Đăng nhập
                 </div>
                 <div class="mot-hang" style="margin-top:40px;">
                     <div class="mot-hang-70" style="    margin-bottom: 400px;margin-left:15%;background-color:white;
@@ -31,7 +31,7 @@
                         	{!! csrf_field() !!}
                             <div class="mot-hang" style="margin-top:10px;">
                                 <font class="chu-ben-trong">
-                                    Email address
+                                    Địa chỉ Email
                                 </font>
                                 
                             </div>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="mot-hang">
                                 <font class="chu-ben-trong">
-                                    Password
+                                    Mật khẩu
                                 </font>
                                 
                             </div>
@@ -53,7 +53,7 @@
                             <div class="mot-hang" style="margin:20px 0px 20px 0px;">
                                 <input name="remember" style="margin: 0px 12px 12px 4%;" type="checkbox" class="input-ben-trong-check" />
                                 <font style="font-size:16px;color:#3E3E3E;">
-                                    Stay logged in
+                                    Nhớ đăng nhập
                                 </font>
                                 
                                 
@@ -68,7 +68,7 @@
                             </div>
                             <div class="mot-hang">
                                 <button style="width:90%;margin-left:4%;padding:15px 0px 15px 0px;" class="btn btn-primary butonGoogle">
-                                    Log in with Google
+                                    Đăng nhập với Google
                                 </button>
                             </div>
                             <a class="btn btn-link" href="{{ url('/password/email') }}">

@@ -13,17 +13,21 @@
             <span class="mot-hang-chu-description">
             </span>
         </div>      
-        	<h2>GET STARTED!</h2>
+        	<h2>BẮT ĐẦU!</h2>
         <div class="main-area" style="margin-top: 90px;">
             <div>
-            	 <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" >
-                        Add a Class
-                </span>
-                or 
-                <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
-                        Join a class
-                </span>
-                to start using Remind.
+                <div>
+            	    <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" >
+                        Tạo một lớp mới
+                    </span>
+                </div>
+                hoặc
+                <div> 
+                    <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
+                        Tham gia một lớp học
+                    </span>
+                </div>
+                để bắt đầu sử dụng vRemind.
             </div>
                
 

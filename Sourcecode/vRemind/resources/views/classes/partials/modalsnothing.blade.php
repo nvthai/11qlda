@@ -20,7 +20,7 @@
         style="position:absolute;left:95%;top:-20px;color:white;">
         X
         </button>
-        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Add a class</h4>
+        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Tạo một lớp mới</h4>
       </div>
       {!! Form::open(array('url' => 'classes', 'method' => 'post', 'id'=>'addClassForm')) !!}
       <div class="modal-body">
@@ -39,18 +39,18 @@
             <div class="mot-hang-70">
                 <form>
                     <span class="mot-hang">
-                        Class name
+                        Tên lớp
                     </span>
                     <span class="mot-hang" style="margin-bottom:20px;">
                          {!! Form::text('className','',array('id'=>'className','class'=>'form-control span6','placeholder' => 'e.g. Math101', 'required')) !!}
 
                         <span class="mot-hang validator" id="validator-class-name-id">
-                            The name must be at least 3 characters long.
+                            Tên phải có độ dài ít nhất 3 ký tự.
                         </span>
                     </span>
                     
                     <span>
-                        Class code
+                        Mã lớp
                     </span>
                     <div class="input-group">
                       <div class="input-group-addon">@</div>
@@ -68,18 +68,17 @@
         <div class="mot-hang">
             <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check"/>
              <span style="float:left;margin:7px 0px 0px 10px;">
-                 Participants can reply to your messages.
+                 Những người tham gia có thể trả lời tin nhắn của bạn.
              </span>
          </div>
         <div class="mot-hang">
              <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check"/>
              <span style="float:left;margin:7px 0px 0px 10px;">
-                 I will only message people 13 or older
+                 Tôi sẽ chỉ gửi tin những người 13 tuổi trở lên
              </span>
              <span style="float:left;width:87%;margin-left:12%;
                    font-size:11px; color:gray;">
-                 It's okay if students are under 13. We’ll ask for a parent's email 
-                 address to keep everyone in the loop.
+                 Không sao đâu. Nếu học sinh dưới 13 tuổi, chúng tôi sẽ yêu cầu email của phụ huynh để giữ cho tất cả mọi người trong vòng lặp.
              </span>
         </div>   
         <div class="modal-footer" style="border-top:none;">
@@ -121,7 +120,7 @@ margin:10px 10% 10px 10%;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" style="display:none;" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" style="text-align:center;padding: 20px 0px 17px 0px;" id="editIconModalLabel">Select a class icon</h4>
+        <h4 class="modal-title" style="text-align:center;padding: 20px 0px 17px 0px;" id="editIconModalLabel">Chọn một biểu tượng lớp học</h4>
       </div>
       <div class="mot-hang" style="background-color:white;margin-top:-4px;border-top:1px solid #e5e5e5;">
         <div class="noi-chua-image-edit">
@@ -165,7 +164,7 @@ margin:10px 10% 10px 10%;
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editIconModalLabel" style="text-align:center;padding: 20px 0px 17px 0px;">Select a class icon</h4>
+        <h4 class="modal-title" id="editIconModalLabel" style="text-align:center;padding: 20px 0px 17px 0px;">Chọn một biểu tượng lớp học</h4>
       </div>
         <div class="mot-hang" style="background-color:white;margin-top:-4px;border-top:1px solid #e5e5e5;">
         <div class="noi-chua-image-edit">
@@ -214,11 +213,11 @@ margin:10px 10% 10px 10%;
       {!! Form::open(array('url' => 'classes', 'method' => 'post', 'id'=>'joinClassForm')) !!}
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="joinClassModalLabel">Join a class</h4>
+        <h4 class="modal-title" id="joinClassModalLabel">Tham gia một lớp mới</h4>
       </div>
       <div class="modal-body">
         <span>
-            Enter class code
+            Điền mã lớp
         </span>
         <form class="form-inline">
           <div class="form-group">
@@ -230,7 +229,7 @@ margin:10px 10% 10px 10%;
           </div>
           <button type="submit" class="btn btn-primary">Join</button>
         </form>
-        <a class="btn btn-link">Search for your class instead</a>
+        <a class="btn btn-link">Tìm kiếm một lớp thay thế</a>
       </div>
        {!! Form::close() !!}
     </div>

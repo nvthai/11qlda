@@ -23,7 +23,7 @@
         </div>
         <div class="button-setting icon-an-noi-dung" data-target="#editClassModal" data-toggle="modal" aria-haspopup="true">
             <div class="noidung-icon" style="left:-32px;">
-                Class settings
+                Thiết lập Lớp
             </div>
         </div>
         
@@ -32,18 +32,18 @@
                 {{-- You are logged in! --}}
                 {{-- $user = auth(); --}}
                 @if (Auth::user()->hasRole('teacher'))
-                    Teacher                     
+                    Giáo viên                     
                 @elseif (Auth::user()->hasRole('student'))
-                    Student
+                    Học sinh
                 @else
-                    Parent
+                    Phụ huynh
                 @endif
             </div>
                 
             <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/upload') }}">
               <div class="form-group" style="margin-bottom:0px">
                 <div class="input-group">
-                    <span class="input-group-addon">To: </span>
+                    <span class="input-group-addon">Đến: </span>
                     <input type="text" class="form-control" id="toClass" name="toClass" placeholder="{!!Session::get('sesClassId')->class_name!!}" disabled>
                 </div>
               </div>
@@ -55,7 +55,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="datetime-local" name="bdaytime" class="btn btn-default" style="width: 200px;">
               </div>
-              <button  type="submit" class="btn btn-primary">Send</button>            
+              <button  type="submit" class="btn btn-primary">Gửi</button>            
             </form>
             
     

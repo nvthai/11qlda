@@ -87,13 +87,13 @@
 	<a class=<?php if($giaTriTuyenSelected == "class") echo '"mot-hang cach-nhau-hang-navigation selected"'; else echo '"mot-hang cach-nhau-hang-navigation"'; ?>  href="/classes">
 		<img alt="image-classs" src="../resources/assets/img/logo-class.png" />
 		<font style="float:left; margin:7px 0px 0px 15px;">
-			Classer
+			Lớp học
 		</font>
 	</a>
 	<a class=<?php if($giaTriTuyenSelected == "chat") echo '"mot-hang cach-nhau-hang-navigation selected"'; else echo '"mot-hang cach-nhau-hang-navigation"'; ?> href="/messages">
 		<img alt="image-chat" src="../resources/assets/img/logo-chat.png"/>
 		<font style="float:left; margin:7px 0px 0px 15px;">
-			Chat
+			Nhắn tin
 		</font>
 	</a>
 	<div class="mot-hang" style="position:relative;height:58%">
@@ -101,20 +101,20 @@
 			<ul class="khung-chua-icon-more" style="display:none;">
 				<a href="/settings" style="text-decoration:none;" target="_blank">
 				<li style="  background-position: 8px 7px;">
-					Settings
+					Thiết lập
 				</li>
 				</a>
 
 				<a href="{{ url('/auth/logout') }}" style="text-decoration:none;">
 				<li style="background-position: 7px -30px;">
-					Log out
+					Đăng xuất
 				</li>
 				</a>
 				<li style="background-position: 7px -65px;" onclick="MoKhungChuaHelp()">
-					Help
+					Trợ giúp
 				</li>
 				<li style="background-position: 8px -110px;" onclick="moKhungChuaShareRemind()">
-					Share Remind
+					Chia sẻ vRemind
 				</li>
 			</ul>
 			<div class="khung-chua-more">
@@ -141,10 +141,10 @@
                         <img alt="image" width="70px;" src="../resources/assets/img/loveRemind.svg"/>
                     </div>
                     <div class="mot-hang">
-                        Love Remind?
+                        Yêu thích vRemind?
                     </div>
                     <div class="mot-hang" style="font-size:13px; color:gray;">
-                        Spread the word and share us with colleagues </br> at your school.
+                        Chia sẻ với đồng nghiệp khác </br> tại trường của bạn.
                     </div>
                     <div class="mot-hang" style="margin-top:20px;">
 	                    <div class="mot-hang-70">
@@ -233,14 +233,14 @@
 	                    </div>
 	                    <div class="mot-hang-30">
 	                    	<div class="button-coppy-link">
-	                    		Coppy link
+	                    		Sao chép link
 	                    	</div>
 	                    </div>
                     </div>
                     <div class="mot-hang" style="margin-top:17px;">
                     	<div class="button-coppy-link"style="background-color:#4a89dc;color:white;
                     	width:97%;font-weight:bold ;font-size:14px;">
-                    		Share by email
+                    		Chia sẻ bằng email
                     	</div>
                     </div>
                     
@@ -265,7 +265,7 @@
                         <img alt="image" style="margin:0px;" width="70px;" src="../resources/assets/img/gohelp.svg"/>
                     </div>
                     <div class="mot-hang">
-                        We're here to help!
+                        Chúng tôi ở đây để giúp đỡ!
                     </div>
                     
                     <div class="mot-hang" style="margin-top:20px;">
@@ -279,21 +279,21 @@
                     			<span class="khung-chua-hinh-help khung-1" style="background-position: 29px 7px;">
                     			</span>
                     			<font>
-		                     	Freequently asked questions
+		                     	Các câu hỏi thường gặp
 		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">
 		                     <span class="khung-chua-hinh-help khung-2" style="background-position: 29px -50px;">
                     			</span>
                     			<font>
-		                     	Resources
+		                     	Tài nguyên
 		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">
 		                     <span class="khung-chua-hinh-help khung-3" style="background-position: 29px -115px;">
                     			</span>
                     			<font>
-		                     	Tutorial videos
+		                     	Video hướng dẫn
 		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">

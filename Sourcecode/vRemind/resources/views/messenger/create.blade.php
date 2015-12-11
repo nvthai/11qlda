@@ -1,5 +1,5 @@
 
-<h1>Create a new message</h1>
+<h1>Tạo một cuộc trò chuyện mới</h1>
 {!! Form::open(['route' => 'messages.store']) !!}
 {{-- <div class="col-md-6"> --}}    
     @if($users->count() > 0)
