@@ -42,9 +42,11 @@
         @if (Auth::user()->hasRole('teacher'))        
             <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/upload') }}">
               <div class="form-group" style="margin-bottom:0px">
-                <div class="input-group">
-                    <span class="input-group-addon">Đến: </span>
-                    <input type="text" class="form-control" id="toClass" name="toClass" placeholder="{!!Session::get('sesClassId')->class_name!!}" disabled>
+                <div class="input-group" >
+                    <span class="input-group-addon" style="    text-align: left;">Đến:    
+                      <img alt="image-main" src="{!! Session::get('sesClassId')->icon !!}" height="25px"/>
+                      {!!Session::get('sesClassId')->class_name!!}
+                    </span>
                 </div>
               </div>
               <div class="form-group" style="margin:-4px 0px 15px 0px;">
