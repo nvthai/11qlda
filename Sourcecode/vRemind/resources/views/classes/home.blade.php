@@ -39,7 +39,7 @@
                     Phụ huynh
                 @endif
             </div>
-                
+        @if (Auth::user()->hasRole('teacher'))        
             <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/upload') }}">
               <div class="form-group" style="margin-bottom:0px">
                 <div class="input-group">
@@ -48,7 +48,7 @@
                 </div>
               </div>
               <div class="form-group" style="margin:-4px 0px 15px 0px;">
-                <textarea style="padding-top:8px;" class="form-control" name="content" rows="3" placeholder="Type your annoucement to {!!Session::get('sesClassId')->class_name!!}"></textarea>
+                <textarea style="padding-top:8px;" class="form-control" name="content" rows="3" placeholder="Gửi thông báo của bạn đến lớp {!!Session::get('sesClassId')->class_name!!}"></textarea>
               </div>
               <div class="btn-group" role="group" aria-label="...">
                 <input type="file" name="file" class="btn btn-default">
@@ -57,7 +57,7 @@
               </div>
               <button  type="submit" class="btn btn-primary">Gửi</button>            
             </form>
-            
+        @endif    
     
             <style>
             .khung-chua-noi-dung-notifi
@@ -134,6 +134,7 @@
                 $soluongquestion = 3;
                 //ngoisao--check--delete--question
                 $noidungUserChon = "check";
+                $flag = 0;
             ?>
             @foreach($notifications as $noti)                        
               @if($noti->class_id == Session::get('sesClassId')->class_id)
@@ -144,6 +145,7 @@
                       <?php 
                         $sender = vRemind\User::find($noti->sender_id); 
                         $name = $sender->name;
+                        $flag = 1;
                       ?>
                       {{$name}}
                     </div>
@@ -151,14 +153,16 @@
                       {{$noti->created_at}}
                     </div>
                   </div>
+                  @if (Auth::user()->hasRole('teacher')) 
                   <div class="mot-hang-30 khung-chua-tweet-sendag">
                     <span class="mot-hang-50 noi-dung-chua-tweet-send" >
                         Tweet
                     </span>
                     <span class="mot-hang-50 noi-dung-chua-tweet-send" >
-                        Send again
+                        Gửi lại
                     </span>
                   </div>
+                  @endif
                 </div>
 
                 <div class ="mot-hang" style="margin:20px 0px 15px 0px;">
@@ -254,6 +258,16 @@
                @endif          
 
             @endforeach
+            @if($flag == 0)
+            <div class = "mot-hang khung-chua-noi-dung-notifi" style="border: 2px dashed #eee;">
+                    <div class="mot-hang" style="color:#CCCCCC;">
+                      <img src="../resources/assets/img/iconann.png" style="margin-left: auto; margin-right: auto; display: block">
+                    </div>  
+                    <div class="mot-hang" style="color:#CCCCCC; font-size: 16px;  text-align: center; padding-top: 50px; padding-bottom: 100px;">
+                      Thông báo được gửi đến lớp {!!Session::get('sesClassId')->class_name!!} sẽ hiện ở đây.
+                    </div>
+            </div>          
+            @endif
           <script>
 
             $(".content-icon-notification").focus(function(){
