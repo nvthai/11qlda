@@ -164,7 +164,8 @@ class ClassesController extends Controller
 		$Message = false;
 		$Icon = '';
 		$strClassName = Input::get('className');
-		$strClassCode = Input::get('classCode');
+		$strClassCode = Input::get('ClassCodeTextBox');
+
 		if (Input::has('icon-image'))
 		{
 			$Icon = Input::get('icon-image');
