@@ -12,7 +12,7 @@
 	<div class="collapse navbar-collapse" id="navbar" style="padding:14px 0px 10px 0px;">
 		@if (Auth::user() && Auth::user()->role != null)
 			<ul class="nav navbar-nav">
-				<li><a href="{{ url('classes') }}" class="btn nav-left-btn">Classes</a></li>
+				<li><a href="{{ url('classes') }}" class="btn nav-left-btn">Lớp học</a></li>
 			</ul>
 			<ul class="nav navbar-nav">
 				<li><a href="{{ url('messages') }}" class="btn nav-left-btn">Chat @include('messenger.unread-count')</a></li>
@@ -26,7 +26,7 @@
 				@if(!Request::is('auth/register'))
 					<li>
 					<a href="{{ url('/?sign-up=true') }}" class="button-signup1" style="text-decoration:none; float:right;margin-right:20px;padding-top:10px;font-weight:100;">
-                		Sign up
+                		Đăng kí
             		</a>
             		</li>
 				@endif

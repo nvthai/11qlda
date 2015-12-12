@@ -1,3 +1,3 @@
 <!-- resources/views/emails/password.blade.php -->
 
-Click here to reset your password: {{ url('password/reset/'.$token) }}
+Bấm vào đây để đặt lại mật khẩu của bạn: {{ url('password/reset/'.$token) }}

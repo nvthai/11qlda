@@ -400,6 +400,7 @@ class ClassesController extends Controller
    }
     public function opensetting()
     {
+
     	return view("classes.setting")->with("pageReturn","setting");
 
     	/*$du_lieu_tu_input = $request->all();
@@ -412,8 +413,22 @@ class ClassesController extends Controller
         return Redirect::to("join/role_picker"); */
     }
 
-
-
+    public function opennotifica()
+    {
+        return view("classes.notification")->with("pageReturn","notification");
+    }
+    public function openchat()
+    {
+        return view("classes.chat")->with("pageReturn","chatsesting");
+    }
+    public function openwidget()
+    {
+        return view ("classes.widget")->with("pageReturn","widget");
+    }
+    public function openprint()
+    {
+        return view ("classes.print")->with("pageReturn","print");   
+    }
 
     // --- 09-12-2015
     // --- LH ---

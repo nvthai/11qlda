@@ -29,7 +29,7 @@
         <div class="mot-hang-gan-tren" style="padding:10px 0px 10px 0px; background-color:#4a89dc;">
             <img alt="image" src="../resources/assets/img/logo.svg" height="25px" style="margin: 13px 0px 0px 20px;"/>
             <a href="./?sign-up=true" class="button-signup1" style="text-decoration:none; float:right;margin-right:20px;">
-                Sign up
+                Đăng kí
             </a>
         </div>
 
@@ -37,7 +37,7 @@
             <div class="mot-hang-content" style="text-align:center;height:100%;">
                 <div class="mot-hang" style="    margin-top: 125px;
     font-size: 20px; color: #5D5D5D;margin-bottom: 5px;">
-                    Tell us about yourself
+                    Cho chúng tôi biết về bạn
                 </div>
                 
                 <div class="khung-chua-chucvu" style="height:145px;" onclick='submitRole("teacher")'>
@@ -45,7 +45,7 @@
                         <img alt="image" src="../resources/assets/img/teacher.svg"/>
                     </div>
                     <div class="mot-hang" style="text-align:center;margin-top:15px;">
-                        I'm a teacher
+                        Tôi là giáo viên
                         
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                         <img alt="image" src="../resources/assets/img/student.svg"/>
                     </div>
                     <div class="mot-hang" style="text-align:center;margin-top:15px;">
-                        I'm a student
+                        Tôi là học sinh
                         
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <img alt="image" src="../resources/assets/img/parent.svg"/>
                     </div>
                     <div class="mot-hang" style="text-align:center;margin-top:15px;">
-                        I'm a parent
+                        Tôi là phụ huynh
                         
                     </div>
                 </div>

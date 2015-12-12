@@ -81,12 +81,21 @@ Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
 
 
 //Setting
-Route::get('/settings',['before' => 'auth','uses' => 'ClassesController@opensetting']);
+
+Route::group(['prefix' => 'settings', 'before' => 'auth'], function () {
+    Route::get('/', ['as' => 'settings', 'uses' => 'ClassesController@opensetting']);
+    Route::get('/notification', ['as' => 'settings.notifi', 'uses' => 'ClassesController@opennotifica']);
+    Route::get('/chat', ['as' => 'settings.chat', 'uses' => 'ClassesController@openchat']);
+    Route::get('/widget', ['as' => 'settings.widget', 'uses' => 'ClassesController@openwidget']);
+    Route::get('/print', ['as' => 'settings.print', 'uses' => 'ClassesController@openprint']);
+
+});
+
 
 
 //09-12-15
 
-Route::any('/role_picker', 'ClassesController@themMotUserMoi' );
+Route::any('/role_picker', 'ClassesController@themMotUserMoi');
 Route::post('/addRole',"ClassesController@saveRole");
 Route::post('/','HomeController@dangky');
 
