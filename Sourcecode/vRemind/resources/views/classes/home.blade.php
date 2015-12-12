@@ -9,7 +9,49 @@
 @endsection
 
 @section('content')
-      
+    <style>
+      .khung-chua-hien-thi-class-notification{
+        position: relative;
+        float: left;
+        width: 100%;
+        margin: 0px;
+        padding: 10px 0px 10px 0px;
+        border: 1px solid #D0D0D0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      .khung-hien-thi-class-child{
+        list-style: none;
+        left:5%;
+        top:102%;
+        border-radius:5px;
+        background-color:white;
+        padding:0px;
+        width:90%;
+        max-height:400px;
+        overflow-y:scroll;
+        position:absolute;
+        display:none;
+        z-index:15;
+      }
+      .khung-chua-smal-hien-thi-class{
+        padding:5px;
+        border:1px solid #D0D0D0;
+        border-radius: 5px;
+        float:left;
+        margin-right:10px;
+        background-color:#D5D5D5;
+
+      }
+      .khung-chua-smal-hien-thi-class img{
+        width:15px;
+        float:left;
+        padding:2px 2px 0px 0px;
+      }
+      .khung-chua-smal-hien-thi-class font{
+        float:left;
+      }
+    </style>
     <div class="mot-hang" style="font-family: cursive; font-size:13px; width:97%;margin-left:3%;">
         <img alt="image-main" style="float:left;margin-right:10px;" src="{!! Session::get('sesClassId')->icon !!}" height="50px"/>
         <div class="mot-hang-70">
@@ -42,9 +84,47 @@
                 
             <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/upload') }}">
               <div class="form-group" style="margin-bottom:0px">
-                <div class="input-group">
-                    <span class="input-group-addon">To: </span>
-                    <input type="text" class="form-control" id="toClass" name="toClass" placeholder="{!!Session::get('sesClassId')->class_name!!}" disabled>
+                <div class="mot-hang">
+                    <!-- <span class="input-group-addon">To: </span>
+                    <input type="text" class="form-control" id="toClass" name="toClass" placeholder="{!!Session::get('sesClassId')->class_name!!}" disabled>-->
+                    <!--
+                    Gui nguoi lam back end
+                    Phan lop van dung nam la toClass. Nen vao trong chi can goi la Input::get["toClass"]
+                    Gia tri lay ra co dang: id/id/id/. Dùng split de tach mang ra. Nho bo phan tu cuoi
+                    Mac Dinh ban dau, neu khong add them lop se la: id/
+                    -->
+
+                    <input type="hidden" id="id-khung-chua-id-class"  name="toClass" value={{Session::get('sesClassId')->class_id . "/"}} />
+                    <div tabindex="-1" class="khung-chua-hien-thi-class-notification" id="khung-chua-hien-thi-class-id">
+                      <font style="float: left;margin: 5px 10px 0px 10px;font-weight: bold;color: #D0D0D0;font-size: 15px;">
+                          To:
+                      </font>
+                      <div class="khung-chua-smal-hien-thi-class"> 
+                        @foreach ($classes as $class)  
+                            @if (Session::get('sesClassId')->class_id === $class->id)
+                              <img alt="avatarclass"  src="../{!! $class->icon !!}"/>
+                              <font>
+                                {{ $class->class_name }}
+                              </font>
+                            @endif
+                        @endforeach
+                      </div>
+
+                      <ul class="khung-hien-thi-class-child" id="khung-hien-thi-class-child-id">
+                        @foreach ($classes as $class)  
+                            @if (Session::get('sesClassId')->class_id !== $class->id)
+                                <li class="menu-class-child" value={{$class->id}}>
+                                  <img alt="avatarclass"  src="../{!! $class->icon !!}"/>
+                                  <font>
+                                    {{ $class->class_name }}
+                                  </font>
+                                </li>        
+                            @endif
+                        @endforeach
+                      </ul>
+                    </div>
+
+                    
                 </div>
               </div>
               <div class="form-group" style="margin:-4px 0px 15px 0px;">
@@ -111,11 +191,20 @@
             .khung-chon-icon-notifi{
                   display:none;
                   position: absolute;
-                  left: -129px;
-                  top: 85%;
+                  left: -107px;
+                  top: 96%;
                   padding: 11px 11px;
                   border-radius: 7px;
                   background-color: rgba(0, 0, 0, 0.78);
+            }
+            .khung-chon-icon-notifi::after{
+                position: absolute;
+                left: 81%;
+                top: -11px;
+                content: " ";
+                border-style: solid;
+                border-width: 0px 8px 12px 8px;
+                border-color: transparent transparent rgba(0, 0, 0, 0.78) transparent;
             }
             .icon-noitifi-child{
                   background-image: url('../resources/assets/img/icon-content-notifi.png');
@@ -125,6 +214,9 @@
                   height: 30px;
                   background-size: 200px;
             }
+
+
+
                 
             </style>
             <?php
@@ -255,6 +347,54 @@
 
             @endforeach
           <script>
+            $("#khung-hien-thi-class-child-id").find("li").click(function(){
+              var giaTriCoSanBenTrong = $("#id-khung-chua-id-class").val();
+              if(giaTriCoSanBenTrong.indexOf($(this).val()) == -1)
+              {
+                  $("#id-khung-chua-id-class").val(giaTriCoSanBenTrong +  $(this).val() + "/");
+                  var htmlstr= '';
+                  htmlstr += '<div class="khung-chua-smal-hien-thi-class" id="id-class-dang-chua';
+                  htmlstr += $(this).val();
+                  htmlstr += '">';
+                  htmlstr += $(this).html();
+
+                  htmlstr += '<div style="padding: 2px 5px 0px 8px;cursor:pointer; float: left;" onclick="xoaClassDangChua(';
+                  htmlstr += $(this).val();
+                  htmlstr += ')"> X';
+                  htmlstr += '</div>';
+
+                  htmlstr += '</div>';
+                  $("#khung-chua-hien-thi-class-id").append(htmlstr);
+              }
+              
+              
+
+            });
+            function xoaClassDangChua(idclass)
+            {
+              var giaTriXoa = "#id-class-dang-chua"+ idclass;
+              var manggiaTri = $("#id-khung-chua-id-class").val().split("/");
+              var giaTriTaoLai = "";
+              
+              for(var i=0;i<manggiaTri.length;i++)
+              {
+                
+                if((manggiaTri[i] != idclass) && (manggiaTri[i] != 0))
+                {
+                  giaTriTaoLai = giaTriTaoLai + manggiaTri[i] + "/"; 
+                }
+                
+                
+              }
+              $("#id-khung-chua-id-class").val(giaTriTaoLai);
+              $(giaTriXoa).remove();
+            }
+            $("#khung-chua-hien-thi-class-id").focus(function(){
+              $("#khung-hien-thi-class-child-id").css("display","block");
+            });
+            $("#khung-chua-hien-thi-class-id").blur(function(){
+              $("#khung-hien-thi-class-child-id").css("display","none");
+            });
 
             $(".content-icon-notification").focus(function(){
               
