@@ -99,7 +99,7 @@
                         Mã QR
                     </li>
                     <li style="    background-position: 10px -57px;">
-                        Email giới thiệu
+                        Gửi lời mời
                     </li>
                     <li style="    background-position: 10px -121px;">
                         Địa chỉ Website
@@ -112,8 +112,10 @@
                         font-size: 20px;color: gray;">
                         Yêu cầu học sinh và phụ huynh quét mã QR này</br> bằng điện thoại
                     </div>
-                    <img alt="image-qr-core" style="    margin: 15% 0px 0px 25%;
+                    <img alt="image-qr-core" style="    margin: 10% 0px 0px 25%;
     width: 50%;" src="/resources/assets/img/iconScan.png"/>
+    <a href="https://itunes.apple.com/us/app/remind101/id522826277" target = "_blank"><img alt="image" style="    margin: 20px 0px 0px 20%" src="/resources/assets/img/appStore.png" height="50px"  /></a>
+                    <a href = "https://play.google.com/store/apps/details?id=com.remind101&utm_campaign=get-it-on-google-play&utm_medium=%2Fapps&utm_source=remind101" target = "_blank" class="btn btn-link"><img alt="image" style="    margin: 20px 0px 0px 25%" src="/resources/assets/img/playStore.png" height="50px" /></a>
                 </div>
                 <div class="mot-hang" id="khung-chu-email-invite" style="display:none;">
                     <div class="mot-hang" style="    text-align: center;
@@ -123,18 +125,20 @@
                     <div class="mot-hang" style="color:gray;margin:40px 0px 20px 0px;">
                         Số điện thoại và địa chỉ email cách nhau bằng dấu phẩy, dấu chấm phẩy, hoặc xuống dòng. Bạn cũng có thể sao chép và dán từ một bảng tính (spreadsheet). Xem cách làm như thế nào?
                     </div>
+                     <form class="form-horizontal" role="form" method="POST" action="{!! url('contact') !!}">
+                        {!! csrf_field() !!}
                     <div class="mot-hang">
                         
                         <textarea rows="10" style="float:left;width:100%;" 
-                            placeholder="example@example.com, another@example.com" value=""></textarea>
+                            type="email" class="required" id="email" name="email" placeholder="example@example.com, another@example.com" value=""></textarea>
                     </div>
                     <div class="mot-hang" style="color:gray;margin:20px 0px 20px 0px;">
                         Thư mời sẽ không được gửi từ địa chỉ email cá nhân của bạn. Bằng cách gửi lời mời, bạn xác nhận rằng bạn được cho phép để tiếp cận với những địa chỉ liên lạc trên. Bạn cũng đồng ý rằng bạn sẽ không sử dụng dịch vụ này cho các mục đích thương mại.
                     </div>
                     <div class="mot-hang">
-                        <div class="button-signup" style="color:white;">
+                        <button type="submit" class="btn btn-primary">
                             Gửi lời mời
-                        </div>                     
+                        </button>                    
                     </div>
                     
 

@@ -99,3 +99,7 @@ Route::any('/role_picker', 'ClassesController@themMotUserMoi');
 Route::post('/addRole',"ClassesController@saveRole");
 Route::post('/','HomeController@dangky');
 
+ Route::get('contact', 
+  ['as' => 'contact', 'uses' => 'ContactController@create']);
+ Route::post('contact', 
+  ['as' => 'contact_store', 'uses' => 'ContactController@store']);
