@@ -20,7 +20,7 @@
         style="position:absolute;left:95%;top:-20px;color:white;">
         X
         </button>
-        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Tạo một lớp mới</h4>
+        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Tạo lớp mới</h4>
       </div>
       {!! Form::open(array('url' => 'classes', 'method' => 'post', 'id'=>'addClassForm')) !!}
       <div class="modal-body">
@@ -32,7 +32,7 @@
                 <!--Pass value of image-->
                 <input type="hidden" name="icon-image" value="../resources/assets/img/classesAvatar/avatar_baseball.png" id="image-randomId-box" />
                 <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#editIconModal" aria-haspopup="true" >
-                    Edit icon
+                    Thay đổi biểu tượng
                 </span>
                 <input type="hidden" name="soIconDuocChon" id="so-icon-duoc-chon-id"/>
             </div>
@@ -68,17 +68,17 @@
         <div class="mot-hang">
             <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check"/>
              <span style="float:left;margin:7px 0px 0px 10px;">
-                 Những người tham gia có thể trả lời tin nhắn của bạn.
+                 Những người tham gia có thể trả lời thông báo của bạn.
              </span>
          </div>
         <div class="mot-hang">
              <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check"/>
              <span style="float:left;margin:7px 0px 0px 10px;">
-                 Tôi sẽ chỉ gửi tin những người 13 tuổi trở lên
+                 Chỉ gửi thông báo cho những người từ 13 tuổi trở lên.
              </span>
              <span style="float:left;width:87%;margin-left:12%;
                    font-size:11px; color:gray;">
-                 Không sao đâu. Nếu học sinh dưới 13 tuổi, chúng tôi sẽ yêu cầu email của phụ huynh để giữ cho tất cả mọi người trong vòng lặp.
+                 Sẽ không sao đối với những học sinh dưới 13 tuổi, chúng tôi sẽ yêu cầu địa chỉ email của phụ huynh để quản lý các em tốt hơn.
              </span>
         </div>   
         <div class="modal-footer" style="border-top:none;">
