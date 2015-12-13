@@ -24,8 +24,8 @@ Route::filter('auth', function()
 Route::get('/', 'HomeController@index');
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
 
 // // Chose role routes...
@@ -40,15 +40,15 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
     Route::put('{username}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 
  //    Route::get('/{username}', function($username)
-	// {
-	// 	return View::make('chats')->with('username',$username);
-	// });
+    // {
+    //  return View::make('chats')->with('username',$username);
+    // });
 
-	Route::post('sendMessage', array('uses' => 'MessagesController@sendMessage'));
-	Route::post('isTyping', array('uses' => 'MessagesController@isTyping'));
-	Route::post('notTyping', array('uses' => 'MessagesController@notTyping'));
-	Route::post('retrieveChatMessages', array('uses' => 'MessagesController@retrieveChatMessages'));
-	Route::post('retrieveTypingStatus', array('uses' => 'MessagesController@retrieveTypingStatus'));
+    Route::post('sendMessage', array('uses' => 'MessagesController@sendMessage'));
+    Route::post('isTyping', array('uses' => 'MessagesController@isTyping'));
+    Route::post('notTyping', array('uses' => 'MessagesController@notTyping'));
+    Route::post('retrieveChatMessages', array('uses' => 'MessagesController@retrieveChatMessages'));
+    Route::post('retrieveTypingStatus', array('uses' => 'MessagesController@retrieveTypingStatus'));
 });
 
 
@@ -62,17 +62,16 @@ Route::group(['prefix' => 'classes', 'before' => 'auth'], function () {
     Route::post('/', ['as' => 'classes', 'uses' => 'ClassesController@addClass']);
     Route::put('/{id}', ['as' => 'classes.update', 'uses' => 'ClassesController@updateClass']);
     Route::post('/upload',['as' => 'classes', 'uses' => 'ClassesController@send_annoucement']);
+    Route::post('/deleteAccount',['as' => 'classes', 'uses' => 'ClassesController@deleteAccount']);
 
 
     //join
     //Nam 
-    Route::post('/joinclass',['as' => 'classes/joinclass', 'uses' => 'ClassesController@joinClass']);
+    Route::post('/joinclass',['as' => 'classes.joinclass', 'uses' => 'ClassesController@joinClass']);
     Route::post('/delete',['as' => 'classes.delete', 'uses' => 'ClassesController@deleteClass']);
     Route::post('/remove',['as' => 'classes.remove', 'uses' => 'ClassesController@removeParticipant']);
 
-    //join
-    //Nam 
-    Route::post('/joinClass',['as' => 'classes.joinclass', 'uses' => 'ClassesController@joinClass']);
+    
 });
 
 

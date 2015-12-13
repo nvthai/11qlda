@@ -25,9 +25,6 @@
   })
   </script>
   <script>
-    document.getElementById('ClassCodeTextBox').value = "your name";
-  </script>
-  <script>
   function setData() {
     var Value = document.getElementById('ClassCodeTextBox').value;
     if (Value == "") {
@@ -455,6 +452,11 @@ margin:10px 10% 10px 10%;
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       {!! Form::open(array('url' => 'classes/joinclass', 'method' => 'post', 'id'=>'joinClassForm')) !!}
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="joinClassModalLabel">Tham gia lớp khác</h4>
@@ -468,17 +470,17 @@ margin:10px 10% 10px 10%;
             <label class="sr-only" for="prefixClassCode">@</label>
             <div class="input-group">
               <div class="input-group-addon">@</div>
-              <input type="text" class="form-control" id="classCode" placeholder="Điền mã lớp vào đây!">
+              
+              {!! Form::text('classCode','',array('id'=>'classCode','class'=>'form-control span6','placeholder' => 'Điền mã lớp vào đây', 'required')) !!}
             </div>
           </div>
           <button type="submit" class="btn btn-primary">Tham gia</button>
         </form>
-        <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#SearchForClassInsteadModal" aria-haspopup="true" onclick="MoFormSearch()">
-                    <a class="btn btn-link">Tìm kiếm một lớp học thay thế</a>
-                </span>
+        
        
       </div>
        {!! Form::close() !!}
+     
     </div>
   </div>
 </div>
