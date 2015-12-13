@@ -24,7 +24,7 @@ class ClassesController extends Controller
     public function index()
     {
         // Chạy vào trang setting
-        return view ('classes.setting');
+        //return view ('classes.setting');
 
 
     	$classes = ClassUser::where('user_id', Auth::user()->id)

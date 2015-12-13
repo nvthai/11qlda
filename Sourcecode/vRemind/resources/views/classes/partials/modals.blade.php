@@ -25,9 +25,6 @@
   })
   </script>
   <script>
-    document.getElementById('ClassCodeTextBox').value = "your name";
-  </script>
-  <script>
   function setData() {
     var Value = document.getElementById('ClassCodeTextBox').value;
     if (Value == "") {

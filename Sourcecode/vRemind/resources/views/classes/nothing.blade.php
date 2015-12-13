@@ -22,8 +22,7 @@
                     <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" >
                         Tạo lớp mới
                     </span>
-<<<<<<< HEAD
-                    <div>hoặc/</div>
+                    <div>hoặc</div>
                     <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
                         Tham gia vào lớp học
                     </span>                     
@@ -32,15 +31,10 @@
                         Tham gia vào lớp học
                     </span>
                 @else
-=======
                 </div>
                 hoặc
                 @endif
                 <div> 
->>>>>>> f515e14bcc8bfa3f803af410dc9fcf21f70ee237
-                    <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
-                        Tham gia một lớp học
-                    </span>
                 @endif
                     <div> để bắt đầu sử dụng vRemind.</div>
                 </div>

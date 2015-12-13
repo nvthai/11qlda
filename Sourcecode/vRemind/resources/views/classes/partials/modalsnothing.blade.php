@@ -11,6 +11,31 @@
   };
 </script>
 
+<script type="text/javascript">
+    var ID = function () {
+      // Math.random should be unique because of its seeding algorithm.
+      // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+      // after the decimal.
+      return '' + Math.random().toString(36).substr(2, 7);
+    };
+</script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+      $("#classCode").val('bla');
+      });
+  })
+  </script>
+  <script>
+  function setData() {
+    var Value = document.getElementById('ClassCodeTextBox').value;
+    if (Value == "") {
+      var ID = Math.random().toString(36).substr(2, 7);
+      $('#ClassCodeTextBox').attr("value", ID);
+      $('#submitAddClass').attr("disabled", false);  
+    }
+  };
+  </script>
+
 
 <div class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
   <div class="modal-dialog" role="document" style="width:450px;">
@@ -54,7 +79,7 @@
                     </span>
                     <div class="input-group">
                       <div class="input-group-addon">@</div>
-                      {!! Form::text('classCode','',array('id'=>'classCode','class'=>'form-control', 'required')) !!}
+                      <input type="text" id="ClassCodeTextBox" name="ClassCodeTextBox" class="form-control" onclick="setData()" required />
                     </div>
                 </form>
             </div>
