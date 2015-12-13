@@ -2,14 +2,14 @@
 	@if (Auth::user()->role == 'teacher')
 		<section class="groups-nav-section">
 			{{-- <div class="group-header input-group">
-				<h4 class="groups-nav-section-title">LỚP CỦA BẠN</h4>
+				<h4 class="groups-nav-section-title">LỚP ĐANG SỞ HỮU</h4>
 				<span class="input-group-btn">
 					<button class="btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 				</span>
 			</div> --}}
 			<div class="mot-hang" >                
                 <span class="chu-class">
-                    LỚP CỦA BẠN
+                    LỚP ĐANG SỞ HỮU
                 </span>              
             </div>
 			<div class="group-list">
@@ -22,7 +22,7 @@
                             +
                         </div>
                          <span style="float:left;padding-top:8px;color: #3373b8;;">
-                        Tạo một lớp mới
+                        Tạo lớp mới
                         </span>
                     </li>
                 </ul>
@@ -33,7 +33,7 @@
 		<div class="class-ow-jo" style="margin-top:50px;">
             <div class="mot-hang" >
                 <span class="chu-class">
-                    LỚP ĐÃ THAM GIA
+                    LỚP HIỆN ĐANG THAM GIA
                 </span>
             </div>
             <ul class="menu-class">
@@ -42,7 +42,7 @@
                      +
                     </div>
                     <span style="float:left;padding-top:8px;color: #3373b8;">
-                        Tham gia một lớp mới
+                        Tham gia lớp khác
                     </span>
 
                 </li>

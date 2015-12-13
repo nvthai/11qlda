@@ -10,6 +10,34 @@
       $('#editIconModal').modal('hide');      
   };
 </script>
+ <script type="text/javascript">
+    var ID = function () {
+      // Math.random should be unique because of its seeding algorithm.
+      // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+      // after the decimal.
+      return '' + Math.random().toString(36).substr(2, 7);
+    };
+</script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+      $("#classCode").val('bla');
+      });
+  })
+  </script>
+  <script>
+    document.getElementById('ClassCodeTextBox').value = "your name";
+  </script>
+  <script>
+  function setData() {
+    var Value = document.getElementById('ClassCodeTextBox').value;
+    if (Value == "") {
+      var ID = Math.random().toString(36).substr(2, 7);
+      $('#ClassCodeTextBox').attr("value", ID);
+      $('#submitAddClass').attr("disabled", false);  
+    }
+  };
+  </script>
+
 
 
 <div class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
@@ -20,7 +48,7 @@
         style="position:absolute;left:95%;top:-20px;color:white;">
         X
         </button>
-        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Tạo một lớp mới</h4>
+        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Tạo lớp mới</h4>
       </div>
       {!! Form::open(array('url' => 'classes', 'method' => 'post', 'id'=>'addClassForm')) !!}
       <div class="modal-body">
@@ -41,8 +69,9 @@
                     <span class="mot-hang">
                         Tên lớp
                     </span>
+
                     <span class="mot-hang" style="margin-bottom:20px;">
-                         {!! Form::text('className','',array('id'=>'className','class'=>'form-control span6','placeholder' => 'e.g. Math101', 'required')) !!}
+                         {!! Form::text('className','',array('id'=>'className','class'=>'form-control span6','placeholder' => 'Ví dụ: Toán 5', 'required')) !!}
 
                         <span class="mot-hang validator" id="validator-class-name-id">
                             Tên lớp phải có độ dài ít nhất 3 ký tự.
@@ -54,7 +83,7 @@
                     </span>
                     <div class="input-group">
                       <div class="input-group-addon">@</div>
-                      {!! Form::text('classCode','',array('id'=>'classCode','class'=>'form-control', 'required')) !!}
+                      <input type="text" id="ClassCodeTextBox" name="ClassCodeTextBox" class="form-control" onclick="setData()" required />
                     </div>
                 </form>
             </div>
@@ -68,21 +97,21 @@
         <div class="mot-hang">
             <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" checked value="1" />
              <span style="float:left;margin:7px 0px 0px 10px;">
-                 Những người tham gia có thể trả lời tin nhắn của bạn.
+                 Những người tham gia có thể trả lời thông báo của bạn.
              </span>
          </div>
         <div class="mot-hang">
              <input name="message_under_13" id="message_under_13" type="checkbox" class="input-ben-trong-check" checked value="1"/>
              <span style="float:left;margin:7px 0px 0px 10px;">
-                 Tôi sẽ chỉ gửi tin những người 13 tuổi trở lên
+                 Chỉ gửi thông báo cho những người từ 13 tuổi trở lên.
              </span>
              <span style="float:left;width:87%;margin-left:12%;
                    font-size:11px; color:gray;">
-                 Không sao đâu. Nếu học sinh dưới 13 tuổi, chúng tôi sẽ yêu cầu email của phụ huynh để giữ cho tất cả mọi người trong vòng lặp.
+                 Sẽ không sao đối với những học sinh dưới 13 tuổi đâu, chúng tôi sẽ yêu cầu địa chỉ email của phụ huynh để quản lý các em tốt hơn.
              </span>
         </div>   
         <div class="modal-footer" style="border-top:none;">
-        {!! Form::submit('Add', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Tạo lớp', ['class' => 'btn btn-primary', 'disabled', 'name' => 'submitAddClass', 'id' => 'submitAddClass']) !!}
       </div>       
       </div>
       {!! Form::close() !!}
@@ -116,7 +145,7 @@
         <h4 class="modal-title" id="helpModalLabel" style="    text-align: center;
     color: gray;
     font-size: 19px;
-    margin: 12px 0px 15px 0px;">Thiết lập Lớp</h4>
+    margin: 12px 0px 15px 0px;">Thiết lập lớp</h4>
 
       <style>
         .tab-setting-class10
@@ -181,7 +210,7 @@
                     </span>
                     
                     <span>
-                        Class code
+                        Mã lớp
                     </span>
                      <span class="mot-hang" style="margin-bottom:20px;">
                          {!! Form::text('classCode',Session::get('sesClassId')->class_code,array('id'=>'classCode','class'=>'form-control span6','placeholder' => 'e.g. Math101', 'required')) !!}
@@ -216,7 +245,7 @@
               <input name="participant_can_reply" id="participant_can_reply" type="checkbox" class="input-ben-trong-check" value="1"/>
             @endif
                  <span style="float:left;margin:7px 0px 0px 10px;">
-                     Những người tham gia có thể trả lời tin nhắn của bạn.
+                     Những người tham gia có thể trả lời thông báo của bạn.
                  </span>
              </div>
              <!--Public checkbox-->
@@ -228,7 +257,7 @@
                 <input name="participant_be_public" id="participant_be_public" type="checkbox" class="input-ben-trong-check" value="1"/>
              @endif
                  <span style="float:left;margin:7px 0px 0px 10px;">
-                     Bất cứ ai cùng trường đều có thể tìm thấy lớp này
+                     Bất cứ ai cùng trường đều có thể tìm thấy lớp này.
                  </span>
              </div>
              <!--message_under_13 checkbox-->
@@ -241,11 +270,11 @@
             @endif
                  
                  <span style="float:left;margin:7px 0px 0px 10px;">
-                     Tôi sẽ chỉ gửi tin những người 13 tuổi trở lên
+                     Chỉ gửi thông báo cho những người từ 13 tuổi trở lên.
                  </span>
                  <span style="float:left;width:87%;margin-left:12%;
                        font-size:11px; color:gray;">
-                     Không sao đâu. Nếu học sinh dưới 13 tuổi, chúng tôi sẽ yêu cầu email của phụ huynh để giữ cho tất cả mọi người trong vòng lặp.
+                     Sẽ không sao đối với những học sinh dưới 13 tuổi đâu, chúng tôi sẽ yêu cầu địa chỉ email của phụ huynh để quản lý các em tốt hơn.
                  </span>
             </div>
         </div>
@@ -262,7 +291,7 @@
           <div class="mot-hang-50">
             <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/classes/remove') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <button class='btn btn-danger btn-xs' type="submit" name="remove_parts_levels" value="delete"><span class="fa fa-times"></span> Xóa tất cả thành viên</button>         
+                <button class='btn btn-danger btn-xs' type="submit" name="remove_parts_levels" value="delete"><span class="fa fa-times"></span> Mời tất cả thành viên ra khỏi lớp</button>         
             </form>
           </div>
           
@@ -428,7 +457,7 @@ margin:10px 10% 10px 10%;
       {!! Form::open(array('url' => 'classes/joinclass', 'method' => 'post', 'id'=>'joinClassForm')) !!}
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="joinClassModalLabel">Tham gia một lớp mới</h4>
+        <h4 class="modal-title" id="joinClassModalLabel">Tham gia lớp khác</h4>
       </div>
       <div class="modal-body">
         <span>
@@ -439,7 +468,7 @@ margin:10px 10% 10px 10%;
             <label class="sr-only" for="prefixClassCode">@</label>
             <div class="input-group">
               <div class="input-group-addon">@</div>
-              <input type="text" class="form-control" id="classCode" placeholder="Enter class code">
+              <input type="text" class="form-control" id="classCode" placeholder="Điền mã lớp vào đây!">
             </div>
           </div>
           <button type="submit" class="btn btn-primary">Tham gia</button>
@@ -480,7 +509,6 @@ margin:10px 10% 10px 10%;
           {!! Form::close() !!}
       </div>
 
-<<<<<<< HEAD
     </div>
   </div>
 </div>
@@ -493,10 +521,10 @@ margin:10px 10% 10px 10%;
         style="position:absolute;left:95%;top:-20px;color:white;">
         X
         </button>
-        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Bạn có chắc là bạn muốn loại bỏ tất cả những người tham gia?</h4>
+        <h4 class="modal-title" style="text-align:center;" id="helpModalLabel">Bạn có chắc rằng bạn muốn mời tất cả những người tham gia ra khỏi lớp?</h4>
          <span style="float:left;width:87%;margin-left:12%;
                    font-size:11px; color:gray;">
-                   <h5>Một khi người tham gia đã được gỡ bỏ, họ sẽ không nhận được tin nhắn từ {{Session::get('sesClassId')->class_name}}</h5>
+                   <h5>Một khi những người tham gia đã rời khỏi lớp, họ sẽ không nhận được thông báo từ Lớp học {{Session::get('sesClassId')->class_name}}</h5>
              </span>
         <div class="modal-body">
           <button type="button" data-dismiss="modal" class="btn">Thoát</button>
@@ -535,10 +563,10 @@ margin:10px 10% 10px 10%;
         style="position:absolute;left:95%;top:-20px;color:white;">
         X
         </button>
-        <h5 class="modal-title" style="text-align:center;" id="helpModalLabel">Xóa lớp này mãi mãi?</h5>
+        <h5 class="modal-title" style="text-align:center;" id="helpModalLabel">Xóa lớp này vĩnh viễn?</h5>
          <span style="float:left;width:87%;margin-left:12%;
                    font-size:11px; color:gray;">
-                   <h5>Tất cả những người tham gia sẽ được loại bỏ và các lớp học sẽ không thể truy cập.</h5>
+                   <h5>Lớp học sẽ được xóa bỏ và không thể truy cập.</h5>
              </span>
         <div class="modal-body">
           <button type="button" data-dismiss="modal" class="btn">Thoát</button>
@@ -640,7 +668,7 @@ margin:10px 10% 10px 10%;
                 </div>
                   Không có thông tin chi tiết nào.
                 <div class="mot-hang chat-title">
-                  Các lớp đã tham gia
+                  Các lớp hiện đang tham gia
                 </div>
                 <div class="group-list">
                   <ul class="menu-class">

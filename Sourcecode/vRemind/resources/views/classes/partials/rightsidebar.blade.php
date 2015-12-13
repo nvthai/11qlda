@@ -4,7 +4,7 @@
 <div class="mot-hang">
         <div class="button-add-student-parent">
             <div class="button-add-student-parent-left" onclick="MoFormAddParents()">
-                Thêm học sinh và phụ huynh
+                Mời học sinh và phụ huynh
             </div>
             <a target="_blank"  class="button-add-student-parent-right icon-an-noi-dung">
                 
@@ -92,17 +92,17 @@
                 <div class="mot-hang" style="padding: 25px 0px 5px 10%;
     width: 90%; font-size: 12px; font-weight: bold;
     color: rgb(128, 128, 128);">
-                    CÁCH THAM GIA LỚP HỌC
+                    CÁCH THỨC THAM GIA LỚP
                 </div>
                 <ul class="mot-hang content-chua-app-parent">
                     <li class="select-add-parent" style="background-position: 10px 8px;">
                         Mã QR
                     </li>
                     <li style="    background-position: 10px -57px;">
-                        Email giới thiệu
+                        Gửi lời mời
                     </li>
                     <li style="    background-position: 10px -121px;">
-                        Website link
+                        Địa chỉ Website
                     </li>
                 </ul>
             </div>
@@ -110,10 +110,12 @@
                 <div class="mot-hang" id="khung-chu-qrcode" style="display:block;">
                     <div class="mot-hang" style="    text-align: center;
                         font-size: 20px;color: gray;">
-                        Yêu cầu học sinh và phụ huynh quét mã QR này với </br> điện thoại của họ 
+                        Yêu cầu học sinh và phụ huynh quét mã QR này</br> bằng điện thoại
                     </div>
-                    <img alt="image-qr-core" style="    margin: 15% 0px 0px 25%;
+                    <img alt="image-qr-core" style="    margin: 10% 0px 0px 25%;
     width: 50%;" src="/resources/assets/img/iconScan.png"/>
+    <a href="https://itunes.apple.com/us/app/remind101/id522826277" target = "_blank"><img alt="image" style="    margin: 20px 0px 0px 20%" src="/resources/assets/img/appStore.png" height="50px"  /></a>
+                    <a href = "https://play.google.com/store/apps/details?id=com.remind101&utm_campaign=get-it-on-google-play&utm_medium=%2Fapps&utm_source=remind101" target = "_blank" class="btn btn-link"><img alt="image" style="    margin: 20px 0px 0px 25%" src="/resources/assets/img/playStore.png" height="50px" /></a>
                 </div>
                 <div class="mot-hang" id="khung-chu-email-invite" style="display:none;">
                     <div class="mot-hang" style="    text-align: center;
@@ -121,20 +123,22 @@
                         Điền địa chỉ Email
                     </div>
                     <div class="mot-hang" style="color:gray;margin:40px 0px 20px 0px;">
-                        Số điện thoại và địa chỉ email cách nhau bằng dấu phẩy, dấu chấm phẩy, hoặc trả về. Bạn cũng có thể sao chép và dán từ một bảng tính. Muốn xem làm như thế nào?
+                        Số điện thoại và địa chỉ email cách nhau bằng dấu phẩy, dấu chấm phẩy, hoặc xuống dòng. Bạn cũng có thể sao chép và dán từ một bảng tính (spreadsheet). Xem cách làm như thế nào?
                     </div>
+                     <form class="form-horizontal" role="form" method="POST" action="{!! url('contact') !!}">
+                        {!! csrf_field() !!}
                     <div class="mot-hang">
                         
                         <textarea rows="10" style="float:left;width:100%;" 
-                            placeholder="example@example.com, another@example.com" value=""></textarea>
+                            type="email" class="required" id="email" name="email" placeholder="example@example.com, another@example.com" value=""></textarea>
                     </div>
                     <div class="mot-hang" style="color:gray;margin:20px 0px 20px 0px;">
                         Thư mời sẽ không được gửi từ địa chỉ email cá nhân của bạn. Bằng cách gửi lời mời, bạn xác nhận rằng bạn được cho phép để tiếp cận với những địa chỉ liên lạc trên. Bạn cũng đồng ý rằng bạn sẽ không sử dụng dịch vụ này cho các mục đích thương mại.
                     </div>
                     <div class="mot-hang">
-                        <div class="button-signup" style="color:white;">
+                        <button type="submit" class="btn btn-primary">
                             Gửi lời mời
-                        </div>                     
+                        </button>                    
                     </div>
                     
 
@@ -142,7 +146,7 @@
                 <div class="mot-hang" id="khung-chu-website-link" style="display:none;">
                     <div class="mot-hang" style="text-align: center;
     font-size: 21px; margin-bottom: 15px;color: gray;">
-                        Chia sẻ đường dẫn với các học sinh và phụ huynh
+                        Chia sẻ đường dẫn cho học sinh và phụ huynh
                     </div>
                     <div class="mot-hang" style="padding:20px 0px 0px 25%;">
                         <img alt="image-link-web" style="width:60%;" src="../resources/assets/img/start-chat.png"/>
@@ -193,7 +197,7 @@
                         </div>
                         <div class="mot-hang-30">
                             <div class="button-coppy-link">
-                                Sao chép link
+                                Sao chép đường link
                             </div>
                         </div>
                     </div>
@@ -201,7 +205,7 @@
                         Học sinh và phụ huynh có thể vào link này để tham gia lớp học của bạn.
                     </div>
                     <div class="mot-hang" style="width:80%;margin:0px 0px 15px 20%; color:gray;">
-                        Dán liên kết này trong một email, blog của bạn, trang giáo viên của bạn, hoặc </br>bất cứ nơi nào khác.
+                        Dán liên kết này trong một email, blog, trang giáo viên của bạn, hoặc </br>bất cứ nơi nào khác.
                     </div>
                 </div>
             </div>
