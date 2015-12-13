@@ -23,6 +23,9 @@ class ClassesController extends Controller
      */
     public function index()
     {
+        // Chạy vào trang setting
+        return view ('classes.setting');
+
 
     	$classes = ClassUser::where('user_id', Auth::user()->id)
 							->join('classes', 'classes.id', '=', 'class_users.class_id')->get();
@@ -509,6 +512,37 @@ class ClassesController extends Controller
 					 ->where('is_owner', false)->delete();
     		return redirect('classes/' . $ClassId);
     	}						
+    }
 
+    public function deleteAccount()
+    {
+              
+            Print '<script>alert("Xóa tài khoản")</script>';
+            return view('welcome');                         
+            //$OwnedClasses = ClassUser::where('user_id', Auth::user()->id)
+            //                        ->select('class_id')
+            //                        ->get();
+            //$OwnedClasses = ClassUser::where('class_id', ClassUser::where('user_id', '4')
+            //                                                        ->select('class_id')
+            //                                                        ->get())
+            //                        ->get();
+            //$Classes = ClassUser::get();
+            
+            //foreach ($OwnedClasses as $OwnedClass) 
+            //{
+            //    foreach ($Classes as $Class) 
+            //    {
+            //        if ($Class->class_id == $ClassUser->class_id)
+            //              ClassUser::where('class_id', $OwnedClass->class_id)->delete(); 
+            //    }
+            //}
+            //$ParticipantsInClass = ClassUser::whereHas('class_id', function ($query) {
+            //    $query->where('user_id', Auth::user()->id)->select('class_id');        
+            //  })->get();
+            //Print '<script>alert($OwnedClasses)</script>' ;                          
+            // Xóa lớp                   
+            //$Classes = Classes::where('id', $class_id)->delete();
+            //return view ('classes.demo')
+            //->with('demos', $ClassUsers);
     }
 }

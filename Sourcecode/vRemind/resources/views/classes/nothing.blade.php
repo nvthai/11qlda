@@ -17,17 +17,26 @@
         <div class="main-area" style="margin-top: 90px;">
             <div>
                 <div>
-            	    <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" >
-                        Tạo một lớp mới
+                @if (Auth::user()->hasRole('teacher'))
+                    <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" >
+                        Tạo lớp mới
                     </span>
-                </div>
-                hoặc
-                <div> 
+                    <div>hoặc/</div>
+                    <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
+                        Tham gia vào lớp học
+                    </span>                     
+                @elseif (Auth::user()->hasRole('student'))
+                     <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
+                        Tham gia vào lớp học
+                    </span>
+                @else
                     <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
                         Tham gia một lớp học
                     </span>
+                @endif
+                    <div> để bắt đầu sử dụng vRemind.</div>
                 </div>
-                để bắt đầu sử dụng vRemind.
+                </div>
             </div>
                
 
