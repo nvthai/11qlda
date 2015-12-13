@@ -236,8 +236,12 @@
                 $noidungUserChon = "check";
                 $flag = 0;
             ?>
-            @foreach($notifications as $noti)                        
-              @if($noti->class_id == Session::get('sesClassId')->class_id)
+            @foreach($notifications as $noti)
+              <?php
+                $id_class = explode('/', $noti->class_id);   
+              ?>
+            @foreach($id_class as $id_cl)                 
+              @if($id_cl == Session::get('sesClassId')->class_id)
               <div class = "mot-hang khung-chua-noi-dung-notifi">
                 <div class="mot-hang">
                   <div class="mot-hang-70">
@@ -356,7 +360,7 @@
 
               </div>
                @endif          
-
+            @endforeach
             @endforeach
             @if($flag == 0)
             <div class = "mot-hang khung-chua-noi-dung-notifi" style="border: 2px dashed #eee;">

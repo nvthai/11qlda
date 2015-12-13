@@ -16,11 +16,13 @@
         	<h2>BẮT ĐẦU!</h2>
         <div class="main-area" style="margin-top: 90px;">
             <div>
+                @if (Auth::user()->role == 'teacher') 
                 <div>
                 @if (Auth::user()->hasRole('teacher'))
                     <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" >
                         Tạo lớp mới
                     </span>
+<<<<<<< HEAD
                     <div>hoặc/</div>
                     <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
                         Tham gia vào lớp học
@@ -30,6 +32,12 @@
                         Tham gia vào lớp học
                     </span>
                 @else
+=======
+                </div>
+                hoặc
+                @endif
+                <div> 
+>>>>>>> f515e14bcc8bfa3f803af410dc9fcf21f70ee237
                     <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
                         Tham gia một lớp học
                     </span>
