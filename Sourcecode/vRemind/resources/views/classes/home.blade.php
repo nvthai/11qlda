@@ -126,7 +126,6 @@
                     </div>
 
                     
-
                 <!--<div class="input-group" >
                     <span class="input-group-addon" style="    text-align: left;">Đến:    
                       <img alt="image-main" src="{!! Session::get('sesClassId')->icon !!}" height="25px"/>
@@ -240,7 +239,6 @@
             @foreach($notifications as $noti)
               <?php
                 $id_class = explode('/', $noti->class_id);   
-                $id_temp = $noti;
               ?>
               @foreach($id_class as $id_cl) 
                 @if($id_cl == Session::get('sesClassId')->class_id)
@@ -252,56 +250,65 @@
                   ?>
                   @if(strtotime($ngayhomnay) <= strtotime($ngaysosanh))
                     <?php
-                      $count = $count + 1;
-                      $id_temp = $noti;
+                      $idc[$count] = $noti; 
+                      $count = $count + 1;                     
                     ?>
                   @endif                 
                 @endif
               @endforeach
             @endforeach
             @if($count > 0)
-            <a data-toggle="collapse" href="#collapse1" style="text-align: center;color: #2f75b5;font-size: 15px;font-weight: 600;margin-bottom: 20px;border: 1px solid #eee;border-radius: 5px;
+            <div data-toggle="collapse" href="#collapse1" style="text-align: center;color: #2f75b5;font-size: 15px;font-weight: 600;margin-bottom: 20px;border: 1px solid #eee;border-radius: 5px;
             padding: 20px;
             cursor: pointer;"> 
-            Có {{$count}} thông báo hẹn gửi.</div>
-
-            <div id="collapse1" class="panel-collapse collapse">
-              <div class = "mot-hang khung-chua-noi-dung-notifi">
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+              Có {{$count}} thông báo hẹn gửi 
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true" style="font-size: 11px"></span> 
+            </div>             
+              
+                <div id="collapse1" class="panel-collapse collapse">
+                  @for($i = 0; $i< $count; $i++)
+                  <div class = "mot-hang khung-chua-noi-dung-notifi">
                 <div class="mot-hang">
                   <div class="mot-hang-70">
                     <div class="mot-hang ten-khung-notify">
                       <?php 
-                        $sender = vRemind\User::find($id_temp->sender_id); 
+                        $sender = vRemind\User::find($idc[$i]->sender_id); 
                         $name = $sender->name;
                       ?>
                       {{$name}}
                     </div>
                     <div class="mot-hang" style="color:#CCCCCC;">
-                      {{$id_temp->created_at}}
+                      {{$idc[$i]->schedule}}
                     </div>
                   </div>
                 </div>
 
                 <div class ="mot-hang" style="margin:20px 0px 15px 0px;">
-                  {{$id_temp->content}}
+                  {{$idc[$i]->content}}
                 </div> 
-                                @if($id_temp->file != null)
+                                @if($idc[$i]->file != null)
                 <div class = "panel-body">
                   <img src="{!! $noti->file !!}"   style="width:304px;height:228px;">
                 </div>
+              
                 @endif     
                 </div>
+                @endfor
               </div>
+              
       </div>
       @endif
             @foreach($notifications as $noti)
 
             
               <?php
-                $id_class = explode('/', $noti->class_id);   
+                $id_class = explode('/', $noti->class_id);  
+                $time = strtotime($noti->schedule);
+                $ngaysosanh = date("Y", $time); 
               ?>
             @foreach($id_class as $id_cl)                 
-              @if($id_cl == Session::get('sesClassId')->class_id)
+              @if($id_cl == Session::get('sesClassId')->class_id && $ngaysosanh < 2000)
               <div class = "mot-hang khung-chua-noi-dung-notifi">
                 <div class="mot-hang">
                   <div class="mot-hang-70">
