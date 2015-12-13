@@ -144,7 +144,7 @@ class ClassesController extends Controller
 		$notification = new Notification;
 
 		$notification->sender_id = Auth::user()->id;
-		$notification->class_id = Session::get('sesClassId')->class_id;
+		$notification->class_id = $input_data["toClass"];
 		$notification->content = $input_data["content"];
 		$notification->schedule = $input_data["bdaytime"];
 		$notification->file = $link;
