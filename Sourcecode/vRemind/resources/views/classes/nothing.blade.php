@@ -13,17 +13,32 @@
             <span class="mot-hang-chu-description">
             </span>
         </div>      
-        	<h2>GET STARTED!</h2>
+        	<h2>BẮT ĐẦU!</h2>
         <div class="main-area" style="margin-top: 90px;">
             <div>
-            	 <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" >
-                        Add a Class
-                </span>
-                or 
-                <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
-                        Join a class
-                </span>
-                to start using Remind.
+                @if (Auth::user()->role == 'teacher') 
+                <div>
+                @if (Auth::user()->hasRole('teacher'))
+                    <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#addClassModal" aria-haspopup="true" >
+                        Tạo lớp mới
+                    </span>
+                    <div>hoặc</div>
+                    <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
+                        Tham gia vào lớp học
+                    </span>                     
+                @elseif (Auth::user()->hasRole('student'))
+                     <span class="mot-hang-chu-edit"  data-toggle="modal" data-target="#joinClassModal" aria-haspopup="true" >
+                        Tham gia vào lớp học
+                    </span>
+                @else
+                </div>
+                hoặc
+                @endif
+                <div> 
+                @endif
+                    <div> để bắt đầu sử dụng vRemind.</div>
+                </div>
+                </div>
             </div>
                
 

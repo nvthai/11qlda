@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-        <h1 id="greeting">Hello, <span id="username">{{Auth::user()->name}}</span></h1>
+        <h1 id="greeting">Chào, <span id="username">{{Auth::user()->name}}</span></h1>
         <div id="chat-area" class="col-lg-12 scroll-area">
             <div id="chat-window" class="col-lg-12">
                 {{-- messages will show here --}}

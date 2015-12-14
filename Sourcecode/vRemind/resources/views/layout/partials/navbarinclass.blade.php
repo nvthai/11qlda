@@ -87,13 +87,13 @@
 	<a class=<?php if($giaTriTuyenSelected == "class") echo '"mot-hang cach-nhau-hang-navigation selected"'; else echo '"mot-hang cach-nhau-hang-navigation"'; ?>  href="/classes">
 		<img alt="image-classs" src="../resources/assets/img/logo-class.png" />
 		<font style="float:left; margin:7px 0px 0px 15px;">
-			Classer
+			Lớp học
 		</font>
 	</a>
 	<a class=<?php if($giaTriTuyenSelected == "chat") echo '"mot-hang cach-nhau-hang-navigation selected"'; else echo '"mot-hang cach-nhau-hang-navigation"'; ?> href="/messages">
 		<img alt="image-chat" src="../resources/assets/img/logo-chat.png"/>
 		<font style="float:left; margin:7px 0px 0px 15px;">
-			Chat
+			Nhắn tin
 		</font>
 	</a>
 	<div class="mot-hang" style="position:relative;height:58%">
@@ -101,20 +101,20 @@
 			<ul class="khung-chua-icon-more" style="display:none;">
 				<a href="/settings" style="text-decoration:none;" target="_blank">
 				<li style="  background-position: 8px 7px;">
-					Settings
+					Thiết lập
 				</li>
 				</a>
 
-				<a href="{{ url('/auth/logout') }}">
+				<a href="{{ url('/auth/logout') }}" style="text-decoration:none;">
 				<li style="background-position: 7px -30px;">
-					Log out
+					Đăng xuất
 				</li>
 				</a>
 				<li style="background-position: 7px -65px;" onclick="MoKhungChuaHelp()">
-					Help
+					Trợ giúp
 				</li>
 				<li style="background-position: 8px -110px;" onclick="moKhungChuaShareRemind()">
-					Share Remind
+					Chia sẻ vRemind
 				</li>
 			</ul>
 			<div class="khung-chua-more">
@@ -141,10 +141,10 @@
                         <img alt="image" width="70px;" src="../resources/assets/img/loveRemind.svg"/>
                     </div>
                     <div class="mot-hang">
-                        Love Remind?
+                        Yêu thích vRemind?
                     </div>
                     <div class="mot-hang" style="font-size:13px; color:gray;">
-                        Spread the word and share us with colleagues </br> at your school.
+                        Chia sẻ với đồng nghiệp khác </br> tại trường của bạn.
                     </div>
                     <div class="mot-hang" style="margin-top:20px;">
 	                    <div class="mot-hang-70">
@@ -187,10 +187,43 @@
 								    font-size: 12px;
 								    color: gray;
 								    cursor:pointer;
+								    
 	                    	}
 	                    	.khung-help-them:hover{
 	                    			color:#4a89dc;
 	                    	}
+	                    	.khung-chua-hinh-help{
+	                    		float: left;
+							    width: 40%;
+							    height: 50%;
+							    margin: 0px 30% 8px 30%;
+							    overflow: hidden;
+							    background-image: url("../resources/assets/img/help-icona.png");
+							    background-repeat: no-repeat;
+							    background-size: 170px;
+   
+	                    	}
+	                    	.khung-1:hover{
+	                    		background-position: -79px 7px !important;
+	                    	}
+	                    	.khung-2:hover{
+	                    		background-position: -79px -50px !important;
+	                    	}
+	                    	.khung-3:hover{
+	                    		background-position: -79px -110px !important;
+	                    	}
+	                    	.khung-4:hover{
+	                    		background-position: -79px -186px !important;
+	                    	}
+
+	                    	#search-for-help{
+	                    		background-image: url('../resources/assets/img/iconChat.png');
+							    background-repeat: no-repeat;
+							    background-size: 70px;
+							    padding-left: 30px;
+							    background-position: -35px 7px;
+	                    	}
+	                    	
 	                    	</style>
 	                    	<div class="khung-text-share-remind">
 	                    		<?php 
@@ -200,14 +233,14 @@
 	                    </div>
 	                    <div class="mot-hang-30">
 	                    	<div class="button-coppy-link">
-	                    		Coppy link
+	                    		Sao chép link
 	                    	</div>
 	                    </div>
                     </div>
                     <div class="mot-hang" style="margin-top:17px;">
                     	<div class="button-coppy-link"style="background-color:#4a89dc;color:white;
                     	width:97%;font-weight:bold ;font-size:14px;">
-                    		Share by email
+                    		Chia sẻ bằng email
                     	</div>
                     </div>
                     
@@ -232,27 +265,43 @@
                         <img alt="image" style="margin:0px;" width="70px;" src="../resources/assets/img/gohelp.svg"/>
                     </div>
                     <div class="mot-hang">
-                        We're here to help!
+                        Chúng tôi ở đây để giúp đỡ!
                     </div>
                     
                     <div class="mot-hang" style="margin-top:20px;">
-	                    <input type="text" class="input-ben-trong" style="    margin-left: 0px;
-    		float: left;width: 97%; font-size: 15px;padding: 11px;" 
+	                    <input type="text" class="input-ben-trong" id="search-for-help" style="    margin-left: 0px;
+    		float: left;width: 100%; font-size: 15px;padding: 11px 0px 11px 40px;" 
     				name="content-help" placeholder='Search our FAQs using keywords like "attach"'/>
                     </div>
                     <div class="mot-hang" style="margin-top:17px;">
                     	
                     		<div class="mot-hang-50 khung-help-them">
-		                     	Freequently asked questions
+                    			<span class="khung-chua-hinh-help khung-1" style="background-position: 29px 7px;">
+                    			</span>
+                    			<font>
+		                     	Các câu hỏi thường gặp
+		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">
-		                     	Resources
+		                     <span class="khung-chua-hinh-help khung-2" style="background-position: 29px -50px;">
+                    			</span>
+                    			<font>
+		                     	Tài nguyên
+		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">
-		                     	Tutorial videos
+		                     <span class="khung-chua-hinh-help khung-3" style="background-position: 29px -115px;">
+                    			</span>
+                    			<font>
+		                     	Video hướng dẫn
+		                     	</font>
 		                     </div>
 		                     <div class="mot-hang-50 khung-help-them">
+		                     <span class="khung-chua-hinh-help khung-4" style="background-position: 29px -186px;">
+                    			</span>
+                    			<font>
 		                     	Email Remind
+		                     	</font>
 		                     </div>
                     	
                     </div>
@@ -266,6 +315,8 @@
 
 
 <script>
+
+
 function MoKhungChuaHelp()
 {
 	$("#khung-chua-help").css("display","block");
@@ -297,9 +348,10 @@ $("#navigation-left-main-id").hover(function(){
 			"opacity":"1",
 			"top":"65%"
 		});
-		$(this).find(".selected").css("background-color","rgb(42,60,93)");
+		
 
-		},1000);
+		},800);
+		$(this).find(".selected").css("background-color","rgb(42,60,93)");
 
 },function(){
 	clearTimeout(aTimeOut);

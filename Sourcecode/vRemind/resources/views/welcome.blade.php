@@ -79,7 +79,7 @@
             }
             .mot-hang-or::after{
                 position: absolute;
-                content: 'OR';
+                content: 'hoặc';
                 background-color: white;
                 left: 45%;
                 font-size: 12px;
@@ -119,7 +119,7 @@
             {!! Html::image('resources/assets/img/logo1.png','image') !!}
             <a href="{{ URL::to('auth/login') }}" style="text-decoration:none;color:white;">
                 <div class="button-login">
-                         Log in
+                         Đăng nhập
                 </div>
             </a>
         </div>
@@ -132,38 +132,38 @@
                 <div class="mot-hang" style="    color: white;
     font-size: 55px;     font-family: inherit;
     white-space: nowrap;">
-                    Reach students and parents <br /> where they are.
+                    Đến với mọi học sinh và phụ huynh <br /> ở bất kì đâu.
                 </div>
                 
                 <div class="mot-hang" style="color: white;
     margin-top: 70px;  font-size: 20px;
     font-family: inherit;
     letter-spacing: -0.5px; margin-bottom: 10px;">
-                    Free for teachers. Always
+                    Luôn miễn phí cho giáo viên.
                 </div>
                 <div class='mot-hang' style="width: 40%;margin-left: 30%;">
                     <div class="button-signup" style="color:white;" onclick="MoKhungSignUpRemind()">
-                     Sign up
+                     Đăng kí
                     </div>
                     {{--<a href="{{ URL::to('auth/register') }}" style="color:white;text-decoration:none">
                     </a>--}}
                 </div>
                 <div class='mot-hang-50' style="margin-left:25%;margin-top:30px;color:white;">
                     <span class='mot-hang-50' style="font-size:20px;font-weight:bold;">
-                        15 seconds
+                        15 giây
                     </span>
                     <span class='mot-hang-50' style="font-size:20px;font-weight:bold;">
-                        1 in 5 teachers
+                        1 trong 5 trường
                     </span>
                     <span class='mot-hang-50' >
-                        to sign up
+                        để đăng kí
                     </span>
                     <span class='mot-hang-50'>
-                        in the U.S use Remind
+                        sử dụng vRemind ở Việt Nam
                     </span>
                 </div>
                 <div class="mot-hang" style="margin-top:50px;color:white;text-align:center;">
-                    <font style="margin-right:25px;">#TeachSmall</font> <font style="margin-right:25px;">Terms & Privacy</font> <font>More</font> 
+                    <font style="margin-right:25px;">#TeachSmall</font> <font style="margin-right:25px;">Điều khoản & Bảo mật</font> <font>Thêm...</font> 
                 </div>
             </div>        
         </div>
@@ -180,7 +180,7 @@
                 </div>
                 
                 <div class="title-form-chua" style="margin-bottom:25px;">
-                    Welcome to Remind
+                    Chào mừng tới vRemind
                 </div>
                 {!! Form::open(array('url' => '/role_picker', 'method' => 'post', 'name' => 'frm_signup')) !!}
                 
@@ -204,7 +204,7 @@
  
                 <div class='mot-hang'>
                     <span class='button-signup button-action-signup' style="width:85%;" onclick="SubmitForm()">
-                           Sign up
+                           Đăng kí
                     </span>
                 </div>
                 {!! Form::close() !!}
@@ -214,12 +214,12 @@
 
                 <div class='mot-hang'>
                     <span class='button-signup-google' style="width:85%;">
-                           Sign up with Google
+                           Đăng kí với Google
                     </span>
                 </div>
 
                 <div class='mot-hang' style="color:#CACACA;font-size:10px;margin-top:20px;text-align:center;">
-                    By signing up, you agree to our Terms of Service and Privacy Policy
+                    Bạn đồng ý với chúng tôi Điều khoản Dịch vụ và Chính sách bảo mật
                 </div>
                 
             </div>
